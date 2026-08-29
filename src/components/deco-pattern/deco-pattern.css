@@ -1,4 +1,120 @@
-.deco-pattern-container{
-    border: 1px solid red;
-  
+
+.deco-pattern {
+    height: 100vh;
+    width: 250px;
+
+    --tile: 250px;
+    --stroke: 3.6px;
+    --bg: transparent;
+    --line: #c0914b;
+    
+    --half: calc(var(--tile) / 2);
+    --n:    calc(var(--tile) / 4);
+    --n2:   calc(var(--tile) / 8);
+    --n3:   calc(var(--tile) * 0.75);
+    --d:    calc(var(--tile) / 1.41421356);
+    --d4:   calc(var(--d) / 4);
+    --d2:   calc(var(--d) / 2);
+    --d34:  calc(var(--d) * 0.75);
+    --h:    calc(var(--stroke) / 2);
+    --f:    0.35px;
+    
+    position: relative;
+    isolation: isolate;
+    background-color: var(--bg);
+    background-image:
+        repeating-linear-gradient(45deg,
+        var(--line) 0,
+        var(--line) calc(var(--h) - var(--f)),
+        transparent calc(var(--h) + var(--f)),
+        transparent calc(var(--d) - var(--h) - var(--f)),
+        var(--line)  calc(var(--d) - var(--h) + var(--f)),
+        var(--line)  var(--d)),
+        repeating-linear-gradient(135deg,
+        var(--line) 0,
+        var(--line) calc(var(--h) - var(--f)),
+        transparent calc(var(--h) + var(--f)),
+        transparent calc(var(--d) - var(--h) - var(--f)),
+        var(--line)  calc(var(--d) - var(--h) + var(--f)),
+        var(--line)  var(--d));
+    background-size: var(--tile) var(--tile);   /* required: fixes the 45° phase */
+}
+
+.deco-pattern > i {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-size: var(--tile) var(--tile);
+    -webkit-mask-size: var(--tile) var(--tile);
+    mask-size: var(--tile) var(--tile);
+    -webkit-mask-repeat: repeat;
+    mask-repeat: repeat;
+    pointer-events: none;
+}
+
+.deco-pattern > .wide {
+    background-image:
+        repeating-linear-gradient(45deg,
+        transparent 0,
+        transparent calc(var(--d34) - var(--h) - var(--f)),
+        var(--line)  calc(var(--d34) - var(--h) + var(--f)),
+        var(--line)  calc(var(--d34) + var(--h) - var(--f)),
+        transparent calc(var(--d34) + var(--h) + var(--f)),
+        transparent var(--d)),
+        repeating-linear-gradient(135deg,
+        transparent 0,
+        transparent calc(var(--d4) - var(--h) - var(--f)),
+        var(--line)  calc(var(--d4) - var(--h) + var(--f)),
+        var(--line)  calc(var(--d4) + var(--h) - var(--f)),
+        transparent calc(var(--d4) + var(--h) + var(--f)),
+        transparent var(--d));
+
+    -webkit-mask-image: repeating-linear-gradient(#000 0 var(--n2), #0000 var(--n2) var(--n), #000 var(--n) var(--half));
+    mask-image: repeating-linear-gradient(#000 0 var(--n2), #0000 var(--n2) var(--n), #000 var(--n) var(--half));
+}
+
+.deco-pattern > .narrow {
+    background-image:
+        repeating-linear-gradient(45deg,
+        transparent 0,
+        transparent calc(var(--d2) - var(--h) - var(--f)),
+        var(--line)  calc(var(--d2) - var(--h) + var(--f)),
+        var(--line)  calc(var(--d2) + var(--h) - var(--f)),
+        transparent calc(var(--d2) + var(--h) + var(--f)),
+        transparent var(--d)),
+        repeating-linear-gradient(135deg,
+        transparent 0,
+        transparent calc(var(--d2) - var(--h) - var(--f)),
+        var(--line)  calc(var(--d2) - var(--h) + var(--f)),
+        var(--line)  calc(var(--d2) + var(--h) - var(--f)),
+        transparent calc(var(--d2) + var(--h) + var(--f)),
+        transparent var(--d));
+    -webkit-mask-image: repeating-linear-gradient(#0000 0 var(--half), #000 var(--half) var(--n3), #0000 var(--n3) var(--tile));
+    mask-image: repeating-linear-gradient(#0000 0 var(--half), #000 var(--half) var(--n3), #0000 var(--n3) var(--tile));
+}
+
+.deco-pattern > .stem-a {
+    background-image:
+        repeating-linear-gradient(to right,
+        var(--line) 0,
+        var(--line) calc(var(--h) - var(--f)),
+        transparent calc(var(--h) + var(--f)),
+        transparent calc(var(--half) - var(--h) - var(--f)),
+        var(--line)  calc(var(--half) - var(--h) + var(--f)),
+        var(--line)  var(--half));
+    -webkit-mask-image: repeating-linear-gradient(#000 0 var(--half), #0000 var(--half) var(--tile));
+    mask-image: repeating-linear-gradient(#000 0 var(--half), #0000 var(--half) var(--tile));
+}
+
+.deco-pattern > .stem-b {
+    background-image:
+        repeating-linear-gradient(to right,
+        transparent 0,
+        transparent calc(var(--half) - var(--h) - var(--f)),
+        var(--line)  calc(var(--half) - var(--h) + var(--f)),
+        var(--line)  calc(var(--half) + var(--h) - var(--f)),
+        transparent calc(var(--half) + var(--h) + var(--f)),
+        transparent var(--tile));
+    -webkit-mask-image: repeating-linear-gradient(#0000 0 var(--n3), #000 var(--n3) var(--tile));
+    mask-image: repeating-linear-gradient(#0000 0 var(--n3), #000 var(--n3) var(--tile));
 }
