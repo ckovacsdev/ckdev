@@ -37,7 +37,7 @@
         transparent calc(var(--d) - var(--h) - var(--f)),
         var(--line)  calc(var(--d) - var(--h) + var(--f)),
         var(--line)  var(--d));
-    background-size: var(--tile) var(--tile);   /* required: fixes the 45° phase */
+    background-size: var(--tile) var(--tile);
 }
 
 .deco-pattern > i {
