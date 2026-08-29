@@ -1,10 +1,10 @@
 
 .deco-pattern {
     height: 100vh;
-    width: 250px;
+    width: 185px;
 
-    --tile: 250px;
-    --stroke: 3.6px;
+    --tile: 185px;
+    --stroke: calc(var(--tile) * 0.0144);
     --bg: transparent;
     --line: #c0914b;
     
