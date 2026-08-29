@@ -3,7 +3,11 @@ import './App.css'
 
 function App() {
   return (
-    <DecoPattern />
+    <div className='app-container'>
+      <DecoPattern />
+      hello
+    </div>
+    
   )
 }
 
