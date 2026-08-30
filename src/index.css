@@ -1,6 +1,8 @@
 :root{
     margin: 0;
     padding: 0;
+
+    --bg-main: #2e3548;
 }
 
 body{

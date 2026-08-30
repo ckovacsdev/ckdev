@@ -1,12 +1,10 @@
-import { DecoPattern } from './components/deco-pattern/deco-pattern'
+import { Home } from './pages/home'
 import './App.css'
 
 function App() {
   return (
     <div className='app-container'>
-      <div className='deco-pattern'>
-        <DecoPattern />
-      </div>
+      <Home />
     </div>
     
   )
