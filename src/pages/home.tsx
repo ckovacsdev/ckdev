@@ -13,7 +13,8 @@ export const Home = () => {
                         <DecoRule />
                     </div>
                     <p className='home-details'> 
-                        Add Text Here  
+                        Four years building feature-dense front ends in the financial services industry.
+                        Primarily focusing on internal developer tools, I take pride in building user experiences that make engineering seamless.
                     </p>
                 </div>
             </div>

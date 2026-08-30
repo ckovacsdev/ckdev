@@ -45,6 +45,7 @@
     .home-details{
         font-size: 20px;
         font-weight: 200;
+        max-width: 950px;
     }
 }
 
