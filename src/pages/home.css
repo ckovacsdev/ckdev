@@ -1,0 +1,63 @@
+.home-container{
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+
+    background: var(--main-background);
+    background-attachment: fixed;
+}
+.home-container::after{
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: .035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.home-content{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.home-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    .home-title{
+        font-size: 48px;
+        margin: 0;
+        padding: 0;
+    }
+    .home-subtitle{
+        font-size: 24px;
+        font-weight: 200;
+    }
+    .home-details{
+        font-size: 20px;
+        font-weight: 200;
+    }
+}
+
+.home-separator{
+    max-width: 600px;
+    width: 100%;
+}
+
+.deco-pattern{
+    animation: deco-rise 4s cubic-bezier(.22, 1, .36, 1) both;
+}
+
+@keyframes deco-rise{
+  from { clip-path: inset(100% 0 0 0); }
+  to { clip-path: inset(0 0 0 0); }
+}

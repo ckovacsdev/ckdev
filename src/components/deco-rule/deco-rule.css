@@ -1,0 +1,79 @@
+.deco-rule {
+	--dr-color: var(--main-accent);
+	--dr-short: 75%;
+	--dr-gap: 5px;
+
+	display: flex;
+	align-items: center;
+	width: 100%;
+	height: calc(var(--dr-gap) * 2 + 1px);
+	opacity: 0.75;
+}
+
+.deco-rule-half {
+	position: relative;
+	flex: 1;
+	min-width: 0;
+	height: 100%;
+	transform: scaleX(0);
+	transform-origin: var(--in);
+	animation: dr-draw 2s cubic-bezier(.22, 1, .36, 1) both;
+}
+
+.deco-rule-half--l { 
+	--in: right; 
+}
+.deco-rule-half--r { 
+	--in: left; 
+}
+
+.dr-main {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: var(--dr-gap);
+	height: 1px;
+	background: var(--dr-color);
+}
+
+.dr-short {
+	position: absolute;
+	top: 0;
+	width: var(--dr-short);
+	height: 1px;
+	background: var(--dr-color);
+}
+
+.dr-short:last-child { 
+	top: calc(var(--dr-gap) * 2); 
+}
+
+.deco-rule-half--l .dr-short { 
+	right: 0; 
+}
+.deco-rule-half--r .dr-short { 
+	left: 0; 
+}
+
+.dr-main::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(90deg, transparent, rgb(230 229 212 / .5), transparent);
+	background-size: 220px 100%;
+	background-repeat: no-repeat;
+	animation-duration: 1.7s, 1.7s;
+	animation-timing-function: cubic-bezier(.16,.62,.24,1), linear;
+	animation-delay: 1.2s, 1.2s;
+	animation-fill-mode: both, both;
+}
+
+@keyframes dr-draw { 
+	to { transform: scaleX(1); } 
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+	.deco-rule-half { animation: none; transform: none; }
+	.dr-main::before { display: none; }
+}
