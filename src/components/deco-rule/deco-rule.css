@@ -1,0 +1,97 @@
+.deco-rule {
+	--dr-delay: 0s;
+	--dr-color: rgb(230 229 212 / .4);
+	--dr-short: 75%;
+	--dr-gap: 5px;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	height: calc(var(--dr-gap) * 2 + 1px);
+}
+
+.deco-rule-half {
+	position: relative;
+	flex: 1;
+	min-width: 0;
+	height: 100%;
+	transform: scaleX(0);
+	transform-origin: var(--in);
+	animation: dr-draw 1.15s cubic-bezier(.22,.72,.24,1) var(--dr-delay) both;
+}
+
+.deco-rule-half--l { 
+	--in: right; 
+}
+.deco-rule-half--r { 
+	--in: left; 
+}
+
+.dr-main {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: var(--dr-gap);
+	height: 1px;
+	background: var(--dr-color);
+}
+
+.dr-short {
+	position: absolute;
+	top: 0;
+	width: var(--dr-short);
+	height: 1px;
+	background: var(--dr-color);
+}
+
+.dr-short:last-child { 
+	top: calc(var(--dr-gap) * 2); 
+}
+
+.deco-rule-half--l .dr-short { 
+	right: 0; 
+}
+.deco-rule-half--r .dr-short { 
+	left: 0; 
+}
+
+.dr-main::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(90deg, transparent, rgb(230 229 212 / .5), transparent);
+	background-size: 220px 100%;
+	background-repeat: no-repeat;
+	animation-duration: 1.7s, 1.7s;
+	animation-timing-function: cubic-bezier(.16,.62,.24,1), linear;
+	animation-delay: calc(1.2s + var(--dr-delay)), calc(1.2s + var(--dr-delay));
+	animation-fill-mode: both, both;
+}
+
+.deco-rule-half--l .dr-main::before { 
+	animation-name: dr-glint-l, dr-glint-fade; 
+}
+.deco-rule-half--r .dr-main::before { 
+	animation-name: dr-glint-r, dr-glint-fade; 
+}
+
+@keyframes dr-draw { 
+	to { transform: scaleX(1); } 
+}
+@keyframes dr-glint-l { 
+	from { background-position-x: 112%; } 
+	to { background-position-x: -35%; } 
+}
+@keyframes dr-glint-r { 
+	from { background-position-x: -35%; } 
+	to { background-position-x: 112%; } 
+}
+@keyframes dr-glint-fade { 
+	0% { opacity: 0; } 
+	14% { opacity: 1; } 
+	100% { opacity: 0; } 
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.deco-rule-half { animation: none; transform: none; }
+	.dr-main::before { display: none; }
+}

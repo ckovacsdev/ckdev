@@ -2,10 +2,30 @@
     margin: 0;
     padding: 0;
 
+    /* Colors */
     --bg-main: #2e3548;
+
+    /* Fonts */
+    --font-display: 'Poiret One', system-ui, sans-serif;
+    --font-body: 'Lato', system-ui, sans-serif;
 }
 
 body{
     margin: 0;
     padding: 0;
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  line-height: 1.15;
+  color: white;
+}
+
+h2, body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.65;
+  color: white;
 }
