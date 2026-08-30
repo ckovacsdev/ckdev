@@ -1,12 +1,13 @@
 .deco-rule {
 	--dr-color: var(--main-accent);
-
 	--dr-short: 75%;
 	--dr-gap: 5px;
+
 	display: flex;
 	align-items: center;
 	width: 100%;
 	height: calc(var(--dr-gap) * 2 + 1px);
+	opacity: 0.75;
 }
 
 .deco-rule-half {
@@ -67,29 +68,10 @@
 	animation-fill-mode: both, both;
 }
 
-.deco-rule-half--l .dr-main::before { 
-	animation-name: dr-glint-l, dr-glint-fade; 
-}
-.deco-rule-half--r .dr-main::before { 
-	animation-name: dr-glint-r, dr-glint-fade; 
-}
-
 @keyframes dr-draw { 
 	to { transform: scaleX(1); } 
 }
-@keyframes dr-glint-l { 
-	from { background-position-x: 112%; } 
-	to { background-position-x: -35%; } 
-}
-@keyframes dr-glint-r { 
-	from { background-position-x: -35%; } 
-	to { background-position-x: 112%; } 
-}
-@keyframes dr-glint-fade { 
-	0% { opacity: 0; } 
-	14% { opacity: 1; } 
-	100% { opacity: 0; } 
-}
+
 
 @media (prefers-reduced-motion: reduce) {
 	.deco-rule-half { animation: none; transform: none; }
