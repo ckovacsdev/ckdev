@@ -5,23 +5,21 @@
 
     --tile: 185px;
     --stroke: calc(var(--tile) * 0.0144);
-    --bg: transparent;
-    --line: #c0914b;
+    --line: var(--main-accent);
     
     --half: calc(var(--tile) / 2);
-    --n:    calc(var(--tile) / 4);
-    --n2:   calc(var(--tile) / 8);
-    --n3:   calc(var(--tile) * 0.75);
-    --d:    calc(var(--tile) / 1.41421356);
-    --d4:   calc(var(--d) / 4);
-    --d2:   calc(var(--d) / 2);
-    --d34:  calc(var(--d) * 0.75);
-    --h:    calc(var(--stroke) / 2);
-    --f:    0.35px;
+    --n: calc(var(--tile) / 4);
+    --n2: calc(var(--tile) / 8);
+    --n3: calc(var(--tile) * 0.75);
+    --d: calc(var(--tile) / 1.41421356);
+    --d4: calc(var(--d) / 4);
+    --d2: calc(var(--d) / 2);
+    --d34: calc(var(--d) * 0.75);
+    --h: calc(var(--stroke) / 2);
+    --f: 0.35px;
     
     position: relative;
     isolation: isolate;
-    background-color: var(--bg);
     background-image:
         repeating-linear-gradient(45deg,
         var(--line) 0,

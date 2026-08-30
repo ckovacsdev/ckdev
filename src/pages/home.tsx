@@ -6,11 +6,16 @@ export const Home = () => {
     return (
         <div className='home-container'>
             <div className='home-content'>
-                <h1> Christian Kovacs </h1>
-                <div className='home-separator'>  
-                    <DecoRule />
+                <div className='home-text'>
+                    <h1 className='home-title'> Christian Kovacs </h1>
+                    <h2 className='home-subtitle'> Frontend Software Engineer based in Hoboken, NJ </h2>
+                    <div className='home-separator'>  
+                        <DecoRule />
+                    </div>
+                    <p className='home-details'> 
+                        Testing more details etc.   
+                    </p>
                 </div>
-                <h2> Test Subtitle </h2>
             </div>
             <div className='deco-pattern'>
                 <DecoPattern />

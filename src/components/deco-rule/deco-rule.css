@@ -1,6 +1,7 @@
 .deco-rule {
 	--dr-delay: 0s;
-	--dr-color: rgb(230 229 212 / .4);
+	--dr-color: var(--main-accent);
+
 	--dr-short: 75%;
 	--dr-gap: 5px;
 	display: flex;
@@ -16,7 +17,7 @@
 	height: 100%;
 	transform: scaleX(0);
 	transform-origin: var(--in);
-	animation: dr-draw 1.15s cubic-bezier(.22,.72,.24,1) var(--dr-delay) both;
+	animation: dr-draw 2s cubic-bezier(.22, 1, .36, 1) both;
 }
 
 .deco-rule-half--l { 

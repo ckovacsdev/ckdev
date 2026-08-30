@@ -3,7 +3,8 @@
     padding: 0;
 
     /* Colors */
-    --bg-main: #2e3548;
+    --main-background: #1e222f;
+    --main-accent: #c0914b;
 
     /* Fonts */
     --font-display: 'Poiret One', system-ui, sans-serif;
@@ -11,8 +12,8 @@
 }
 
 body{
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
