@@ -1,0 +1,42 @@
+.navigation-container{
+    position: absolute;
+    width: 450px;
+    padding: 2rem;
+    top: 25px;
+    left: 25px;
+}
+
+
+.navigation-container::before, 
+.navigation-container::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 30px;
+    border: 1px solid var(--main-accent);
+    pointer-events: none;
+    transform: scale(0);
+    animation: border-in 1s cubic-bezier(.22, .72, .24, 1) both;
+}
+
+.navigation-container::before{
+    top: 0;
+    right: 0;
+    border-left: 0;
+    border-bottom: 0;
+    transform-origin: top right;
+}
+.navigation-container::after{
+    bottom: 0;
+    left: 0;
+    border-right: 0;
+    border-top: 0;
+    transform-origin: bottom left;
+}
+
+@keyframes border-in {
+    to {
+        transform: scale(1);
+    }
+}
+
