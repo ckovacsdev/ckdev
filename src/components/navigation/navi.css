@@ -1,5 +1,5 @@
 .navigation-container{
-    position: absolute;
+    position: fixed;
     width: 450px;
     padding: 2rem;
     top: 25px;
@@ -16,7 +16,7 @@
     border: 1px solid var(--main-accent);
     pointer-events: none;
     transform: scale(0);
-    animation: border-in 1s cubic-bezier(.22, .72, .24, 1) both;
+    animation: border-in 2s cubic-bezier(.22, .72, .24, 1) both;
 }
 
 .navigation-container::before{
