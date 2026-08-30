@@ -13,7 +13,7 @@ export const Home = () => {
                         <DecoRule />
                     </div>
                     <p className='home-details'> 
-                        Testing more details etc.   
+                        Add Text Here  
                     </p>
                 </div>
             </div>
