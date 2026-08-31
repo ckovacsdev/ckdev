@@ -1,12 +1,17 @@
+html{
+    scroll-behavior: smooth;
+}
 .navigation-container{
     position: fixed;
-    width: 450px;
-    padding: 2rem;
+    padding: 2rem 4rem;
     top: 25px;
     left: 25px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    backdrop-filter: blur(14px) saturate(100%);
 }
-
-
 .navigation-container::before, 
 .navigation-container::after {
     content: '';
@@ -18,7 +23,6 @@
     transform: scale(0);
     animation: border-in 2s cubic-bezier(.22, .72, .24, 1) both;
 }
-
 .navigation-container::before{
     top: 0;
     right: 0;
@@ -32,6 +36,41 @@
     border-right: 0;
     border-top: 0;
     transform-origin: bottom left;
+}
+
+.nav-link {
+    position: relative;
+    color: var(--main-text);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    transition: color .35s ease;
+}
+.nav-link:hover{
+    color: var(--secondary-accent);
+}
+.nav-link[aria-current] {
+    color: var(--main-accent);
+}
+.nav-link::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -8px;
+    height: 1px;
+    background: var(--main-accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .4s cubic-bezier(.22, .72, .24, 1);
+}
+.nav-link[aria-current]::after{
+    transform: scaleX(1);
+}
+.nav-link:focus-visible{
+    outline: 1px solid var(--main-accent);
+    outline-offset: 6px;
 }
 
 @keyframes border-in {

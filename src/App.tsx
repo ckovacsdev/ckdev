@@ -7,8 +7,8 @@ function App() {
 	return (
 		<div className='app-container'>
 			<Navigation />
-			<Home />
-			<Work />
+			<section id='home'>  <Home /> </section>
+			<section id='work'>  <Work /> </section>
 		</div>
 	)
 }

@@ -5,8 +5,10 @@
     /* Colors */
     --main-background: #1e222f;
     --main-accent: #c0914b;
-    --main-secondary-accent: #598893;
     --main-text: #e4e1d6;
+
+    --secondary-accent: #598893;
+
 
     /* Fonts */
     --font-display: 'Poiret One', system-ui, sans-serif;
