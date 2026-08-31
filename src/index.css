@@ -5,6 +5,10 @@
     /* Colors */
     --main-background: #1e222f;
     --main-accent: #c0914b;
+    --main-text: #e4e1d6;
+
+    --secondary-accent: #598893;
+
 
     /* Fonts */
     --font-display: 'Poiret One', system-ui, sans-serif;
@@ -21,12 +25,12 @@ h1 {
   font-weight: 400;
   letter-spacing: 0.06em;
   line-height: 1.15;
-  color: white;
+  color: var(--main-text);
 }
 
 h2, body {
   font-family: var(--font-body);
   font-weight: 400;
   line-height: 1.65;
-  color: white;
+  color: var(--main-text);
 }

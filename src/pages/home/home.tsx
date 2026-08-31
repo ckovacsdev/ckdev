@@ -1,5 +1,5 @@
-import { DecoPattern } from "../components/deco-pattern/deco-pattern"
-import { DecoRule } from "../components/deco-rule/deco-rule";
+import { DecoPattern } from "../../components/deco-pattern/deco-pattern"
+import { DecoRule } from "../../components/deco-rule/deco-rule";
 import './home.css';
 
 export const Home = () => {
@@ -8,7 +8,7 @@ export const Home = () => {
             <div className='home-content'>
                 <div className='home-text'>
                     <h1 className='home-title'> Christian Kovacs </h1>
-                    <h2 className='home-subtitle'> Frontend Software Engineer based in Hoboken, NJ </h2>
+                    <h2 className='home-subtitle'> Frontend Software Engineer based in <span className='home-no-break'> Hoboken, NJ </span> </h2>
                     <div className='home-separator'>  
                         <DecoRule />
                     </div>
