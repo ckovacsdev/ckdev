@@ -3,7 +3,7 @@ html{
 }
 .navigation-container{
     position: fixed;
-    padding: 2rem 4rem;
+    padding: 2rem 3rem;
     top: 25px;
     left: 25px;
     z-index: 10;
@@ -43,12 +43,14 @@ html{
     color: var(--main-text);
     text-decoration: none;
     font-size: 1rem;
-    font-weight: 400;
+    font-weight: 200;
     text-transform: uppercase;
     transition: color .35s ease;
 }
 .nav-link:hover{
-    color: var(--secondary-accent);
+    color: var(--main-accent);
+    filter: brightness(1.4);
+    
 }
 .nav-link[aria-current] {
     color: var(--main-accent);
