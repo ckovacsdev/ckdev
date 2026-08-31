@@ -1,5 +1,5 @@
-import { DecoPattern } from "../components/deco-pattern/deco-pattern"
-import { DecoRule } from "../components/deco-rule/deco-rule";
+import { DecoPattern } from "../../components/deco-pattern/deco-pattern"
+import { DecoRule } from "../../components/deco-rule/deco-rule";
 import './home.css';
 
 export const Home = () => {
