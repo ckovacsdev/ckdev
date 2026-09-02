@@ -18,8 +18,8 @@ export const Home = () => {
                         Primarily focusing on internal developer tools, I take pride in building user experiences that make engineering seamless.
                     </p>
                     <div className='home-buttons'>
-                        <DecoButton type='primary' title='View My Projects' />
-                        <DecoButton type='secondary' title='Download Resume' />
+                        <DecoButton type='primary' title='View My Projects' onClick={() => console.log('projects')} />
+                        <DecoButton type='secondary' title='Download Resume' onClick={() => console.log('resume')} />
                     </div>
                 </div>
 
