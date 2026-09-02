@@ -1,3 +1,4 @@
+import { DecoButton } from "../../components/deco-button/deco-button";
 import { DecoPattern } from "../../components/deco-pattern/deco-pattern"
 import { DecoRule } from "../../components/deco-rule/deco-rule";
 import './home.css';
@@ -16,7 +17,12 @@ export const Home = () => {
                         Four years building feature-dense front ends in the financial services industry.
                         Primarily focusing on internal developer tools, I take pride in building user experiences that make engineering seamless.
                     </p>
+                    <div className='home-buttons'>
+                        <DecoButton type='primary' title='View My Projects' />
+                        <DecoButton type='secondary' title='Download Resume' />
+                    </div>
                 </div>
+
             </div>
             <div className='deco-pattern'>
                 <DecoPattern />
