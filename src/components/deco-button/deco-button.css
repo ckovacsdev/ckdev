@@ -13,7 +13,7 @@
     transition: background 0.3s ease, color 0.3s ease;
 }
 .deco-button:focus-visible{
-    outline: 1px solid var(--main-accent);
+    outline: 1px solid white;
 }
 
 .deco-button.primary{
