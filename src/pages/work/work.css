@@ -1,11 +1,11 @@
 .work-container{
     height: 100vh;
-    width: 100vh;
+    width: 100%;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
-    background: var(--main-background);
+    background: var(--secondary-background);
     background-attachment: fixed;
 }
 .work-container::after{

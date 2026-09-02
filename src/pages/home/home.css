@@ -60,6 +60,9 @@
 
 .deco-pattern{
     animation: deco-rise 4s cubic-bezier(.22, 1, .36, 1) both;
+    border: 1px solid var(--main-accent);
+    border-top: none;
+    margin-right: 1px;
 }
 
 @keyframes deco-rise{

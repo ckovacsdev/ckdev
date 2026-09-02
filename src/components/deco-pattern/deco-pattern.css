@@ -1,6 +1,8 @@
 
 .deco-pattern {
     height: 100vh;
+    --phase: calc(round(up, 100vh, var(--half)) - 100vh);
+    background-position: 0 var(--phase);
     width: 185px;
 
     --tile: 185px;
@@ -48,6 +50,9 @@
     -webkit-mask-repeat: repeat;
     mask-repeat: repeat;
     pointer-events: none;
+    background-position: 0 var(--phase);
+    -webkit-mask-position: 0 var(--phase);
+    mask-position: 0 var(--phase);
 }
 
 .deco-pattern > .wide {
