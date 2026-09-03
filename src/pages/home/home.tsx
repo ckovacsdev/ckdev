@@ -1,7 +1,15 @@
-import { DecoButton } from "../../components/deco-button/deco-button";
-import { DecoPattern } from "../../components/deco-pattern/deco-pattern"
-import { DecoRule } from "../../components/deco-rule/deco-rule";
+import { MdMailOutline } from 'react-icons/md';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { DecoButton } from '../../components/deco-button/deco-button';
+import { DecoPattern } from '../../components/deco-pattern/deco-pattern'
+import { DecoRule } from '../../components/deco-rule/deco-rule';
 import './home.css';
+
+const LINKS = [
+    { href: 'https://github.com/ckovacsdev', label: 'Github', Icon: FaGithub, color: '#000000'},
+    { href: 'mailto:ckovacsdev@gmail.com', label: 'Email', Icon: MdMailOutline, color: '#ffffff'},
+    { href: 'https://www.linkedin.com/in/ckovacsdev/', label: 'LinkedIn', Icon: FaLinkedin, color: '#0077B5'}
+]
 
 export const Home = () => {
     return (
@@ -23,6 +31,22 @@ export const Home = () => {
                     </div>
                 </div>
 
+                <div className='home-contact-container'>
+                    <div className='home-contact'>
+                        {LINKS.map(({ href, label, Icon, color }) => (
+                            <a
+                                key={label}
+                                href={href}
+                                className='home-contact-link'
+                                aria-label={label}
+                                target={href.startsWith('mailto:') ? undefined : '_blank'}
+                                rel='noreffer'
+                            >
+                                <Icon aria-hidden='true' color={color} />
+                            </a>
+                        ))}
+                    </div>
+                </div>
             </div>
             <div className='deco-pattern'>
                 <DecoPattern />
