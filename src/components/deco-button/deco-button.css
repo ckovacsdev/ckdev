@@ -1,0 +1,58 @@
+.deco-button {
+    display: inline-block;
+    position: relative;
+    padding: 15px 30px;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    font-family: 'Lato', systen-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+.deco-button:focus-visible{
+    outline: 1px solid white;
+}
+
+.deco-button.primary{
+    background: var(--main-accent);
+    color: var(--main-background);
+}
+.deco-button.primary:hover{
+    background-color: #d8b478;
+}
+
+.deco-button.secondary{
+    color: var(--main-accent);
+    border: 1px solid var(--main-accent);
+}
+.deco-button.secondary::before, .deco-button.secondary::after{
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    transition: width 0.3s ease, height 0.3s ease;
+}
+.deco-button.secondary::before {
+    top: -1px;
+    left: -1px;
+    border-top: 3px solid var(--main-accent);
+    border-left: 3px solid var(--main-accent);
+}
+
+.deco-button.secondary::after {
+    bottom: -1px;
+    right: -1px;
+    border-bottom: 3px solid var(--main-accent);
+    border-right: 3px solid var(--main-accent);
+}
+.deco-button.secondary:hover::before,
+.deco-button.secondary:hover::after {
+    width: 32px;
+    height: 32px;
+}
+.deco-button.secondary:hover{
+    background: rgba(200, 161, 101, 0.07);
+}
