@@ -3,7 +3,7 @@ html{
 }
 .navigation-container{
     position: fixed;
-    padding: 2rem 3rem;
+    padding: 1.5rem 2rem;
     top: 25px;
     left: 25px;
     z-index: 10;

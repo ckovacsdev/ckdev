@@ -1,14 +1,15 @@
 import { MdMailOutline } from 'react-icons/md';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { DecoButton } from '../../components/deco-button/deco-button';
 import { DecoPattern } from '../../components/deco-pattern/deco-pattern'
 import { DecoRule } from '../../components/deco-rule/deco-rule';
+import { FiGithub } from 'react-icons/fi';
+import { TiSocialLinkedin } from 'react-icons/ti';
 import './home.css';
 
 const LINKS = [
-    { href: 'https://github.com/ckovacsdev', label: 'Github', Icon: FaGithub, color: '#000000'},
-    { href: 'mailto:ckovacsdev@gmail.com', label: 'Email', Icon: MdMailOutline, color: '#ffffff'},
-    { href: 'https://www.linkedin.com/in/ckovacsdev/', label: 'LinkedIn', Icon: FaLinkedin, color: '#0077B5'}
+    { href: 'https://github.com/ckovacsdev', label: 'Github', Icon: FiGithub },
+    { href: 'mailto:ckovacsdev@gmail.com', label: 'Email', Icon: MdMailOutline },
+    { href: 'https://www.linkedin.com/in/ckovacsdev/', label: 'LinkedIn', Icon: TiSocialLinkedin }
 ]
 
 export const Home = () => {
@@ -16,7 +17,7 @@ export const Home = () => {
         <div className='home-container'>
             <div className='home-content'>
                 <div className='home-text'>
-                    <h1 className='home-title'> Christian Kovacs </h1>
+                    <h1 className='home-title'> Christian Kovacs</h1>
                     <h2 className='home-subtitle'> Frontend Software Engineer based in <span className='home-no-break'> Hoboken, NJ </span> </h2>
                     <div className='home-separator'>  
                         <DecoRule />
@@ -33,7 +34,7 @@ export const Home = () => {
 
                 <div className='home-contact-container'>
                     <div className='home-contact'>
-                        {LINKS.map(({ href, label, Icon, color }) => (
+                        {LINKS.map(({ href, label, Icon }) => (
                             <a
                                 key={label}
                                 href={href}
@@ -42,10 +43,15 @@ export const Home = () => {
                                 target={href.startsWith('mailto:') ? undefined : '_blank'}
                                 rel='noreffer'
                             >
-                                <Icon aria-hidden='true' color={color} />
+                                <Icon aria-hidden='true' />
                             </a>
                         ))}
                     </div>
+                </div>
+
+                <div className='home-scroll'>
+                    <span className='home-scroll-chevron' aria-hidden='true'></span>
+                    <span className='home-scroll-label'>Scroll for more</span>
                 </div>
             </div>
             <div className='deco-pattern'>
