@@ -196,13 +196,16 @@
 	bottom: 25px;
 	left: calc(50% - 180px);
 	transform: translateX(-calc(50% - 180px));
+	cursor: pointer;
 }
+
 
 .home-scroll-chevron {
     position: relative;
     width: 26px;
     height: 26px;
     transform: rotate(45deg);
+	transition: scale .35s ease;
 }
 
 .home-scroll-chevron::before {
@@ -220,11 +223,18 @@
 .home-scroll-label {
 	font-size: 10px;
 	letter-spacing: 0.24em;
-	text-transform: uppercase;
 	color: rgb(232 230 227 / 0.55);
 	margin-right: -0.24em;
 	opacity: 0;
 	animation: fade-in 2s cubic-bezier(0.22, 0.72, 0.24, 1) 0.35s both;
+}
+
+.home-scroll:hover .home-scroll-label{
+	color: rgb(232 230 227 / 0.75);
+	transition: color .35s ease;
+}
+.home-scroll:hover .home-scroll-chevron{
+	scale: 1.1;
 }
 
 @media (prefers-reduced-motion: reduce) {

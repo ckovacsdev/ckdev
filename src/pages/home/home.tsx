@@ -12,6 +12,10 @@ const LINKS = [
     { href: 'https://www.linkedin.com/in/ckovacsdev/', label: 'LinkedIn', Icon: TiSocialLinkedin }
 ]
 
+const scrollToSection = (id: string) => {
+  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+};
+
 export const Home = () => {
     return (
         <div className='home-container'>
@@ -49,9 +53,12 @@ export const Home = () => {
                     </div>
                 </div>
 
-                <div className='home-scroll'>
+                <div 
+                    className='home-scroll'
+                    onClick={() => scrollToSection('work')}
+                >
                     <span className='home-scroll-chevron' aria-hidden='true'></span>
-                    <span className='home-scroll-label'>Scroll for more</span>
+                    <span className='home-scroll-label'>Scroll For More</span>
                 </div>
             </div>
             <div className='deco-pattern'>
