@@ -3,12 +3,26 @@ import './deco-button.css';
 export const DecoButton = (props: { 
     type: 'primary' | 'secondary', 
     title: string 
-    onClick: () => void;
+    href?: string,
+    onClick?: () => void;
 }) => {
-    const { type, title, onClick } = props;
+    const { type, title, href, onClick } = props;
     
+    if(href){
+        return(
+            <a
+                className={`deco-button ${type}`} 
+                href={href}
+                target='_blank'
+                rel='noopener noreferrer'
+            >
+                {title}
+            </a>
+        )
+    }
+
     return (
-        <button 
+        <button
             className={`deco-button ${type}`} 
             onClick={() => onClick()}
         > 

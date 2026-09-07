@@ -32,7 +32,7 @@ export const Home = () => {
                     </p>
                     <div className='home-buttons'>
                         <DecoButton type='primary' title='View My Projects' onClick={() => console.log('projects')} />
-                        <DecoButton type='secondary' title='Download Resume' onClick={() => console.log('resume')} />
+                        <DecoButton type='secondary' title='Download Resume' href='/Christian_Kovacs_Resume.pdf' />
                     </div>
                 </div>
 
