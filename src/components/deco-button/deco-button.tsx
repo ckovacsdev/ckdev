@@ -24,7 +24,7 @@ export const DecoButton = (props: {
     return (
         <button
             className={`deco-button ${type}`} 
-            onClick={() => onClick()}
+            onClick={onClick}
         > 
             {title}
         </button>
