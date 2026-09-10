@@ -1,25 +1,16 @@
 .home-container{
+    position: relative;
     height: 100vh;
-    width: 99vw;
+    width: 100%;
     margin: 0;
     padding: 0;
     display: flex;
-    flex-direction: row;
-    background: var(--main-background);
-    background-attachment: fixed;
-}
-.home-container::after{
-    content: '';
-    position: fixed;
-    inset: 0;
-    z-index: 1;
-    pointer-events: none;
-    opacity: .035;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    flex-direction: column;
 }
 
 .home-content{
-    width: 100%;
+    flex: 1;
+    min-height: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -68,7 +59,7 @@
 }
 
 .home-contact-container{
-    position: absolute;
+    position: fixed;
     left: 25px;
     bottom: 25px;
 }
@@ -158,7 +149,7 @@
 }
 
 .home-contact-link:focus-visible {
-    outline: 2px solid red;
+    outline: 2px solid var(--main-accent-hover);
     outline-offset: 4px;
 }
 
@@ -169,8 +160,8 @@
     gap: 16px;
 	position: absolute;
 	bottom: 25px;
-	left: calc(50% - 180px);
-	transform: translateX(-calc(50% - 180px));
+	left: 50%;
+	transform: translateX(-50%);
 	cursor: pointer;
 }
 
@@ -182,7 +173,6 @@
     transform: rotate(45deg);
 	transition: scale .35s ease;
 }
-
 .home-scroll-chevron::before {
 	content: '';
 	position: absolute;
@@ -196,10 +186,8 @@
 }
 
 .home-scroll-label {
-	font-size: 10px;
-	letter-spacing: 0.24em;
+	font-size: 14px;
 	color: rgb(232 230 227 / 0.55);
-	margin-right: -0.24em;
 	opacity: 0;
 	animation: fade-in 2s cubic-bezier(0.22, 0.72, 0.24, 1) 0.35s both;
 }
@@ -212,21 +200,10 @@
 	scale: 1.1;
 }
 
-.deco-pattern{
-    animation: deco-rise 4s cubic-bezier(.22, 1, .36, 1) both;
-    border: 1px solid var(--main-accent);
-    border-top: none;
-    margin-right: 1px;
-}
-
 @keyframes fade-in {
   to {
     opacity: 1;
   }
-}
-@keyframes deco-rise{
-    from { clip-path: inset(100% 0 0 0); }
-    to { clip-path: inset(0 0 0 0); }
 }
 
 @media (prefers-reduced-motion: reduce) {

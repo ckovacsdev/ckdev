@@ -4,8 +4,8 @@ import './navi.css';
 export const SECTIONS = [
     { id: 'home', label: 'Home' },
     { id: 'work', label: 'Experience' },
-    { id: 'projects', label: 'Projects' },
-    { id: 'about', label: 'About Me'}
+    // { id: 'projects', label: 'Projects' },
+    // { id: 'about', label: 'About Me'}
 ]
 const ids = SECTIONS.map((s) => s.id);
 
