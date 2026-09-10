@@ -1,10 +1,18 @@
+import { useParallax } from '../../hooks/useParallax';
 import './deco-pattern.css';
 
 export const DecoPattern = () => {
+
+    const ref = useParallax({
+        rate: 0.25,
+        property: '--scroll',
+        wrap: '--title'
+    });
+
     return(
         <div 
             className='deco-pattern' 
-            id='deco' 
+            ref={ref}
             aria-hidden='true'
         >
             <i className='wide'></i>

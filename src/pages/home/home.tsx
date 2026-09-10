@@ -1,6 +1,5 @@
 import { MdMailOutline } from 'react-icons/md';
 import { DecoButton } from '../../components/deco-button/deco-button';
-import { DecoPattern } from '../../components/deco-pattern/deco-pattern'
 import { DecoRule } from '../../components/deco-rule/deco-rule';
 import { FiGithub } from 'react-icons/fi';
 import { TiSocialLinkedin } from 'react-icons/ti';
@@ -60,9 +59,6 @@ export const Home = () => {
                     <span className='home-scroll-chevron' aria-hidden='true'></span>
                     <span className='home-scroll-label'>Scroll For More</span>
                 </div>
-            </div>
-            <div className='deco-pattern'>
-                <DecoPattern />
             </div>
         </div>
     )

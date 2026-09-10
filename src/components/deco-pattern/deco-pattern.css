@@ -1,14 +1,17 @@
-
 .deco-pattern {
-    height: 100vh;
-    --phase: calc(round(up, 100vh, var(--half)) - 100vh);
-    background-position: 0 var(--phase);
+    --scroll: 0px;
+    --rail-h: 100vh;
+    --phase: calc(round(up, var(--rail-h), var(--half)) - var(--rail-h));
+    --offset: calc(var(--phase) + var(--scroll));
+
+    height: 100%;
     width: 185px;
+    background-position: 0 var(--offset);
 
     --tile: 185px;
     --stroke: calc(var(--tile) * 0.0144);
     --line: var(--main-accent);
-    
+
     --half: calc(var(--tile) / 2);
     --n: calc(var(--tile) / 4);
     --n2: calc(var(--tile) / 8);
@@ -19,9 +22,10 @@
     --d34: calc(var(--d) * 0.75);
     --h: calc(var(--stroke) / 2);
     --f: 0.35px;
-    
+
     position: relative;
     isolation: isolate;
+    animation: deco-rise 4s cubic-bezier(.22, 1, .36, 1) both;
     background-image:
         repeating-linear-gradient(45deg,
         var(--line) 0,
@@ -50,9 +54,9 @@
     -webkit-mask-repeat: repeat;
     mask-repeat: repeat;
     pointer-events: none;
-    background-position: 0 var(--phase);
-    -webkit-mask-position: 0 var(--phase);
-    mask-position: 0 var(--phase);
+    background-position: 0 var(--offset);
+    -webkit-mask-position: 0 var(--offset);
+    mask-position: 0 var(--offset);
 }
 
 .deco-pattern > .wide {
@@ -120,4 +124,16 @@
         transparent var(--tile));
     -webkit-mask-image: repeating-linear-gradient(#0000 0 var(--n3), #000 var(--n3) var(--tile));
     mask-image: repeating-linear-gradient(#0000 0 var(--n3), #000 var(--n3) var(--tile));
+}
+
+@keyframes deco-rise {
+    from { clip-path: inset(100% 0 0 0); }
+    to { clip-path: inset(0 0 0 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .deco-pattern {
+        animation: none;
+        clip-path: none;
+    }
 }
