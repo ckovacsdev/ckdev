@@ -41,7 +41,7 @@ export const Home = () => {
                         Primarily focusing on internal developer tools, I take pride in building user experiences that make engineering seamless.
                     </p>
                     <div className='home-buttons'>
-                        <DecoButton type='primary' title='View My Projects' onClick={() => console.log('projects')} />
+                        <DecoButton type='primary' title='View My Work' onClick={() => scrollToSection('work')} />
                         <DecoButton type='secondary' title='Download Resume' href='/Christian_Kovacs_Resume.pdf' />
                     </div>
                 </div>
