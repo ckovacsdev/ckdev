@@ -6,9 +6,8 @@
     border-radius: 0;
     background: transparent;
     font-family: 'Lato', systen-ui, sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 400;
-    text-transform: uppercase;
     cursor: pointer;
     transition: background 0.3s ease, color 0.3s ease;
 }
@@ -27,6 +26,7 @@
 .deco-button.secondary{
     color: var(--main-accent);
     border: 1px solid var(--main-accent);
+    text-decoration: none;
 }
 .deco-button.secondary::before, .deco-button.secondary::after{
     content: '';
