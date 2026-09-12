@@ -163,8 +163,15 @@
 	left: 50%;
 	transform: translateX(-50%);
 	cursor: pointer;
+    --cue-fade: 1;
+    opacity: var(--cue-fade);
+    appearance: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    color: inherit;
+    font: inherit;
 }
-
 
 .home-scroll-chevron {
     position: relative;
@@ -190,6 +197,7 @@
 	color: rgb(232 230 227 / 0.55);
 	opacity: 0;
 	animation: fade-in 2s cubic-bezier(0.22, 0.72, 0.24, 1) 0.35s both;
+    transition: color .35s ease;
 }
 
 .home-scroll:hover .home-scroll-label{
@@ -197,7 +205,7 @@
 	transition: color .35s ease;
 }
 .home-scroll:hover .home-scroll-chevron{
-	scale: 1.1;
+	scale: 1.2;
 }
 
 @keyframes fade-in {

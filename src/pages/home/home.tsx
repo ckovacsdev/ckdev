@@ -4,6 +4,7 @@ import { DecoRule } from '../../components/deco-rule/deco-rule';
 import { FiGithub } from 'react-icons/fi';
 import { TiSocialLinkedin } from 'react-icons/ti';
 import './home.css';
+import { useScrollValue } from '../../hooks/useScrollValue';
 
 const LINKS = [
     { href: 'https://github.com/ckovacsdev', label: 'Github', Icon: FiGithub },
@@ -12,10 +13,20 @@ const LINKS = [
 ]
 
 const scrollToSection = (id: string) => {
-  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 };
 
+
 export const Home = () => {
+    const cueRef = useScrollValue<HTMLButtonElement>(
+        '--cue-fade',
+        (y) => `${Math.max(1 - y / (window.innerHeight * 0.35), 0)}`,
+        (el, y) => {
+            el.style.pointerEvents = y >= window.innerHeight * 0.35 ? 'none' : '';
+        },
+    );
+
+
     return (
         <div className='home-container'>
             <div className='home-content'>
@@ -52,13 +63,15 @@ export const Home = () => {
                     </div>
                 </div>
 
-                <div 
+                <button 
+                    type='button'
                     className='home-scroll'
+                    ref={cueRef}
                     onClick={() => scrollToSection('work')}
                 >
                     <span className='home-scroll-chevron' aria-hidden='true'></span>
                     <span className='home-scroll-label'>Scroll For More</span>
-                </div>
+                </button>
             </div>
         </div>
     )
