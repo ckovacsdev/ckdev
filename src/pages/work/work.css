@@ -5,6 +5,5 @@
     padding: 0;
     display: flex;
     flex-direction: column;
-    background: var(--main-background);
-    background-attachment: fixed;
+    border: 1px solid red;
 }

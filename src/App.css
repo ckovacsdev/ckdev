@@ -1,5 +1,5 @@
 .app-container{
-	--rail-w: 185px;
+	--rail-w: 100px;
 
 	display: grid;
 	grid-template-columns: minmax(0, 1fr) var(--rail-w);

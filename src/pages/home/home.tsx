@@ -16,7 +16,6 @@ const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 };
 
-
 export const Home = () => {
     const cueRef = useScrollValue<HTMLButtonElement>(
         '--cue-fade',
@@ -25,7 +24,6 @@ export const Home = () => {
             el.style.pointerEvents = y >= window.innerHeight * 0.35 ? 'none' : '';
         },
     );
-
 
     return (
         <div className='home-container'>
