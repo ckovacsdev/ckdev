@@ -53,7 +53,7 @@ export default function WorkCard({ tech, title, subtitle, children }: WorkCardPr
 
 	return (
 		<>
-			<div className='work-backdrop' data-open={open || undefined} onClick={() => setOpen(false)} />
+			{open && <div className='work-backdrop' data-open={open || undefined} onClick={() => setOpen(false)} />}
 
 			<div className='work-card-slot'>
 				<article ref={cardRef} className='work-card' data-open={open || undefined}>
