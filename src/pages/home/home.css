@@ -127,22 +127,6 @@
     color: var(--main-accent);
 }
 
-.home-contact-link::after {
-    content: '';
-    position: absolute;
-    right: 7px;
-    top: 50%;
-    width: 1px;
-    height: 0;
-    background: var(--main-accent-hover);
-    transform: translateY(-50%);
-    transition: height 0.28s ease;
-}
-
-.home-contact-link:hover::after {
-    height: 20px;
-}
-
 .home-contact-link svg {
     width: 24px;
     height: 24px;

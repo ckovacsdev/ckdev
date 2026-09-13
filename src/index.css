@@ -25,14 +25,11 @@ body{
 h1 {
 	font-family: var(--font-display);
 	font-weight: 400;
-	letter-spacing: 0.06em;
-	line-height: 1.15;
 	color: var(--main-text);
 }
 
-h2, body {
+h2, h3, body {
 	font-family: var(--font-body);
 	font-weight: 400;
-	line-height: 1.65;
 	color: var(--main-text);
 }
