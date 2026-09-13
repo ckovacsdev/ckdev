@@ -1,14 +1,14 @@
 import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react';
 import './work-card.css';
 
-type WorkCardProps = {
+export type WorkCardProps = {
 	tech: string;
 	title: string;
-	blurb: string;
+	subtitle: string;
 	children?: ReactNode;
 };
 
-export default function WorkCard({ tech, title, blurb, children }: WorkCardProps) {
+export default function WorkCard({ tech, title, subtitle, children }: WorkCardProps) {
 	const [ open, setOpen ] = useState(false);
 	const cardRef = useRef<HTMLElement>(null);
 	const fromRect = useRef<DOMRect | null>(null);
@@ -31,8 +31,7 @@ export default function WorkCard({ tech, title, blurb, children }: WorkCardProps
 			[
 				{
 					transformOrigin: 'top left',
-					transform: `translate(${from.left - to.left}px, ${from.top - to.top}px)
-					            scale(${from.width / to.width}, ${from.height / to.height})`,
+					transform: `translate(${from.left - to.left}px, ${from.top - to.top}px) scale(${from.width / to.width}, ${from.height / to.height})`,
 				},
 				{ transformOrigin: 'top left', transform: 'none' },
 			],
@@ -44,7 +43,9 @@ export default function WorkCard({ tech, title, blurb, children }: WorkCardProps
 	}, [open]);
 
 	useEffect(() => {
-		if (!open) return;
+		if (!open) {
+            return;
+        }
 		const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setOpen(false);
 		document.addEventListener('keydown', onKey);
 		return () => document.removeEventListener('keydown', onKey);
@@ -57,13 +58,14 @@ export default function WorkCard({ tech, title, blurb, children }: WorkCardProps
 			<div className='work-card-slot'>
 				<article ref={cardRef} className='work-card' data-open={open || undefined}>
 					<div className='work-card-body'>
-						<p className='work-card-tech'>{tech}</p>
 						<h3 className='work-card-title'>{title}</h3>
-						<p className='work-card-blurb'>{blurb}</p>
+                        <p className='work-card-tech'>{tech}</p>
+						<p className='work-card-subtitle'>{subtitle}</p>
 						{open && <div className='work-card-detail'>{children}</div>}
 					</div>
 
 					<button type='button' className='work-card-toggle' onClick={toggle} aria-expanded={open}>
+                        +
 					</button>
 				</article>
 			</div>
