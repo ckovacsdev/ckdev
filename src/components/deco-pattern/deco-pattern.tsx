@@ -4,7 +4,7 @@ import './deco-pattern.css';
 export const DecoPattern = () => {
 
     const ref = useParallax({
-        rate: 0.2,
+        rate: 0.1,
         property: '--scroll',
         wrap: '--title'
     });

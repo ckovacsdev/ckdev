@@ -18,6 +18,11 @@ export default function WorkCard({ tech, title, subtitle, children }: WorkCardPr
 		setOpen((o) => !o);
 	};
 
+	const close = () => {
+		fromRect.current = cardRef.current?.getBoundingClientRect() ?? null;
+		setOpen(false);
+	}
+
 	useLayoutEffect(() => {
 		const el = cardRef.current;
 		const from = fromRect.current;
@@ -46,14 +51,14 @@ export default function WorkCard({ tech, title, subtitle, children }: WorkCardPr
 		if (!open) {
             return;
         }
-		const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setOpen(false);
+		const onKey = (e: KeyboardEvent) => e.key === 'Escape' && close();
 		document.addEventListener('keydown', onKey);
 		return () => document.removeEventListener('keydown', onKey);
 	}, [open]);
 
 	return (
 		<>
-			{open && <div className='work-backdrop' data-open={open || undefined} onClick={() => setOpen(false)} />}
+			{open && <div className='work-backdrop' data-open={open || undefined} onClick={() => close()} />}
 
 			<div className='work-card-slot'>
 				<article ref={cardRef} className='work-card' data-open={open || undefined}>
