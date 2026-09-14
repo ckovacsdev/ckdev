@@ -5,11 +5,14 @@
     border: 0;
     border-radius: 0;
     background: transparent;
-    font-family: 'Lato', systen-ui, sans-serif;
+    font-family: 'Lato', system-ui, sans-serif;
     font-size: 16px;
     font-weight: 400;
     cursor: pointer;
     transition: background 0.3s ease, color 0.3s ease;
+    width: 100%;
+    max-width: 250px;
+    box-sizing: border-box;
 }
 .deco-button:focus-visible{
     outline: 1px solid white;

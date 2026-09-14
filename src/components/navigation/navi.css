@@ -78,4 +78,10 @@ html{
         transform: scale(1);
     }
 }
-
+@media screen and (max-width: 480px){
+    .navigation-container {
+        left: 50%;
+        transform: translateX(-50%); 
+        top: 10px;
+    }
+}
