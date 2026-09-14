@@ -78,7 +78,7 @@ html{
         transform: scale(1);
     }
 }
-@media screen and (max-width: 480px){
+@media screen and (max-width: 640px){
     .navigation-container {
         left: 50%;
         transform: translateX(-50%); 

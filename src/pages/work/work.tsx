@@ -22,7 +22,12 @@ export const Work = () => {
             <h2 className='work-title'>  Professional Projects </h2>
             <div className='work-projects'>
                 {WORK_CARDS.map(c => (
-                    <WorkCard tech={c.tech} title={c.title} subtitle={c.subtitle} />
+                    <WorkCard
+                        key={c.title}
+                        tech={c.tech} 
+                        title={c.title} 
+                        subtitle={c.subtitle}
+                    /> 
                 ))}
             </div>
 
