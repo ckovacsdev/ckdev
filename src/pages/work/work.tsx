@@ -1,4 +1,6 @@
 import WorkCard, { type WorkCardProps } from '../../components/work-card/work-card';
+import TCWLogo from '../../assets/tcw.svg';
+import NYULogo from '../../assets/NYU-Logo.png';
 import './work.css';
 
 const WORK_CARDS: WorkCardProps[] = [
@@ -17,14 +19,37 @@ const WORK_CARDS: WorkCardProps[] = [
 export const Work = () => {
     return (
         <div className='work-container'>
-            <div className='work-titles'>
-                <h2 className='work-title'>  Professional Experience </h2>
-            </div>
-
+            <h2 className='work-title'>  Professional Projects </h2>
             <div className='work-projects'>
                 {WORK_CARDS.map(c => (
                     <WorkCard tech={c.tech} title={c.title} subtitle={c.subtitle} />
                 ))}
+            </div>
+
+            <div className='work-projects-minor'> 
+                <WorkCard tech='test' title='test' subtitle=''/>
+                <WorkCard tech='test' title='test' subtitle=''/>
+                <WorkCard tech='test' title='test' subtitle=''/>
+            </div>
+
+            <div className='work-history-container'>
+                <h2 className='work-title'>  Experience & Education </h2>
+                <div className='work-history-item'>
+                    <img src={TCWLogo} alt='' className='work-history-item-logo' />
+                    <div className='work-history-item-text'>
+                        <h3 className='work-history-item-position'>Software Engineer, Platform Engineering</h3>
+                        <p className='work-history-item-company'>TCW Group</p>
+                    </div>
+                    <p className='work-history-item-dates'>2022 &#45; Present</p>
+                </div>
+                <div className='work-history-item'>
+                    <img src={NYULogo} alt='NY University Logo' className='work-history-item-logo' />
+                    <div className='work-history-item-text'>
+                        <h3 className='work-history-item-position'> BA, Computer Science </h3>
+                        <p className='work-history-item-company'> New York University </p>
+                    </div>
+                    <p className='work-history-item-dates'>Grad. 2022</p>
+                </div>
             </div>
         </div>
     )

@@ -70,7 +70,7 @@ export default function WorkCard({ tech, title, subtitle, children }: WorkCardPr
 					</div>
 
 					<button type='button' className='work-card-toggle' onClick={toggle} aria-expanded={open}>
-                        +
+                        {open ? '-' : '+'}
 					</button>
 				</article>
 			</div>
