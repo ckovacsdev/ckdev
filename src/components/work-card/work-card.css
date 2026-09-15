@@ -16,7 +16,6 @@
 	color: inherit;
     min-width: 320px;
 	transition: translate 0.35s ease, border-color 0.35s ease;
-	
 }
 .work-card:hover {
     translate: 0 -5px;
@@ -42,7 +41,7 @@
 	flex-direction: column;
 	gap: 10px;
 	width: 100%;
-	padding: clamp(12px, 3vw, 20px);
+	padding: clamp(16px, 4vw, 24px);
 	overflow: hidden;
     min-height: 0;
     min-width: 0;
@@ -56,6 +55,7 @@
     margin: 0; 
     font-size: 0.9rem; 
 	line-height: 1.4;
+	min-height: 2rem;
 }
 .work-card-date { 
     margin: 0; 

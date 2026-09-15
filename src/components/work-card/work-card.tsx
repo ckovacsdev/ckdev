@@ -1,6 +1,6 @@
 import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react';
-import './work-card.css';
 import { DecoPattern } from '../deco-pattern/deco-pattern';
+import './work-card.css';
 
 export type WorkCardProps = {
 	tech: string;
@@ -81,7 +81,6 @@ export default function WorkCard({ tech, title, subtitle, date, children }: Work
 						className='work-card-toggle' 
 						onClick={toggle} aria-expanded={open}
 					>
-                        {open ? '-' : '+'}
 					</button>
 				</article>
 			</div>
