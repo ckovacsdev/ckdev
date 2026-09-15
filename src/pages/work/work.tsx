@@ -42,7 +42,7 @@ export const Work = () => {
                         <h3 className='work-history-item-position'>Software Engineer, Platform Engineering</h3>
                         <p className='work-history-item-company'>TCW Group</p>
                     </div>
-                    <p className='work-history-item-dates'> January 2023 &#45; Present</p>
+                    <p className='work-history-item-dates'> Jan. 2023 &#45; Present</p>
                 </div>
                 <div className='work-history-item'>
                     <img src={TCWLogo} alt='' className='work-history-item-logo' />
@@ -50,7 +50,7 @@ export const Work = () => {
                         <h3 className='work-history-item-position'>Platform Engineering Intern, Platform Engineering</h3>
                         <p className='work-history-item-company'>TCW Group</p>
                     </div>
-                    <p className='work-history-item-dates'>June 2022 &#45; December 2022 </p>
+                    <p className='work-history-item-dates'>Jun. 2022 &#45; Dec. 2022 </p>
                 </div>
                 <div className='work-history-item'>
                     <img src={NYULogo} alt='NY University Logo' className='work-history-item-logo' />
@@ -58,7 +58,7 @@ export const Work = () => {
                         <h3 className='work-history-item-position'> BA, Computer Science </h3>
                         <p className='work-history-item-company'> New York University </p>
                     </div>
-                    <p className='work-history-item-dates'>December 2022</p>
+                    <p className='work-history-item-dates'>Dec. 2022</p>
                 </div>
             </div>
         </div>

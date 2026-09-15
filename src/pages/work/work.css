@@ -62,17 +62,17 @@
 
 .work-history-item-position{
     margin: 0;
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 500;
 }
 .work-history-item-company{
     margin: 0;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     opacity: 0.75;
 }
 .work-history-item-dates{
     margin: 0;
-    font-size: 0.85rem;
+    font-size: 0.80rem;
     opacity: 0.6;
     white-space: nowrap;
 }
