@@ -31,12 +31,6 @@ export const Work = () => {
                 ))}
             </div>
 
-            <div className='work-projects-minor'> 
-                <WorkCard tech='test' title='test' subtitle=''/>
-                <WorkCard tech='test' title='test' subtitle=''/>
-                <WorkCard tech='test' title='test' subtitle=''/>
-            </div>
-
             <div className='work-history-container'>
                 <h2 className='work-title'>  Experience & Education </h2>
                 <div className='work-history-item'>
@@ -45,7 +39,15 @@ export const Work = () => {
                         <h3 className='work-history-item-position'>Software Engineer, Platform Engineering</h3>
                         <p className='work-history-item-company'>TCW Group</p>
                     </div>
-                    <p className='work-history-item-dates'>2022 &#45; Present</p>
+                    <p className='work-history-item-dates'> January 2023 &#45; Present</p>
+                </div>
+                <div className='work-history-item'>
+                    <img src={TCWLogo} alt='' className='work-history-item-logo' />
+                    <div className='work-history-item-text'>
+                        <h3 className='work-history-item-position'>Platform Engineering Intern, Platform Engineering</h3>
+                        <p className='work-history-item-company'>TCW Group</p>
+                    </div>
+                    <p className='work-history-item-dates'>June 2022 &#45; December 2022 </p>
                 </div>
                 <div className='work-history-item'>
                     <img src={NYULogo} alt='NY University Logo' className='work-history-item-logo' />
@@ -53,7 +55,7 @@ export const Work = () => {
                         <h3 className='work-history-item-position'> BA, Computer Science </h3>
                         <p className='work-history-item-company'> New York University </p>
                     </div>
-                    <p className='work-history-item-dates'>Grad. 2022</p>
+                    <p className='work-history-item-dates'>December 2022</p>
                 </div>
             </div>
         </div>

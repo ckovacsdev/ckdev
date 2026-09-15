@@ -235,9 +235,10 @@
 
 @media screen and (max-width: 640px) {
     .home-contact-container{
-        bottom: 10px;
+        bottom: 20px;
         left: 50%;
         transform: translateX(-50%);
+        position: absolute;
     }
     .home-title{
         font-size: 36px !important;

@@ -1,6 +1,6 @@
 .work-container{
     height: calc(100vh - 110px);
-    padding: 0px 140px;
+    padding: 0px 40px 0px 130px;
     display: flex;
     flex-direction: column;
     row-gap: 20px;
@@ -14,21 +14,23 @@
 }
 
 .work-projects{
-    display: flex;
-    flex-wrap: wrap;
+    flex: 1 1 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
+    max-height: 280px;
 }
 .work-projects .work-card-slot{
-    flex: 1 1 300px;
     min-width: 0;
-    height: 215px;
+    height: 100%;
 }
 
 .work-projects-minor{
+    flex: 1 1 0;
+    min-height: 90px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 1rem;
-    height: 100px;
 }
 .work-projects-minor-card {
     border: 1px solid rgba(255, 255, 255, 0.12);
@@ -37,10 +39,11 @@
 }
 
 .work-history-container{
-    flex: 1;
+    flex: 1 1 0; 
     margin-bottom: 25px;
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
 }
 
 .work-history-item{
@@ -85,4 +88,11 @@
     font-size: 0.85rem;
     opacity: 0.6;
     white-space: nowrap;
+}
+
+@media screen and (max-width: 640px) {
+    .work-container{
+        padding: 0px 30px;
+        margin-bottom: 50px;
+    }
 }

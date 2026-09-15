@@ -19,9 +19,9 @@ const scrollToSection = (id: string) => {
 export const Home = () => {
     const cueRef = useScrollValue<HTMLButtonElement>(
         '--cue-fade',
-        (y) => `${Math.max(1 - y / (window.innerHeight * 0.35), 0)}`,
+        (y) => `${Math.max(1 - y / (window.innerHeight * 0.45), 0)}`,
         (el, y) => {
-            el.style.pointerEvents = y >= window.innerHeight * 0.35 ? 'none' : '';
+            el.style.pointerEvents = y >= window.innerHeight * 0.45 ? 'none' : '';
         },
     );
 
