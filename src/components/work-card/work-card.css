@@ -14,8 +14,9 @@
 	background: rgba(255, 255, 255, 0.03);
 	opacity: 0.9;
 	color: inherit;
-    min-width: 250px;
+    min-width: 320px;
 	transition: translate 0.35s ease, border-color 0.35s ease;
+	
 }
 .work-card:hover {
     translate: 0 -5px;
@@ -41,7 +42,7 @@
 	flex-direction: column;
 	gap: 10px;
 	width: 100%;
-	padding: clamp(8px, 2vw, 16px);
+	padding: clamp(12px, 3vw, 20px);
 	overflow: hidden;
     min-height: 0;
     min-width: 0;
@@ -54,20 +55,34 @@
 .work-card-tech { 
     margin: 0; 
     font-size: 0.9rem; 
+	line-height: 1.4;
+	min-height: 2.8em;
+}
+.work-card-date { 
+    margin: 0; 
+    font-size: 0.9rem; 
 }
 .work-card-title { 
     margin: 0; 
+	text-wrap: nowrap;
     font-weight: 500; 
 }
 .work-card-subtitle { 
     margin: 0; 
-    max-width: 70ch; 
+    max-width: 54ch; 
     opacity: 0.75; 
+	font-size: clamp(0.8rem, 0.7rem + 0.4vw, 0.95rem);
 }
-
 .work-card-detail {
 	max-width: 68ch;
 	animation: work-fade 0.3s ease both 0.12s;
+}
+
+.work-card-pattern{
+	width: 50px;
+	align-self: stretch;
+	opacity: 0.5;
+	pointer-events: none;
 }
 
 .work-card-toggle {
@@ -75,8 +90,8 @@
 	inset: 0;
 	display: flex;
 	align-items: flex-end;
-	justify-content: flex-end;
-	padding: 18px;
+	justify-content: flex-start;
+	padding: 8px;
 	border: 0;
 	background: none;
 	color: inherit;

@@ -1,14 +1,16 @@
 import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react';
 import './work-card.css';
+import { DecoPattern } from '../deco-pattern/deco-pattern';
 
 export type WorkCardProps = {
 	tech: string;
 	title: string;
 	subtitle: string;
+	date: string;
 	children?: ReactNode;
 };
 
-export default function WorkCard({ tech, title, subtitle, children }: WorkCardProps) {
+export default function WorkCard({ tech, title, subtitle, date, children }: WorkCardProps) {
 	const [ open, setOpen ] = useState(false);
 	const cardRef = useRef<HTMLElement>(null);
 	const fromRect = useRef<DOMRect | null>(null);
@@ -65,11 +67,20 @@ export default function WorkCard({ tech, title, subtitle, children }: WorkCardPr
 					<div className='work-card-body'>
 						<h3 className='work-card-title'>{title}</h3>
                         <p className='work-card-tech'>{tech}</p>
+						<p className='work-card-date'> {date} </p>
 						<p className='work-card-subtitle'>{subtitle}</p>
 						{open && <div className='work-card-detail'>{children}</div>}
 					</div>
 
-					<button type='button' className='work-card-toggle' onClick={toggle} aria-expanded={open}>
+					<div className='work-card-pattern'>
+						<DecoPattern />
+					</div>
+
+					<button 
+						type='button' 
+						className='work-card-toggle' 
+						onClick={toggle} aria-expanded={open}
+					>
                         {open ? '-' : '+'}
 					</button>
 				</article>
