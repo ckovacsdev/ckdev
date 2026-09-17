@@ -5,10 +5,10 @@
     --offset: calc(var(--phase) + var(--scroll));
 
     height: 100%;
-    width: 185px;
+    width: 100px;
     background-position: 0 var(--offset);
 
-    --tile: 185px;
+    --tile: 100px;
     --stroke: calc(var(--tile) * 0.0144);
     --line: var(--main-accent);
 

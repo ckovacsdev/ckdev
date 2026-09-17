@@ -9,8 +9,12 @@ function App() {
 		<div className='app-container'>
 			<div className='app-main'>
 				<Navigation />
-				<section id='home'> <Home /> </section>
-				<section id='work'> <Work /> </section>
+				<section id='home'>
+					<Home /> 
+				</section>
+				<section id='work'> 
+					<Work /> 
+				</section>
 			</div>
 			<div className='deco-rail'>
 				<DecoPattern />

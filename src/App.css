@@ -1,5 +1,5 @@
 .app-container{
-	--rail-w: 185px;
+	--rail-w: 100px;
 
 	display: grid;
 	grid-template-columns: minmax(0, 1fr) var(--rail-w);
@@ -28,4 +28,13 @@
 	position: sticky;
 	top: 0;
 	height: var(--rail-h);
+}
+
+@media screen and (max-width: 640px){
+	.app-container{
+		grid-template-columns: minmax(0, 1fr);
+	}
+	.deco-rail{
+		display: none;
+	}
 }

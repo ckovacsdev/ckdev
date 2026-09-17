@@ -16,29 +16,27 @@ const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 };
 
-
 export const Home = () => {
     const cueRef = useScrollValue<HTMLButtonElement>(
         '--cue-fade',
-        (y) => `${Math.max(1 - y / (window.innerHeight * 0.35), 0)}`,
+        (y) => `${Math.max(1 - y / (window.innerHeight * 0.45), 0)}`,
         (el, y) => {
-            el.style.pointerEvents = y >= window.innerHeight * 0.35 ? 'none' : '';
+            el.style.pointerEvents = y >= window.innerHeight * 0.45 ? 'none' : '';
         },
     );
-
 
     return (
         <div className='home-container'>
             <div className='home-content'>
                 <div className='home-text'>
                     <h1 className='home-title'> Christian Kovacs</h1>
-                    <h2 className='home-subtitle'> Frontend Software Engineer based in <span className='home-no-break'> Hoboken, NJ </span> </h2>
+                    <h2 className='home-subtitle'> Software Engineer based in <span className='home-no-break'> Hoboken, NJ </span> </h2>
                     <div className='home-separator'>  
                         <DecoRule />
                     </div>
                     <p className='home-details'> 
-                        Four years building feature-dense front ends in the financial services industry.
-                        Primarily focusing on internal developer tools, I take pride in building user experiences that make engineering seamless.
+                        Four years building feature-dense frontend applications in financial services.
+                        Primarily focused on developer tools and automation, I turn complex systems into tools that feel simple.
                     </p>
                     <div className='home-buttons'>
                         <DecoButton type='primary' title='View My Work' onClick={() => scrollToSection('work')} />

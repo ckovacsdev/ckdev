@@ -1,10 +1,85 @@
 .work-container{
-    height: 100vh;
-    width: 100%;
-    margin: 0;
-    padding: 0;
+    height: calc(100vh - 110px);
+    padding: 0px 40px 0px 130px;
     display: flex;
     flex-direction: column;
-    background: var(--main-background);
-    background-attachment: fixed;
+    row-gap: 20px;
+}
+
+.work-title{
+    margin: 0;
+    padding: 15px 0px;
+    max-width: 400px;
+    border-bottom: 1px solid var(--main-accent);
+}
+
+.work-projects{
+    flex: 1 1 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+    max-height: 280px;
+}
+.work-projects .work-card-slot{
+    min-width: 0;
+    height: 100%;
+}
+
+.work-history-container{
+    flex: 1 1 0; 
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.work-history-item{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-height: 85px;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.work-history-item:last-child {
+    border-bottom: none;
+}
+
+.work-history-item-logo{
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+.work-history-item-text{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.work-history-item-position{
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+.work-history-item-company{
+    margin: 0;
+    font-size: 0.85rem;
+    opacity: 0.75;
+}
+.work-history-item-dates{
+    margin: 0;
+    font-size: 0.80rem;
+    opacity: 0.6;
+    white-space: nowrap;
+}
+
+@media screen and (max-width: 640px) {
+    .work-container{
+        padding: 0px 20px;
+        margin-bottom: 0px;
+    }
 }
