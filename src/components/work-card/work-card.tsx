@@ -70,7 +70,6 @@ export default function WorkCard({ tech, title, subtitle, subtext, children }: W
 						<p className='work-card-subtext'> {subtext} </p>
 						{!open && <p className='work-card-subtitle'>{subtitle}</p>}
 						{open && <div className='work-card-detail'>{children}</div>}
-
 						{!open && <p className='work-card-read-more'> Read More + </p>}
 					</div>
 

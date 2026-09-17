@@ -9,7 +9,7 @@ const WORK_CARDS: WorkCardProps[] = [
         tech: 'React | TypeScript', 
         title: 'Document Analysis Platform', 
         subtitle: "Configurable LLM document analysis platform.  Users define rule sets, evaluate uploaded PDFs against them, and review results in a PDF viewer that matches and highlights the exact source passage behind each pass or fail.",
-        subtext: '400 Weekly Documents | <1 min Process Time | Real Time Monitoring',
+        subtext: '400 Docs Weekly | <1 min Process | Real Time Monitoring',
         children: <AiDocDetails />
     },
     { 
