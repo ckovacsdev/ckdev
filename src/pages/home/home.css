@@ -37,7 +37,7 @@
     .home-details{
         font-size: 20px;
         font-weight: 200;
-        max-width: 64ch;
+        max-width: 62ch;
     }
     .home-no-break{
         text-wrap: nowrap;

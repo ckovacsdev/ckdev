@@ -9,7 +9,7 @@ export const AiDocDetails = () => {
                     This project is a platform for evaluating PDF documents against a user defined rule set.
                     The users write reusable rule sets, upload a document, run it through the AI analysis engine,
                     then can review the results in an interactive interface.  
-                    Rule compliance is displayed in a chart view, along with a custom PDF viewer, exactyl matching LLM results to the original document text, 
+                    Rule compliance is displayed in a chart view, along with a custom PDF viewer, exactly matching LLM results to the original document text, 
                     allowing the user to see the rule compliance results of each section of text within the document. 
                 </p>
                 <p className='ai-doc-details-intro'>                                

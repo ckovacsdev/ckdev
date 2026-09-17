@@ -35,8 +35,8 @@ export const Home = () => {
                         <DecoRule />
                     </div>
                     <p className='home-details'> 
-                        Four years building feature-dense front ends in the financial services industry.
-                        Primarily focusing on internal developer tools, I take pride in building user experiences that make engineering seamless.
+                        Four years building feature-dense frontend applications in financial services.
+                        Primarily focused on developer tools and automation, I turn complex systems into tools that feel simple.
                     </p>
                     <div className='home-buttons'>
                         <DecoButton type='primary' title='View My Work' onClick={() => scrollToSection('work')} />
