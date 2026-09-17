@@ -55,10 +55,8 @@
 .work-card-tech { 
     margin: 0; 
     font-size: 0.9rem; 
-	line-height: 1.4;
-	min-height: 2.1rem;
 }
-.work-card-date { 
+.work-card-subtext { 
     margin: 0; 
     font-size: 0.9rem; 
 }
@@ -70,17 +68,24 @@
 .work-card-subtitle { 
     margin: 0; 
 	flex: 1;
-    max-width: 54ch; 
     opacity: 0.75; 
 	font-size: clamp(0.8rem, 0.7rem + 0.4vw, 0.95rem);
 	overflow: hidden;
+	margin-top: 12px;
 	-webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
     mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-
 }
 .work-card-detail {
 	max-width: 68ch;
 	animation: work-fade 0.3s ease both 0.12s;
+}
+.work-card-read-more{
+	margin: 0;
+	padding: 0;
+}
+
+.work-card-slot:hover .work-card-read-more {
+	color: var(--main-accent);
 }
 
 .work-card-pattern{
@@ -90,6 +95,11 @@
 	pointer-events: none;
 }
 
+.work-card[data-open] .work-card-toggle {
+	inset: auto;
+	left: 8px;
+	bottom: 8px;
+}
 .work-card-toggle {
 	position: absolute;
 	inset: 0;

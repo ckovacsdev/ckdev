@@ -1,19 +1,21 @@
 import WorkCard, { type WorkCardProps } from '../../components/work-card/work-card';
 import TCWLogo from '../../assets/tcw.svg';
 import NYULogo from '../../assets/NYU-Logo.png';
+import { AiDocDetails } from '../../components/work-card/ai-doc-details';
 import './work.css';
 
 const WORK_CARDS: WorkCardProps[] = [
     { 
         tech: 'React | TypeScript', 
         title: 'Document Analysis Platform', 
-        date: '2026',
-        subtitle: "Configurable LLM document analysis platform.  Users define rule sets, evaluate uploaded PDFs against them, and review results in a PDF viewer that matches and highlights the exact source passage behind each pass or fail."
+        subtitle: "Configurable LLM document analysis platform.  Users define rule sets, evaluate uploaded PDFs against them, and review results in a PDF viewer that matches and highlights the exact source passage behind each pass or fail.",
+        subtext: '400 Weekly Documents | <1 min Process Time | Real Time Monitoring',
+        children: <AiDocDetails />
     },
     { 
         tech: 'React | TypeScript | Go | GraphQL', 
-        title: 'Internal Developer Platform', 
-        date: '2023 - 2026',
+        title: 'Internal Developer Platform',
+        subtext: '10 Tech Stacks | Resource Requistion | Automated CI/CD ', 
         subtitle: "TCW's central developer automation platform.  Provisioned templated GitLab repositories across 10 tech stacks with standardized CI/CD, along with automated Snowflake, Okta, Key Vault, and RabbitMQ resource requests."
     }
 ]
@@ -28,8 +30,9 @@ export const Work = () => {
                         key={c.title}
                         tech={c.tech} 
                         title={c.title} 
-                        date={c.date}
+                        subtext={c.subtext}
                         subtitle={c.subtitle}
+                        children={c.children}
                     /> 
                 ))}
             </div>

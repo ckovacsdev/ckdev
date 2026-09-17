@@ -1,0 +1,61 @@
+.ai-doc-details {
+    max-width: 62ch;
+    font-size: clamp(0.875rem, 0.82rem + 0.25vw, 1rem);
+}
+
+.ai-doc-detail{
+    padding-top: 15px;
+}
+.ai-doc-detail:not(:last-child) {
+    border-bottom: 1px solid var(--main-accent);
+}
+
+.ai-doc-details-heading {
+    margin: 0 0 0.35em;
+    font-size: clamp(1rem, 1rem + 0.5vw, 1.25rem);
+    font-weight: 400;
+}
+
+.ai-doc-details-intro {
+    margin: 0 0 clamp(1.25rem, 3vw, 1.75rem);
+    opacity: 0.75;
+    font-size: clamp(.85rem, 1rem + 0.25vw, 1rem);
+}
+
+.ai-doc-details-challenge-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: challenge;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.25rem, 3vw, 1.75rem);
+}
+
+.ai-doc-details-challenge {
+    counter-increment: challenge;
+    padding-left: clamp(2rem, 6vw, 2.75rem);
+    position: relative;
+}
+
+.ai-doc-details-challenge-title {
+    margin: 0 0 0.5em;
+    font-size: 1em;
+    font-weight: 400;
+}
+
+.ai-doc-details-challenge p {
+    margin: 0 0 1em;
+    opacity: 0.65;
+    text-wrap: pretty;
+}
+
+.ai-doc-details-challenge p:last-child {
+    margin-bottom: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ai-doc-details * {
+        transition: none;
+    }
+}
