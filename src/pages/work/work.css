@@ -1,5 +1,5 @@
 .work-container{
-    height: calc(100vh - 110px);
+    min-height: calc(100vh - 110px);
     padding: 10px 40px 0px 130px;
     display: flex;
     flex-direction: column;
