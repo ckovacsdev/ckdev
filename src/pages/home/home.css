@@ -79,6 +79,11 @@
     font: inherit;
 }
 
+.home-contact-fade{
+    --cue-fade: 1;
+    opacity: var(--cue-fade);
+}
+
 .home-scroll-chevron {
     position: relative;
     width: 26px;
@@ -114,6 +119,10 @@
 	scale: 1.2;
 }
 
+#work{
+    scroll-margin-top: 84px;
+}
+
 @keyframes fade-in {
   to {
     opacity: 1;
@@ -137,12 +146,6 @@
 }
 
 @media screen and (max-width: 640px) {
-    .home-contact-container{
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        position: absolute;
-    }
     .home-title{
         font-size: 36px !important;
     }
@@ -153,8 +156,7 @@
         gap: 5px;
     }
     .home-scroll{
-        bottom: 20px;
-        left: 65px;
+        display: none;
     }
     .home-contact{
         flex-direction: row;

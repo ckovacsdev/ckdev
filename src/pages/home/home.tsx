@@ -1,3 +1,4 @@
+import { Contact } from '../../components/contact/contact';
 import { DecoButton } from '../../components/deco-button/deco-button';
 import { DecoRule } from '../../components/deco-rule/deco-rule';
 import { useScrollValue } from '../../hooks/useScrollValue';
@@ -9,6 +10,13 @@ const scrollToSection = (id: string) => {
 
 export const Home = () => {
     const cueRef = useScrollValue<HTMLButtonElement>(
+        '--cue-fade',
+        (y) => `${Math.max(1 - y / (window.innerHeight * 0.45), 0)}`,
+        (el, y) => {
+            el.style.pointerEvents = y >= window.innerHeight * 0.45 ? 'none' : '';
+        },
+    );
+    const contactRef = useScrollValue<HTMLDivElement>(
         '--cue-fade',
         (y) => `${Math.max(1 - y / (window.innerHeight * 0.45), 0)}`,
         (el, y) => {
@@ -44,6 +52,10 @@ export const Home = () => {
                     <span className='home-scroll-chevron' aria-hidden='true'></span>
                     <span className='home-scroll-label'>Scroll For More</span>
                 </button>
+                
+                <div className='home-contact-fade' ref={contactRef}>
+                    <Contact />
+                </div>
             </div>
         </div>
     )

@@ -91,15 +91,30 @@
 
 @media screen and (max-width: 640px) {
     .home-contact-container{
-        position: fixed;
-        bottom: 15px;
-        left: 90%;
-        transform: translateX(-90%);
+        position: absolute;
+        bottom: 25px;
+        top: auto;
+        left: 50%;
+        transform: translateX(-50%);
         z-index: 2;
         pointer-events: none;
     }
     .home-contact {
+        position: relative;
+        bottom: auto;
         flex-direction: row;
     }
-    
+    .home-contact::before,
+    .home-contact::after {
+        width: 28px;
+        height: 16px;
+    }
+    .home-contact-link + .home-contact-link::before {
+        top: 11px;
+        bottom: 11px;
+        left: 0;
+        right: auto;
+        width: 1px;
+        height: auto;
+    }
 }
