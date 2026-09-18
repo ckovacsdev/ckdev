@@ -59,85 +59,6 @@
     width: 100%;
 }
 
-.home-contact-container{
-    position: fixed;
-    left: 25px;
-    bottom: 25px;
-}
-.home-contact {
-    position: relative;
-    display: inline-flex;
-    flex-direction: column;
-}
-
-.home-contact::before,
-.home-contact::after {
-    content: '';
-    position: absolute;
-    width: 16px;
-    height: 38px;
-    border: 1px solid var(--main-accent);
-    pointer-events: none;
-    transform: scale(0);
-    animation: border-in 2s cubic-bezier(0.22, 0.72, 0.24, 1) both;
-}
-
-.home-contact::before {
-    top: 0;
-    right: 0;
-    border-left: 0;
-    border-bottom: 0;
-    transform-origin: top right;
-}
-
-.home-contact::after {
-    bottom: 0;
-    left: 0;
-    border-right: 0;
-    border-top: 0;
-    transform-origin: bottom left;
-}
-
-.home-contact-link {
-    position: relative;
-    width: 64px;
-    height: 54px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--main-accent);
-    text-decoration: none;
-    opacity: 0;
-    animation: fade-in 2s cubic-bezier(0.22, 0.72, 0.24, 1) both;
-    animation-delay: var(--delay, 0s);
-    transition: background 0.28s ease, color 0.28s ease;
-}
-
-.home-contact-link + .home-contact-link::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 11px;
-    right: 11px;
-    height: 1px;
-    background: rgb(200 161 101 / 0.28);
-}
-
-.home-contact-link:hover {
-    background: rgb(200 161 101 / 0.07);
-    color: var(--main-accent);
-}
-
-.home-contact-link svg {
-    width: 24px;
-    height: 24px;
-}
-
-.home-contact-link:focus-visible {
-    outline: 2px solid var(--main-accent-hover);
-    outline-offset: 4px;
-}
-
 .home-scroll {
     display: inline-flex;
     flex-direction: column;
@@ -200,24 +121,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .home-contact::before,
-    .home-contact::after {
-        animation: none;
-        transform: scale(1);
-    }
-
-    .home-contact-link {
-        animation: none;
-        opacity: 1;
-    }
-
-    .home-contact-link,
-    .home-contact-link::after {
-        transition: none;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
   .home-scroll {
     animation: none;
   }
@@ -250,7 +153,8 @@
         gap: 5px;
     }
     .home-scroll{
-        display: none;
+        bottom: 20px;
+        left: 65px;
     }
     .home-contact{
         flex-direction: row;

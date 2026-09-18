@@ -1,16 +1,7 @@
-import { MdMailOutline } from 'react-icons/md';
 import { DecoButton } from '../../components/deco-button/deco-button';
 import { DecoRule } from '../../components/deco-rule/deco-rule';
-import { FiGithub } from 'react-icons/fi';
-import { TiSocialLinkedin } from 'react-icons/ti';
-import './home.css';
 import { useScrollValue } from '../../hooks/useScrollValue';
-
-const LINKS = [
-    { href: 'https://github.com/ckovacsdev', label: 'Github', Icon: FiGithub },
-    { href: 'mailto:ckovacsdev@gmail.com', label: 'Email', Icon: MdMailOutline },
-    { href: 'https://www.linkedin.com/in/ckovacsdev/', label: 'LinkedIn', Icon: TiSocialLinkedin }
-]
+import './home.css';
 
 const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -41,23 +32,6 @@ export const Home = () => {
                     <div className='home-buttons'>
                         <DecoButton type='primary' title='View My Work' onClick={() => scrollToSection('work')} />
                         <DecoButton type='secondary' title='Download Resume' href='/Christian_Kovacs_Resume.pdf' />
-                    </div>
-                </div>
-
-                <div className='home-contact-container'>
-                    <div className='home-contact'>
-                        {LINKS.map(({ href, label, Icon }) => (
-                            <a
-                                key={label}
-                                href={href}
-                                className='home-contact-link'
-                                aria-label={label}
-                                target={href.startsWith('mailto:') ? undefined : '_blank'}
-                                rel='noreffer'
-                            >
-                                <Icon aria-hidden='true' />
-                            </a>
-                        ))}
                     </div>
                 </div>
 
