@@ -1,0 +1,120 @@
+.home-contact-container{
+    position: absolute;
+    bottom: 25px;
+    top: 0;
+    left: 25px;
+    z-index: 2;
+    pointer-events: none;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+.home-contact {
+    position: sticky;
+    bottom: 25px;
+    display: inline-flex;
+    flex-direction: column;
+    pointer-events: auto;
+    backdrop-filter: blur(14px) saturate(100%);
+}
+
+.home-contact::before,
+.home-contact::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 38px;
+    border: 1px solid var(--main-accent);
+    pointer-events: none;
+    transform: scale(0);
+    animation: border-in 2s cubic-bezier(0.22, 0.72, 0.24, 1) both;
+}
+
+.home-contact::before {
+    top: 0;
+    right: 0;
+    border-left: 0;
+    border-bottom: 0;
+    transform-origin: top right;
+}
+
+.home-contact::after {
+    bottom: 0;
+    left: 0;
+    border-right: 0;
+    border-top: 0;
+    transform-origin: bottom left;
+}
+
+.home-contact-link {
+    position: relative;
+    width: 64px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--main-accent);
+    text-decoration: none;
+    opacity: 0;
+    animation: fade-in 2s cubic-bezier(0.22, 0.72, 0.24, 1) both;
+    animation-delay: var(--delay, 0s);
+    transition: background 0.28s ease, color 0.28s ease;
+}
+
+.home-contact-link + .home-contact-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 11px;
+    right: 11px;
+    height: 1px;
+    background: rgb(200 161 101 / 0.28);
+}
+
+.home-contact-link:hover {
+    background: rgb(200 161 101 / 0.07);
+    color: var(--main-accent);
+}
+
+.home-contact-link svg {
+    width: 24px;
+    height: 24px;
+}
+
+.home-contact-link:focus-visible {
+    outline: 2px solid var(--main-accent-hover);
+    outline-offset: 4px;
+}
+
+
+@media screen and (max-width: 640px) {
+    .home-contact-container{
+        position: absolute;
+        bottom: 25px;
+        top: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+        pointer-events: none;
+    }
+    .home-contact {
+        position: relative;
+        bottom: auto;
+        flex-direction: row;
+    }
+    .home-contact::before,
+    .home-contact::after {
+        width: 28px;
+        height: 16px;
+    }
+    .home-contact-link + .home-contact-link::before {
+        top: 11px;
+        bottom: 11px;
+        left: 0;
+        right: auto;
+        width: 1px;
+        height: auto;
+    }
+}

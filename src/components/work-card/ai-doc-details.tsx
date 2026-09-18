@@ -19,7 +19,7 @@ export const AiDocDetails = () => {
             </div>
 
             <div className='ai-doc-detail'>
-                <h4 className='ai-doc-details-heading'> Building the PDF viewer </h4>
+                <h4 className='ai-doc-details-heading'> Building the Interactive PDF viewer </h4>
                 <p className='ai-doc-details-intro'>
                     The most difficult piece of this platform was the custom PDF viewer with three main challenges:
                 </p>

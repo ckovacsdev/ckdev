@@ -1,16 +1,8 @@
-import { MdMailOutline } from 'react-icons/md';
+import { Contact } from '../../components/contact/contact';
 import { DecoButton } from '../../components/deco-button/deco-button';
 import { DecoRule } from '../../components/deco-rule/deco-rule';
-import { FiGithub } from 'react-icons/fi';
-import { TiSocialLinkedin } from 'react-icons/ti';
-import './home.css';
 import { useScrollValue } from '../../hooks/useScrollValue';
-
-const LINKS = [
-    { href: 'https://github.com/ckovacsdev', label: 'Github', Icon: FiGithub },
-    { href: 'mailto:ckovacsdev@gmail.com', label: 'Email', Icon: MdMailOutline },
-    { href: 'https://www.linkedin.com/in/ckovacsdev/', label: 'LinkedIn', Icon: TiSocialLinkedin }
-]
+import './home.css';
 
 const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -18,6 +10,13 @@ const scrollToSection = (id: string) => {
 
 export const Home = () => {
     const cueRef = useScrollValue<HTMLButtonElement>(
+        '--cue-fade',
+        (y) => `${Math.max(1 - y / (window.innerHeight * 0.45), 0)}`,
+        (el, y) => {
+            el.style.pointerEvents = y >= window.innerHeight * 0.45 ? 'none' : '';
+        },
+    );
+    const contactRef = useScrollValue<HTMLDivElement>(
         '--cue-fade',
         (y) => `${Math.max(1 - y / (window.innerHeight * 0.45), 0)}`,
         (el, y) => {
@@ -44,23 +43,6 @@ export const Home = () => {
                     </div>
                 </div>
 
-                <div className='home-contact-container'>
-                    <div className='home-contact'>
-                        {LINKS.map(({ href, label, Icon }) => (
-                            <a
-                                key={label}
-                                href={href}
-                                className='home-contact-link'
-                                aria-label={label}
-                                target={href.startsWith('mailto:') ? undefined : '_blank'}
-                                rel='noreffer'
-                            >
-                                <Icon aria-hidden='true' />
-                            </a>
-                        ))}
-                    </div>
-                </div>
-
                 <button 
                     type='button'
                     className='home-scroll'
@@ -70,6 +52,10 @@ export const Home = () => {
                     <span className='home-scroll-chevron' aria-hidden='true'></span>
                     <span className='home-scroll-label'>Scroll For More</span>
                 </button>
+                
+                <div className='home-contact-fade' ref={contactRef}>
+                    <Contact />
+                </div>
             </div>
         </div>
     )
