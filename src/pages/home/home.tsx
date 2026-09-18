@@ -35,7 +35,7 @@ export const Home = () => {
                     </div>
                     <p className='home-details'> 
                         Four years building feature-dense frontend applications in financial services.
-                        Primarily focused on developer tools and automation, I turn complex systems into tools that feel simple.
+                        Primarily focused on developer tools and automation, I turn complex systems into usable platforms.
                     </p>
                     <div className='home-buttons'>
                         <DecoButton type='primary' title='View My Work' onClick={() => scrollToSection('work')} />
