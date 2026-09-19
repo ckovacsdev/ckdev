@@ -13,7 +13,7 @@ Personal site and portfolio. Built with React, TypeScript, and Vite.
 ## Design Ideals
 
 - Art-deco visual system
-- Responsive from 400px up, with fluid type and spacing via `clamp()`
+- Responsive from 375px up, with fluid type and spacing via `clamp()`
 - Respects `prefers-reduced-motion` throughout
 
 ## Stack
