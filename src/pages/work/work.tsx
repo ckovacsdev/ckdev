@@ -2,6 +2,7 @@ import WorkCard, { type WorkCardProps } from '../../components/work-card/work-ca
 import TCWLogo from '../../assets/tcw.svg';
 import NYULogo from '../../assets/NYU-Logo.png';
 import { AiDocDetails } from '../../components/work-card/ai-doc-details';
+import { PlatformDetails } from '../../components/work-card/platform-details';
 import './work.css';
 
 const WORK_CARDS: WorkCardProps[] = [
@@ -16,7 +17,8 @@ const WORK_CARDS: WorkCardProps[] = [
         tech: 'React | TypeScript | Go | GraphQL', 
         title: 'Internal Developer Platform',
         subtext: '10 Tech Stacks | Resource Requistion | Automated CI/CD ', 
-        subtitle: "TCW's central developer automation platform.  Provisioned templated GitLab repositories across 10 tech stacks with standardized CI/CD, along with automated Snowflake, Okta, Key Vault, and RabbitMQ resource requests."
+        subtitle: "TCW's central developer automation platform.  Provisioned templated GitLab repositories across 10 tech stacks with standardized CI/CD, along with automated Snowflake, Okta, Key Vault, and RabbitMQ resource requests.",
+        children: <PlatformDetails />
     }
 ]
 
