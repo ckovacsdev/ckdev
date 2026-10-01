@@ -26,7 +26,7 @@ export const Work = () => {
     return (
         <div className='work-container'>
             <h2 className='work-title'>  Professional Projects </h2>
-            <div className='work-projects'>
+            <div className='work-grid'>
                 {WORK_CARDS.map(c => (
                     <WorkCard
                         key={c.title}
