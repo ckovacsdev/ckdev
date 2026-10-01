@@ -1,6 +1,7 @@
 .home-container{
     position: relative;
     height: 100vh;
+    height: 100svh;
     width: 100%;
     margin: 0;
     padding: 0;
@@ -77,6 +78,7 @@
     padding: 0;
     color: inherit;
     font: inherit;
+    bottom: max(25px, env(safe-area-inset-bottom) + 16px);
 }
 
 .home-contact-fade{
