@@ -1,6 +1,6 @@
 .work-container{
     min-height: calc(100vh - 110px);
-    padding: 10px 40px 0px 130px;
+    padding: 10px clamp(20px, 3vw, 40px) 0 clamp(20px, 12vw - 60px, 130px);
     display: flex;
     flex-direction: column;
     row-gap: 20px;
@@ -11,17 +11,6 @@
     padding: 15px 0px;
     max-width: 400px;
     border-bottom: 1px solid var(--main-accent);
-}
-
-.work-grid {
-	display: grid;
-	grid-template-columns: minmax(0, 1fr);
-	gap: clamp(1rem, 2.5vw, 2.5rem);
-}
- 
-.work-projects .work-card-slot{
-    min-width: 0;
-    height: 100%;
 }
 
 .work-history-container{
@@ -76,11 +65,13 @@
     white-space: nowrap;
 }
 
-@media (width >= 40rem) {
-	.work-grid {
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-	}
+@media (641px <= width <= 1024px) {
+    .work-history-container {
+        justify-content: flex-start;
+        margin-top: 2rem;
+    }
 }
+
 @media screen and (max-width: 640px) {
     .work-container{
         padding: 0px 20px;
