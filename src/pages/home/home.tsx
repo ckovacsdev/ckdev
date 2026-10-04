@@ -34,7 +34,7 @@ export const Home = () => {
                         <DecoRule />
                     </div>
                     <p className='home-details'> 
-                        Four years building feature-dense frontend applications in financial services.
+                        Four years building feature-dense web applications in financial services.
                         Primarily focused on developer tools and automation, I turn complex systems into usable platforms.
                     </p>
                     <div className='home-buttons'>
