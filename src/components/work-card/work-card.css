@@ -154,7 +154,6 @@
 	--ring-color: var(--main-accent-hover);
 }
 
-/* Wide cards: stats move into a column beside the description instead of a row above it */
 @container work-card (width >= 48rem) {
 	.work-card-body {
 		display: grid;
