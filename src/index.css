@@ -61,13 +61,6 @@ h2, h3, body {
 	border-bottom: 1px solid var(--main-accent);
 }
 
-/*
- * Display-panel silhouette: top-left and bottom-right corners cut on a 45° diagonal.
- * Hosts tune it with --cut and --ring-color, and must be positioned (relative, absolute or
- * fixed). The straight edges are a real border, which the browser snaps to whole pixels so it
- * stays crisp at every width; ::before draws only the two diagonal strokes the clip cuts away.
- * The clip runs 1px outside the box so it can never shave the snapped border.
- */
 .chamfer{
 	--_c: var(--cut, 1.25rem);
 	--_r: var(--ring, 1px);
@@ -80,7 +73,6 @@ h2, h3, body {
 	);
 }
 .chamfer::before{
-	/* offset of the stroke's inner edge, measured along an axis */
 	--_d: calc(var(--_r) * 1.4142);
 
 	content: '';
