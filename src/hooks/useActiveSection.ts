@@ -1,24 +1,51 @@
 import { useEffect, useState } from 'react';
 
+const ACTIVE_LINE = 0.5;
+
 export const useActiveSection = (ids: string[]) => {
     const [ active, setActive ] = useState(ids[0]);
 
     useEffect(() => {
-        const observer = new IntersectionObserver((entries) => {
-            const hit = entries.find((e) => e.isIntersecting);
-            if(hit) {
-                setActive(hit.target.id);
-            }
-        }, { rootMargin: '-45% 0px -50% 0px' });
+        let frame = 0;
 
-        ids.forEach((id) => {
-            const element = document.getElementById(id);
-            if (element) {
-                observer.observe(element);
+        const update = () => {
+            frame = 0;
+            const root = document.documentElement;
+            const atBottom = window.innerHeight + window.scrollY >= root.scrollHeight - 2;
+            if (atBottom) {
+                setActive(ids[ids.length - 1]);
+                return;
             }
-        });
 
-        return () => observer.disconnect();
+            const line = window.innerHeight * ACTIVE_LINE;
+            let current = ids[0];
+            ids.forEach((id) => {
+                const element = document.getElementById(id);
+                if (element && element.getBoundingClientRect().top <= line) {
+                    current = id;
+                }
+            });
+            setActive(current);
+        };
+
+        const onScroll = () => {
+            if (frame) {
+                return;
+            }
+            frame = requestAnimationFrame(update);
+        };
+
+        update();
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onScroll);
+
+        return () => {
+            window.removeEventListener('scroll', onScroll);
+            window.removeEventListener('resize', onScroll);
+            if (frame) {
+                cancelAnimationFrame(frame);
+            }
+        };
     }, [ids]);
 
     return active;

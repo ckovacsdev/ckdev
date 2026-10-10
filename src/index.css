@@ -2,19 +2,39 @@
 	margin: 0;
 	padding: 0;
 
-	/* Colors */
-	--main-background: #1e222f;
-	--main-accent: #c0914b;
-	--main-accent-hover: #d8b478;
-	--main-text: #e4e1d6;
+	/* Colors: channels are kept separately so tints stay in sync with the base color */
+	--main-background-rgb: 30 34 47;
+	--main-accent-rgb: 192 145 75;
+	--main-accent-hover-rgb: 216 180 120;
+	--main-text-rgb: 228 225 214;
 
-	--secondary-background: #282d3e;
-	--secondary-accent: #598893;
+	--main-background: rgb(var(--main-background-rgb));
+	--main-accent: rgb(var(--main-accent-rgb));
+	--main-accent-hover: rgb(var(--main-accent-hover-rgb));
+	--main-text: rgb(var(--main-text-rgb));
 
+	--text-muted: rgb(var(--main-text-rgb) / 0.55);
+	--text-muted-hover: rgb(var(--main-text-rgb) / 0.75);
+	--accent-tint: rgb(var(--main-accent-rgb) / 0.07);
+	--accent-line: rgb(var(--main-accent-rgb) / 0.28);
+	--accent-border: rgb(var(--main-accent-hover-rgb) / 0.35);
+	--surface: rgb(255 255 255 / 0.03);
+	--surface-solid: rgb(37 41 53); /* --surface composited over --main-background, for stacked panels */
+	--surface-border: rgb(255 255 255 / 0.3);
+	--hairline: rgb(255 255 255 / 0.08);
 
 	/* Fonts */
 	--font-display: 'Poiret One', system-ui, sans-serif;
 	--font-body: 'Lato', system-ui, sans-serif;
+
+	/* Layout */
+	--page-gutter-start: clamp(20px, 12vw - 60px, 130px);
+	--page-gutter-end: clamp(20px, 3vw, 40px);
+	--nav-offset: 100px;
+}
+
+html{
+	scroll-behavior: smooth;
 }
 
 body{
@@ -32,4 +52,80 @@ h2, h3, body {
 	font-family: var(--font-body);
 	font-weight: 400;
 	color: var(--main-text);
+}
+
+.section-title{
+	margin: 0;
+	padding: 15px 0px;
+	max-width: 400px;
+	border-bottom: 1px solid var(--main-accent);
+}
+
+/*
+ * Display-panel silhouette: top-left and bottom-right corners cut on a 45° diagonal.
+ * Hosts tune it with --cut and --ring-color, and must be positioned (relative, absolute or
+ * fixed). The straight edges are a real border, which the browser snaps to whole pixels so it
+ * stays crisp at every width; ::before draws only the two diagonal strokes the clip cuts away.
+ * The clip runs 1px outside the box so it can never shave the snapped border.
+ */
+.chamfer{
+	--_c: var(--cut, 1.25rem);
+	--_r: var(--ring, 1px);
+
+	border: var(--_r) solid var(--ring-color, var(--surface-border));
+	clip-path: polygon(
+		calc(var(--_c) + 1px) -1px, calc(100% + 1px) -1px,
+		calc(100% + 1px) calc(100% - var(--_c) - 1px), calc(100% - var(--_c) - 1px) calc(100% + 1px),
+		-1px calc(100% + 1px), -1px calc(var(--_c) + 1px)
+	);
+}
+.chamfer::before{
+	/* offset of the stroke's inner edge, measured along an axis */
+	--_d: calc(var(--_r) * 1.4142);
+
+	content: '';
+	position: absolute;
+	inset: calc(-1 * var(--_r));
+	z-index: 2;
+	background: var(--ring-color, var(--surface-border));
+	pointer-events: none;
+	clip-path: polygon(evenodd,
+		calc(var(--_c) - var(--_r)) var(--_r),
+		calc(var(--_c) - var(--_r) + var(--_d)) var(--_r),
+		var(--_r) calc(var(--_c) - var(--_r) + var(--_d)),
+		var(--_r) calc(var(--_c) - var(--_r)),
+		calc(var(--_c) - var(--_r)) var(--_r),
+
+		calc(100% - var(--_c) + var(--_r)) calc(100% - var(--_r)),
+		calc(100% - var(--_c) - var(--_d) + var(--_r)) calc(100% - var(--_r)),
+		calc(100% - var(--_r)) calc(100% - var(--_c) - var(--_d) + var(--_r)),
+		calc(100% - var(--_r)) calc(100% - var(--_c) + var(--_r)),
+		calc(100% - var(--_c) + var(--_r)) calc(100% - var(--_r))
+	);
+	transition: background 0.35s ease;
+}
+
+@keyframes border-in {
+	to {
+		transform: scale(1);
+	}
+}
+
+@keyframes fade-in {
+	to {
+		opacity: 1;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.chamfer::before {
+		transition: none;
+	}
+}
+
+@media screen and (max-width: 640px){
+	:root{
+		--page-gutter-start: 20px;
+		--page-gutter-end: 20px;
+	}
 }

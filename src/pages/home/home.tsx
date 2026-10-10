@@ -1,6 +1,7 @@
 import { Contact } from '../../components/contact/contact';
 import { DecoButton } from '../../components/deco-button/deco-button';
 import { DecoRule } from '../../components/deco-rule/deco-rule';
+import { RESUME_PATH } from '../../data/links';
 import { useScrollValue } from '../../hooks/useScrollValue';
 import './home.css';
 
@@ -39,7 +40,7 @@ export const Home = () => {
                     </p>
                     <div className='home-buttons'>
                         <DecoButton type='primary' title='View My Work' onClick={() => scrollToSection('work')} />
-                        <DecoButton type='secondary' title='Download Resume' href='/Christian_Kovacs_Resume.pdf' />
+                        <DecoButton type='secondary' title='Download Resume' href={RESUME_PATH} />
                     </div>
                 </div>
 

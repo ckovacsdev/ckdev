@@ -5,7 +5,7 @@
     border: 0;
     border-radius: 0;
     background: transparent;
-    font-family: 'Lato', system-ui, sans-serif;
+    font-family: var(--font-body);
     font-size: 16px;
     font-weight: 400;
     cursor: pointer;
@@ -13,6 +13,8 @@
     width: 100%;
     max-width: 250px;
     box-sizing: border-box;
+    text-align: center;
+    text-decoration: none;
 }
 .deco-button:focus-visible{
     outline: 1px solid white;
@@ -23,13 +25,12 @@
     color: var(--main-background);
 }
 .deco-button.primary:hover{
-    background-color: #d8b478;
+    background-color: var(--main-accent-hover);
 }
 
 .deco-button.secondary{
     color: var(--main-accent);
     border: 1px solid var(--main-accent);
-    text-decoration: none;
 }
 .deco-button.secondary::before, .deco-button.secondary::after{
     content: '';
@@ -57,5 +58,5 @@
     height: 32px;
 }
 .deco-button.secondary:hover{
-    background: rgba(200, 161, 101, 0.07);
+    background: var(--accent-tint);
 }

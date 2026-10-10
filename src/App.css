@@ -31,6 +31,10 @@
 	height: var(--rail-h);
 }
 
+.app-main > section[id]{
+	scroll-margin-top: var(--nav-offset);
+}
+
 #footer {
 	grid-column: 1 / -1;
 }
