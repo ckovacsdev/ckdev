@@ -2,7 +2,9 @@ import { Contact } from '../../components/contact/contact';
 import { DecoButton } from '../../components/deco-button/deco-button';
 import { DecoRule } from '../../components/deco-rule/deco-rule';
 import { RESUME_PATH } from '../../data/links';
+import { usePointerVars } from '../../hooks/usePointerVars';
 import { useScrollValue } from '../../hooks/useScrollValue';
+import '../../styles/bg-pattern.css';
 import './home.css';
 
 const scrollToSection = (id: string) => {
@@ -17,6 +19,11 @@ export const Home = () => {
             el.style.pointerEvents = y >= window.innerHeight * 0.45 ? 'none' : '';
         },
     );
+    const patternRef = useScrollValue<HTMLDivElement>(
+        '--pattern-fade',
+        (y) => `${Math.max(1 - y / (window.innerHeight * 0.85), 0)}`,
+    );
+    usePointerVars(patternRef);
     const contactRef = useScrollValue<HTMLDivElement>(
         '--cue-fade',
         (y) => `${Math.max(1 - y / (window.innerHeight * 0.45), 0)}`,
@@ -26,7 +33,7 @@ export const Home = () => {
     );
 
     return (
-        <div className='home-container'>
+        <div className='home-container bg-pattern pattern-spotlight' ref={patternRef}>
             <div className='home-content'>
                 <div className='home-text'>
                     <h1 className='home-title'> Christian Kovacs</h1>
@@ -40,7 +47,7 @@ export const Home = () => {
                     </p>
                     <div className='home-buttons'>
                         <DecoButton type='primary' title='View My Work' onClick={() => scrollToSection('work')} />
-                        <DecoButton type='secondary' title='Download Resume' href={RESUME_PATH} />
+                        <DecoButton type='secondary' title='View Resume' href={RESUME_PATH} />
                     </div>
                 </div>
 

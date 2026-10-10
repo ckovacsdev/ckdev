@@ -31,6 +31,7 @@
 .deco-button.secondary{
     color: var(--main-accent);
     border: 1px solid var(--main-accent);
+    background: var(--main-background);
 }
 .deco-button.secondary::before, .deco-button.secondary::after{
     content: '';
@@ -58,5 +59,5 @@
     height: 32px;
 }
 .deco-button.secondary:hover{
-    background: var(--accent-tint);
+    background: linear-gradient(var(--accent-tint), var(--accent-tint)), var(--main-background);
 }

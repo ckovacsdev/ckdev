@@ -1,6 +1,6 @@
 .app-container{
 	--rail-w: 100px;
-	--rail-h:: 100vw;
+	--rail-h: 100vh;
 
 	display: grid;
 	grid-template-columns: minmax(0, 1fr) var(--rail-w);
@@ -28,6 +28,7 @@
 .deco-rail{
 	position: sticky;
 	top: 0;
+	align-self: start;
 	height: var(--rail-h);
 }
 

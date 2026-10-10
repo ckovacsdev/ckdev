@@ -1,0 +1,34 @@
+.bg-pattern {
+	--pattern-tile: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='170' height='338' viewBox='0 0 170 338'%3E%3Cg fill='%23c0914b' fill-opacity='0.09'%3E%3Cpath d='M0 338V0h1v1.99L170 338h-1.12L1 4.22V338H0zM170 2.23h-.12l-1-1.99H170v2.23z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
+	--pattern-tile-lit: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='170' height='338' viewBox='0 0 170 338'%3E%3Cg fill='%23c0914b' fill-opacity='0.16'%3E%3Cpath d='M0 338V0h1v1.99L170 338h-1.12L1 4.22V338H0zM170 2.23h-.12l-1-1.99H170v2.23z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
+	position: relative;
+	isolation: isolate;
+}
+
+.bg-pattern::before,
+.pattern-spotlight::after {
+	content: '';
+	position: fixed;
+	inset: 0 var(--rail-w, 0px) 0 0;
+	z-index: -1;
+	pointer-events: none;
+}
+
+.bg-pattern::before {
+	background-image: var(--pattern-tile);
+	opacity: var(--pattern-fade, 1);
+}
+
+.pattern-spotlight::after {
+	background-image: var(--pattern-tile-lit);
+	opacity: calc(var(--pattern-fade, 1) * var(--spot, 0));
+	-webkit-mask-image: radial-gradient(circle 180px at var(--mx, -999px) var(--my, -999px), #000, transparent);
+	mask-image: radial-gradient(circle 180px at var(--mx, -999px) var(--my, -999px), #000, transparent);
+}
+
+@media screen and (max-width: 640px) {
+	.bg-pattern::before,
+	.pattern-spotlight::after {
+		inset: 0;
+	}
+}
