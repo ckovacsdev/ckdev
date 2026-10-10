@@ -1,18 +1,40 @@
-html{
-    scroll-behavior: smooth;
-}
-.navigation-container{
+.navigation-bar{
+    --nav-solid: 0;
+
     position: fixed;
-    padding: 1.5rem 2rem;
-    top: 25px;
-    left: 25px;
+    top: 0;
+    left: 0;
+    right: var(--rail-w, 0px);
     z-index: 10;
+    display: flex;
+    justify-content: flex-start;
+    padding: 25px;
+    pointer-events: none;
+    transition: padding .35s cubic-bezier(.22, .72, .24, 1);
+}
+.navigation-bar::before{
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgb(var(--main-background-rgb) / 0.92);
+    border-bottom: 1px solid var(--accent-line);
+    backdrop-filter: blur(14px) saturate(100%);
+    opacity: var(--nav-solid);
+    pointer-events: none;
+}
+.navigation-bar[data-scrolled]{
+    padding-block: 12px;
+}
+
+.navigation-container{
+    position: relative;
+    padding: 1.5rem 2rem;
     display: flex;
     align-items: center;
     gap: 2rem;
-    backdrop-filter: blur(14px) saturate(100%);
+    pointer-events: auto;
 }
-.navigation-container::before, 
+.navigation-container::before,
 .navigation-container::after {
     content: '';
     position: absolute;
@@ -43,7 +65,7 @@ html{
     color: var(--main-text);
     text-decoration: none;
     font-size: 1.1rem;
-    font-weight: 200;
+    font-weight: 300;
     transition: color .35s ease;
 }
 .nav-link:hover{
@@ -52,6 +74,7 @@ html{
 }
 .nav-link[aria-current] {
     color: var(--main-accent);
+    font-weight: 400;
 }
 .nav-link::after{
     content: '';
@@ -65,23 +88,31 @@ html{
     transform-origin: left;
     transition: transform .4s cubic-bezier(.22, .72, .24, 1);
 }
-.nav-link[aria-current]{
-    font-weight: 500;
-}
 .nav-link:focus-visible{
     outline: 1px solid var(--main-accent);
     outline-offset: 6px;
 }
 
-@keyframes border-in {
-    to {
-        transform: scale(1);
+@media screen and (max-width: 640px){
+    .navigation-bar {
+        right: 0;
+        justify-content: center;
+        padding: 10px;
+    }
+    .navigation-bar[data-scrolled]{
+        padding-block: 6px;
+    }
+    .navigation-container {
+        padding: 1rem 1.25rem;
+        gap: 1.25rem;
+    }
+    .nav-link {
+        font-size: 1rem;
     }
 }
-@media screen and (max-width: 640px){
-    .navigation-container {
-        left: 50%;
-        transform: translateX(-50%); 
-        top: 10px;
+
+@media (prefers-reduced-motion: reduce) {
+    .navigation-bar {
+        transition: none;
     }
 }

@@ -9,12 +9,13 @@ export const DecoButton = (props: {
     const { type, title, href, onClick } = props;
     
     if(href){
+        const newTab = !href.startsWith('mailto:');
         return(
             <a
-                className={`deco-button ${type}`} 
+                className={`deco-button ${type}`}
                 href={href}
-                target='_blank'
-                rel='noopener noreferrer'
+                target={newTab ? '_blank' : undefined}
+                rel={newTab ? 'noopener noreferrer' : undefined}
             >
                 {title}
             </a>

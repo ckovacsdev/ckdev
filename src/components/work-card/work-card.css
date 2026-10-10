@@ -5,29 +5,17 @@
 }
 
 .work-card {
+	--cut: clamp(1.25rem, 0.75rem + 3cqi, 2.25rem);
+
 	position: relative;
 	display: grid;
-	grid-template-columns: minmax(0, 1fr) auto;
+	grid-template-columns: minmax(0, 1fr);
 	box-sizing: border-box;
 	block-size: 100%;
 	min-block-size: 10rem;
-	border: 1px solid rgba(255, 255, 255, 0.3);
-	background: rgba(255, 255, 255, 0.03);
+	background: var(--surface-solid);
 	color: inherit;
-	opacity: 0.9;
 	transition: translate 0.35s ease, border-color 0.35s ease;
-}
-
-.work-grid {
-	display: grid;
-	grid-template-columns: minmax(0, 1fr);
-	gap: clamp(1rem, 2.5vw, 2.5rem);
-}
-
-@media (width >= 40rem) {
-	.work-grid {
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-	}
 }
 
 .work-card[data-open] {
@@ -52,8 +40,7 @@
 	overflow-wrap: anywhere;
 }
 
-.work-card-tech,
-.work-card-subtext {
+.work-card-tech {
 	margin: 0;
 	font-size: clamp(0.75rem, 0.7rem + 0.4cqi, 0.95rem);
 	line-height: 1.4;
@@ -71,25 +58,62 @@
 	line-height: 1.5;
 }
 
+.work-stats {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(6.5rem, 1fr));
+	gap: 0.75rem 1.25rem;
+	margin: 0;
+	padding-block: 0.85rem;
+	border-block: 1px solid var(--accent-line);
+}
+
+.work-stat {
+	display: flex;
+	flex-direction: column-reverse;
+	justify-content: flex-end;
+	gap: 0.25rem;
+	min-inline-size: 0;
+}
+
+.work-stat-value {
+	margin: 0;
+	font-weight: 300;
+	color: var(--main-accent);
+	line-height: 1.1;
+	white-space: nowrap;
+}
+
+.work-stat-label {
+	color: var(--text-muted-hover);
+	line-height: 1.35;
+	text-wrap: balance;
+}
+
+.work-card-stats {
+	margin-top: 0.5rem;
+}
+.work-card-stats .work-stat-value {
+	font-size: clamp(1.25rem, 0.85rem + 2.2cqi, 1.85rem);
+}
+.work-card-stats .work-stat-label {
+	font-size: clamp(0.7rem, 0.65rem + 0.35cqi, 0.85rem);
+}
+
+.work-dialog-stats {
+	margin-top: 0.75rem;
+}
+.work-dialog-stats .work-stat-value {
+	font-size: clamp(1.4rem, 0.9rem + 2.6cqi, 2.25rem);
+}
+.work-dialog-stats .work-stat-label {
+	font-size: clamp(0.75rem, 0.7rem + 0.35cqi, 0.9rem);
+}
+
 .work-card-read-more {
 	margin: auto 0 0;
 	padding-top: 0.75rem;
 	font-size: clamp(0.8rem, 0.75rem + 0.4cqi, 1rem);
 	transition: color 0.35s ease;
-}
-
-.work-card-pattern {
-	inline-size: clamp(2rem, 1rem + 6cqi, 4.5rem);
-	overflow: hidden;
-	opacity: 0.5;
-	pointer-events: none;
-}
-
-.work-card-pattern :where(svg),
-.work-dialog-pattern :where(svg) {
-	display: block;
-	inline-size: 100%;
-	block-size: 100%;
 }
 
 .work-card-toggle {
@@ -102,8 +126,7 @@
 }
 
 .work-card-toggle:focus-visible {
-	outline: 2px solid var(--main-accent);
-	outline-offset: 3px;
+	outline: none;
 }
 
 .work-card-sr {
@@ -117,8 +140,8 @@
 
 @media (hover: hover) {
 	.work-card:hover {
+		--ring-color: var(--accent-border);
 		translate: 0 -5px;
-		border-color: rgba(216, 180, 120, 0.35);
 	}
 }
 
@@ -128,15 +151,59 @@
 }
 
 .work-card:has(.work-card-toggle:focus-visible) {
-	border-color: rgba(216, 180, 120, 0.35);
+	--ring-color: var(--main-accent-hover);
+}
+
+/* Wide cards: stats move into a column beside the description instead of a row above it */
+@container work-card (width >= 48rem) {
+	.work-card-body {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(13rem, 17rem);
+		grid-template-rows: auto auto 1fr auto;
+		grid-template-areas:
+			'title    stats'
+			'tech     stats'
+			'subtitle stats'
+			'more     stats';
+		column-gap: clamp(2rem, 4cqi, 3.5rem);
+	}
+	.work-card-title { grid-area: title; }
+	.work-card-tech { grid-area: tech; }
+	.work-card-subtitle {
+		grid-area: subtitle;
+		margin-top: 0.75rem;
+		-webkit-line-clamp: 4;
+		line-clamp: 4;
+	}
+	.work-card-read-more { grid-area: more; }
+	.work-card-stats {
+		grid-area: stats;
+		grid-template-columns: minmax(0, 1fr);
+		align-content: center;
+		gap: 1.1rem;
+		margin: 0;
+		padding-block: 0.25rem;
+		padding-inline-start: clamp(1.5rem, 3cqi, 2.5rem);
+		border-block: 0;
+		border-inline-start: 1px solid var(--accent-line);
+	}
 }
 
 @container work-card (width < 22rem) {
-	.work-card {
-		grid-template-columns: minmax(0, 1fr);
+	.work-card-stats {
+		grid-template-columns: max-content minmax(0, 1fr);
+		grid-auto-flow: dense;
+		align-items: center;
+		gap: 0.6rem 0.85rem;
 	}
-	.work-card-pattern {
-		display: none;
+	.work-card-stats .work-stat {
+		display: contents;
+	}
+	.work-card-stats .work-stat-value {
+		grid-column: 1;
+	}
+	.work-card-stats .work-stat-label {
+		grid-column: 2;
 	}
 	.work-card-subtitle {
 		-webkit-line-clamp: 2;
@@ -145,8 +212,7 @@
 }
 
 @container work-card (width < 17rem) {
-	.work-card-subtitle,
-	.work-card-subtext {
+	.work-card-subtitle {
 		display: none;
 	}
 }
@@ -155,17 +221,16 @@
 	--work-gap: clamp(0.5rem, 3vw, 3rem);
 	container: work-dialog / inline-size;
 	box-sizing: border-box;
+	--cut: clamp(1.5rem, 1rem + 1.5vw, 2.75rem);
+	--ring-color: var(--accent-border);
 	inline-size: min(100% - 2 * var(--work-gap), clamp(36rem, 24rem + 22vw, 60rem));
 	max-inline-size: none;
 	max-block-size: calc(100dvh - 2 * var(--work-gap));
 	margin: auto;
 	padding: 0;
-	overflow-y: auto;
-	overscroll-behavior: contain;
-	border: 1px solid rgba(216, 180, 120, 0.35);
+	overflow: hidden;
 	background: var(--main-background);
 	color: inherit;
-	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 	transform-origin: top left;
 }
 
@@ -181,7 +246,12 @@
 
 .work-dialog-layout {
 	display: grid;
-	grid-template-columns: minmax(0, 1fr) auto;
+	grid-template-columns: minmax(0, 1fr);
+	max-block-size: calc(100dvh - 2 * var(--work-gap));
+	overflow-y: auto;
+	overscroll-behavior: contain;
+	scrollbar-width: thin;
+	scrollbar-color: var(--accent-line) transparent;
 }
 
 .work-dialog-body {
@@ -204,7 +274,7 @@
 	inline-size: 2.2rem;
 	block-size: 2.2rem;
 	padding: 0;
-	border: 1px solid rgba(255, 255, 255, 0.3);
+	border: 1px solid var(--surface-border);
 	border-radius: 50%;
 	background: var(--main-background);
 	color: inherit;
@@ -231,12 +301,12 @@
 	display: flex;
 	flex-direction: column;
 	gap: 0.5rem;
-	padding-right: 3.25rem;
 	margin-bottom: clamp(1rem, 0.5rem + 2cqi, 2rem);
 }
 
 .work-dialog-title {
 	margin: 0;
+	padding-right: 3.25rem;
 	font-weight: 400;
 	font-size: clamp(1.3rem, 1rem + 2cqi, 2.25rem);
 	line-height: 1.2;
@@ -244,8 +314,7 @@
 	overflow-wrap: anywhere;
 }
 
-.work-dialog-tech,
-.work-dialog-subtext {
+.work-dialog-tech {
 	margin: 0;
 	font-size: clamp(0.8rem, 0.75rem + 0.4cqi, 1rem);
 	line-height: 1.4;
@@ -266,19 +335,21 @@
 	overflow-x: auto;
 }
 
-.work-dialog-pattern {
-	inline-size: clamp(2.5rem, 1rem + 6cqi, 5rem);
-	overflow: hidden;
-	opacity: 0.5;
-	pointer-events: none;
-}
-
 @container work-dialog (width < 32rem) {
-	.work-dialog-layout {
-		grid-template-columns: minmax(0, 1fr);
+	.work-dialog-stats {
+		grid-template-columns: max-content minmax(0, 1fr);
+		grid-auto-flow: dense;
+		align-items: center;
+		gap: 0.6rem 0.85rem;
 	}
-	.work-dialog-pattern {
-		display: none;
+	.work-dialog-stats .work-stat {
+		display: contents;
+	}
+	.work-dialog-stats .work-stat-value {
+		grid-column: 1;
+	}
+	.work-dialog-stats .work-stat-label {
+		grid-column: 2;
 	}
 }
 
@@ -320,6 +391,7 @@
 
 @media (prefers-reduced-motion: reduce) {
 	.work-card,
+	.work-card::before,
 	.work-card:hover,
 	.work-dialog .work-dialog-layout,
 	.work-dialog::backdrop {

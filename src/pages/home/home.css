@@ -33,11 +33,11 @@
     }
     .home-subtitle{
         font-size: 24px;
-        font-weight: 200;
+        font-weight: 300;
     }
     .home-details{
         font-size: 20px;
-        font-weight: 200;
+        font-weight: 300;
         max-width: 62ch;
     }
     .home-no-break{
@@ -107,28 +107,18 @@
 
 .home-scroll-label {
 	font-size: 14px;
-	color: rgb(232 230 227 / 0.55);
+	color: var(--text-muted);
 	opacity: 0;
 	animation: fade-in 2s cubic-bezier(0.22, 0.72, 0.24, 1) 0.35s both;
     transition: color .35s ease;
 }
 
 .home-scroll:hover .home-scroll-label{
-	color: rgb(232 230 227 / 0.75);
+	color: var(--text-muted-hover);
 	transition: color .35s ease;
 }
 .home-scroll:hover .home-scroll-chevron{
 	scale: 1.2;
-}
-
-#work{
-    scroll-margin-top: 84px;
-}
-
-@keyframes fade-in {
-  to {
-    opacity: 1;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {

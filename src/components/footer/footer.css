@@ -6,10 +6,10 @@
     column-gap: 32px;
     row-gap: 8px;
     padding: 16px;
-    border-top: 1px solid rgb(200 161 101 / 0.28);
+    border-top: 1px solid var(--accent-line);
     font-size: 14px;
-    font-weight: 200;
-    color: rgb(232 230 227 / 0.55);
+    font-weight: 300;
+    color: var(--text-muted);
     position: relative;
     background-color: var(--main-background);
 }

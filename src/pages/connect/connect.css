@@ -1,0 +1,29 @@
+.connect-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: clamp(3rem, 8vw, 7rem) var(--page-gutter-end) clamp(4rem, 10vw, 8rem) var(--page-gutter-start);
+    text-align: center;
+}
+
+.connect-title{
+    margin: 0;
+    font-size: clamp(1.9rem, 1.4rem + 2vw, 2.75rem);
+    font-weight: 300;
+}
+
+.connect-separator{
+    width: 100%;
+    max-width: 420px;
+}
+
+.connect-buttons{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 32px;
+    row-gap: 12px;
+    margin-top: 8px;
+}

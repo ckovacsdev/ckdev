@@ -1,7 +1,7 @@
 import './footer.css';
 
 const BUILD_YEAR = 2026;
-const LAST_UPDATED = 'Sept 2026';
+const LAST_UPDATED = 'October 2026';
 const REPO_URL = 'https://github.com/ckovacsdev/ckdev';
 
 export const Footer = () => {

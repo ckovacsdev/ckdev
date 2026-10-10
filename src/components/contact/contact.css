@@ -70,11 +70,11 @@
     left: 11px;
     right: 11px;
     height: 1px;
-    background: rgb(200 161 101 / 0.28);
+    background: var(--accent-line);
 }
 
 .home-contact-link:hover {
-    background: rgb(200 161 101 / 0.07);
+    background: var(--accent-tint);
     color: var(--main-accent);
 }
 

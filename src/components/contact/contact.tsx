@@ -1,12 +1,13 @@
 import { FiGithub } from 'react-icons/fi';
 import { TiSocialLinkedin } from 'react-icons/ti';
 import { MdMailOutline } from 'react-icons/md';
+import { EMAIL, GITHUB_URL, LINKEDIN_URL } from '../../data/links';
 import './contact.css';
 
 const LINKS = [
-    { href: 'https://github.com/ckovacsdev', label: 'Github', Icon: FiGithub },
-    { href: 'mailto:ckovacsdev@gmail.com', label: 'Email', Icon: MdMailOutline },
-    { href: 'https://www.linkedin.com/in/ckovacsdev/', label: 'LinkedIn', Icon: TiSocialLinkedin }
+    { href: GITHUB_URL, label: 'Github', Icon: FiGithub },
+    { href: `mailto:${EMAIL}`, label: 'Email', Icon: MdMailOutline },
+    { href: LINKEDIN_URL, label: 'LinkedIn', Icon: TiSocialLinkedin }
 ]
 export const Contact = () => {
     return (

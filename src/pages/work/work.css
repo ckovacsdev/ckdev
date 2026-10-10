@@ -1,15 +1,8 @@
 .work-container{
-    padding: 10px clamp(20px, 3vw, 40px) 0 clamp(20px, 12vw - 60px, 130px);
+    padding: 10px var(--page-gutter-end) 0 var(--page-gutter-start);
     display: flex;
     flex-direction: column;
     row-gap: 20px;
-}
-
-.work-title{
-    margin: 0;
-    padding: 15px 0px;
-    max-width: 400px;
-    border-bottom: 1px solid var(--main-accent);
 }
 
 .work-history-container {
@@ -21,11 +14,10 @@
 
 .work-history-item{
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 1rem;
-    min-height: 85px;
-    padding: 0.75rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--hairline);
 }
 .work-history-item:last-child {
     border-bottom: none;
@@ -42,25 +34,69 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 0.75rem;
     min-width: 0;
 }
 
-.work-history-item-position{
-    margin: 0;
-    font-size: 0.9rem;
-    font-weight: 500;
+.work-history-item-head,
+.work-history-role-head{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    column-gap: 1rem;
+    row-gap: 2px;
 }
+.work-history-item-head{
+    min-height: 56px;
+    align-items: center;
+}
+
 .work-history-item-company{
     margin: 0;
-    font-size: 0.85rem;
-    opacity: 0.75;
+    font-size: 1.05rem;
 }
-.work-history-item-dates{
+.work-history-role-dates{
     margin: 0;
     font-size: 0.80rem;
     opacity: 0.6;
     white-space: nowrap;
+}
+
+.work-history-roles{
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.work-history-role{
+    position: relative;
+}
+
+.work-history-item-position{
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: var(--main-accent);
+}
+
+.work-history-highlights{
+    margin: 0.5rem 0 0;
+    padding-left: 1.1rem;
+    max-width: 130ch;
+    font-size: 0.875rem;
+    font-weight: 300;
+    line-height: 1.55;
+    color: var(--text-muted-hover);
+}
+.work-history-highlights li + li{
+    margin-top: 0.35rem;
+}
+.work-history-highlights li::marker{
+    color: var(--main-accent);
 }
 
 @media (641px <= width <= 1024px) {
@@ -72,7 +108,18 @@
 
 @media screen and (max-width: 640px) {
     .work-container{
-        padding: 0px 20px;
+        padding-top: 0;
         margin-bottom: 0px;
+    }
+    .work-history-item-logo{
+        width: 44px;
+        height: 44px;
+    }
+    .work-history-item-head{
+        min-height: 44px;
+    }
+    .work-history-role-head{
+        flex-direction: column;
+        align-items: flex-start;
     }
 }

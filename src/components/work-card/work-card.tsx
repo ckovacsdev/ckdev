@@ -1,13 +1,17 @@
 import { useId, useRef, useState, type MouseEvent, type ReactNode, type SyntheticEvent } from 'react';
-import { DecoPattern } from '../deco-pattern/deco-pattern';
 import './work-card.css';
 import { IoCloseOutline } from 'react-icons/io5';
+
+export type WorkStat = {
+	value: string;
+	label: string;
+};
 
 export type WorkCardProps = {
 	tech: string;
 	title: string;
 	subtitle: string;
-	subtext: string;
+	stats: WorkStat[];
 	children?: ReactNode;
 };
 
@@ -30,10 +34,22 @@ function flip(el: HTMLElement, from: DOMRect, direction: 'in' | 'out') {
 	});
 }
 
-export default function WorkCard({ tech, title, subtitle, subtext, children }: WorkCardProps) {
+const WorkStats = ({ stats, className }: { stats: WorkStat[]; className: string }) => (
+	<dl className={`work-stats ${className}`}>
+		{stats.map(({ value, label }) => (
+			<div key={label} className='work-stat'>
+				<dt className='work-stat-label'>{label}</dt>
+				<dd className='work-stat-value'>{value}</dd>
+			</div>
+		))}
+	</dl>
+);
+
+export default function WorkCard({ tech, title, subtitle, stats, children }: WorkCardProps) {
 	const [ open, setOpen ] = useState(false);
 	const cardRef = useRef<HTMLElement>(null);
 	const dialogRef = useRef<HTMLDialogElement>(null);
+	const layoutRef = useRef<HTMLDivElement>(null);
 	const closingRef = useRef(false);
 	const titleId = useId();
 
@@ -46,7 +62,9 @@ export default function WorkCard({ tech, title, subtitle, subtext, children }: W
 
 		const from = card.getBoundingClientRect();
 		dialog.showModal();
-		dialog.scrollTop = 0;
+		if (layoutRef.current) {
+			layoutRef.current.scrollTop = 0;
+		}
 		setOpen(true);
 
 		if (!prefersReducedMotion()) {
@@ -102,17 +120,13 @@ export default function WorkCard({ tech, title, subtitle, subtext, children }: W
 
 	return (
 		<div className='work-card-slot'>
-			<article ref={cardRef} className='work-card' data-open={open || undefined}>
+			<article ref={cardRef} className='work-card chamfer' data-open={open || undefined}>
 				<div className='work-card-body'>
 					<h3 className='work-card-title'>{title}</h3>
 					<p className='work-card-tech'>{tech}</p>
-					<p className='work-card-subtext'>{subtext}</p>
+					<WorkStats stats={stats} className='work-card-stats' />
 					<p className='work-card-subtitle'>{subtitle}</p>
 					<p className='work-card-read-more' aria-hidden='true'>Read more +</p>
-				</div>
-
-				<div className='work-card-pattern' aria-hidden='true'>
-					<DecoPattern />
 				</div>
 
 				<button
@@ -128,13 +142,13 @@ export default function WorkCard({ tech, title, subtitle, subtext, children }: W
 
 			<dialog
 				ref={dialogRef}
-				className='work-dialog'
+				className='work-dialog chamfer'
 				aria-labelledby={titleId}
 				onCancel={handleCancel}
 				onClose={handleClose}
 				onClick={handleDialogClick}
 			>
-				<div className='work-dialog-layout'>
+				<div className='work-dialog-layout' ref={layoutRef}>
 					<div className='work-dialog-body'>
 						<div className='work-dialog-closebar'>
 							<button type='button' className='work-dialog-close' onClick={closeDialog} aria-label='Close'>
@@ -145,14 +159,10 @@ export default function WorkCard({ tech, title, subtitle, subtext, children }: W
 						<header className='work-dialog-header'>
 							<h2 id={titleId} className='work-dialog-title'>{title}</h2>
 							<p className='work-dialog-tech'>{tech}</p>
-							<p className='work-dialog-subtext'>{subtext}</p>
+							<WorkStats stats={stats} className='work-dialog-stats' />
 						</header>
 
 						<div className='work-dialog-content'>{children}</div>
-					</div>
-
-					<div className='work-dialog-pattern' aria-hidden='true'>
-						<DecoPattern />
 					</div>
 				</div>
 			</dialog>
