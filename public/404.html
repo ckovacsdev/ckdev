@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>Page Not Found | Christian Kovacs</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        color-scheme: dark;
+        --main-background: #1e222f;
+        --main-accent: #c0914b;
+        --main-accent-hover: #d8b478;
+        --main-text: #e4e1d6;
+      }
+      html, body {
+        margin: 0;
+        height: 100%;
+        background: var(--main-background);
+        color: var(--main-text);
+        font-family: 'Lato', system-ui, sans-serif;
+      }
+      main {
+        min-height: 100%;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        padding: 25px;
+        text-align: center;
+      }
+      h1 {
+        margin: 0;
+        font-family: 'Poiret One', system-ui, sans-serif;
+        font-weight: 400;
+        font-size: clamp(64px, 18vw, 120px);
+        color: var(--main-accent);
+        line-height: 1;
+      }
+      .rule {
+        width: min(100%, 400px);
+        height: 11px;
+        background:
+          linear-gradient(var(--main-accent), var(--main-accent)) center 5px / 100% 1px no-repeat,
+          linear-gradient(var(--main-accent), var(--main-accent)) center 0 / 75% 1px no-repeat,
+          linear-gradient(var(--main-accent), var(--main-accent)) center 10px / 75% 1px no-repeat;
+        opacity: 0.75;
+      }
+      p {
+        margin: 0;
+        font-size: 20px;
+        font-weight: 300;
+      }
+      a {
+        position: relative;
+        margin-top: 12px;
+        padding: 15px 30px;
+        color: var(--main-accent);
+        border: 1px solid var(--main-accent);
+        text-decoration: none;
+        transition: background 0.3s ease;
+      }
+      a:hover {
+        background: rgb(192 145 75 / 0.07);
+      }
+      a:focus-visible {
+        outline: 1px solid var(--main-accent-hover);
+        outline-offset: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>404</h1>
+      <div class="rule" aria-hidden="true"></div>
+      <p>This page doesn't exist.</p>
+      <a href="/">Back to Home</a>
+    </main>
+  </body>
+</html>

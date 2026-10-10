@@ -8,7 +8,7 @@ Personal site and portfolio. Built with React, TypeScript, and Vite.
 
 | Desktop | Mobile |
 |---|---|
-| <img src="public/home-screenshot.png" width="600"> | <img src="public/home-screenshot-mobile.png" width="170"> |
+| <img src="docs/home-screenshot.png" width="600"> | <img src="docs/home-screenshot-mobile.png" width="170"> |
 
 ## Design Ideals
 

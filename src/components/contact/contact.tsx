@@ -19,7 +19,7 @@ export const Contact = () => {
                         className='home-contact-link'
                         aria-label={label}
                         target={href.startsWith('mailto:') ? undefined : '_blank'}
-                        rel='noreffer'
+                        rel='noopener noreferrer'
                     >
                         <Icon aria-hidden='true' />
                     </a>
