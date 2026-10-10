@@ -12,7 +12,7 @@ export const PlatformDetails = () => {
                     engineering teams had to manually set up each project.  Not only was this a slow process, but it allowed for variations in configuration, leading to higher rates of mistakes and making support difficult.
                 </p>
                 <p className='platform-details-intro'>
-                    The internal developer platform replaced the that process with automated provisioning tools.  A production ready repository with pipelines, deployment configuration and boilerplate code is generated in seconds,
+                    The internal developer platform replaced that process with automated provisioning tools.  A production ready repository with pipelines, deployment configuration and boilerplate code is generated in seconds,
                     and the infrastructure a project depends on is requested through the same interface.  Engineers start writing business logic immediately, on configuration that is identical across every project of the same type.
                 </p>
                 <p className='platform-details-intro'>
@@ -24,7 +24,6 @@ export const PlatformDetails = () => {
 
             <div className='platform-detail'>
                 <h4 className='platform-details-heading'> Supported Tech Stack </h4>
-                <p className='platform-details-intro'></p>
                 <dl className='platform-details-stack'>
                     <div className='platform-details-stack-row'>
                         <dt className='platform-details-stack-term'> Platform Templates</dt>
@@ -40,7 +39,7 @@ export const PlatformDetails = () => {
             <div className='platform-detail'>
                 <h4 className='platform-details-heading'> Design Decisions </h4>
                 <p className='platform-details-intro'> 
-                    This project was a multi-year long endeavor to both standardize and optimize the developer experience at TCW. 
+                    This project was a multi-year endeavor to both standardize and optimize the developer experience at TCW. 
                     I learned a lot along the way, and had to make many changes to both my approach to the product, and the product itself.
                 </p>
 

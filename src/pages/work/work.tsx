@@ -16,7 +16,7 @@ const WORK_CARDS: WorkCardProps[] = [
     { 
         tech: 'React | TypeScript | Go | GraphQL', 
         title: 'Internal Developer Platform',
-        subtext: '10 Tech Stacks | Resource Requistion | Automated CI/CD ', 
+        subtext: '10 Tech Stacks | Resource Requisition | Automated CI/CD ', 
         subtitle: "TCW's central developer automation platform.  Provisioned templated GitLab repositories across 10 tech stacks with standardized CI/CD, along with automated Snowflake, Okta, Key Vault, and RabbitMQ resource requests.",
         children: <PlatformDetails />
     }

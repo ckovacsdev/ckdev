@@ -1,35 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useActiveSection } from '../../hooks/useActiveSection';
 import './navi.css';
 
-export const SECTIONS = [
+const SECTIONS = [
     { id: 'home', label: 'Home' },
     { id: 'work', label: 'Experience' },
 ]
 const ids = SECTIONS.map((s) => s.id);
-
-export const useActiveSection = (ids: string[]) => {
-    const [ active, setActive ] = useState(ids[0]);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver((entries) => {
-            const hit = entries.find((e) => e.isIntersecting);
-            if(hit) {
-                setActive(hit.target.id);
-            }
-        }, { rootMargin: '-45% 0px -50% 0px' });
-
-        ids.forEach((id) => {
-            const element = document.getElementById(id);
-            if (element) {
-                observer.observe(element);
-            }
-        });
-
-        return () => observer.disconnect();
-    }, [ids]);
-
-    return active;
-}
 
 export const Navigation = () => {
     const active = useActiveSection(ids);

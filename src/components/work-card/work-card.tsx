@@ -64,19 +64,16 @@ export default function WorkCard({ tech, title, subtitle, subtext, children }: W
 		closingRef.current = true;
 		dialog.dataset.closing = '';
 
-		let anim: Animation | undefined;
-		const finish = () => {
-			dialog.close();
-			anim?.cancel();
-		};
-
 		if (!card || prefersReducedMotion()) {
-			finish();
+			dialog.close();
 			return;
 		}
 
-		anim = flip(dialog, card.getBoundingClientRect(), 'out');
-		anim.addEventListener('finish', finish, { once: true });
+		const anim = flip(dialog, card.getBoundingClientRect(), 'out');
+		anim.addEventListener('finish', () => {
+			dialog.close();
+			anim.cancel();
+		}, { once: true });
 	};
 
 	const handleClose = () => {
