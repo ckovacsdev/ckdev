@@ -109,11 +109,49 @@
 	font-size: clamp(0.75rem, 0.7rem + 0.35cqi, 0.9rem);
 }
 
-.work-card-read-more {
+.work-card-actions {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: 0.5rem 1.5rem;
 	margin: auto 0 0;
 	padding-top: 0.75rem;
+}
+
+.work-card-read-more {
+	margin: 0;
 	font-size: clamp(0.8rem, 0.75rem + 0.4cqi, 1rem);
 	transition: color 0.35s ease;
+}
+
+/* Sits above the full-card toggle button so it can be clicked on its own */
+.work-card-link,
+.work-dialog-link {
+	position: relative;
+	z-index: 1;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.3em;
+	color: var(--main-accent);
+	text-decoration: none;
+	transition: color 0.3s ease;
+}
+.work-card-link {
+	font-size: clamp(0.8rem, 0.75rem + 0.4cqi, 1rem);
+}
+.work-dialog-link {
+	align-self: flex-start;
+	font-size: clamp(0.85rem, 0.8rem + 0.3cqi, 0.95rem);
+}
+.work-card-link:hover,
+.work-dialog-link:hover {
+	color: var(--main-accent-hover);
+}
+.work-card-link:focus-visible,
+.work-dialog-link:focus-visible {
+	outline: 1px solid var(--main-accent-hover);
+	outline-offset: 4px;
 }
 
 .work-card-toggle {
@@ -145,7 +183,7 @@
 	}
 }
 
-.work-card:hover .work-card-read-more,
+.work-card:hover:not(:has(.work-card-link:hover)) .work-card-read-more,
 .work-card:has(.work-card-toggle:focus-visible) .work-card-read-more {
 	color: var(--main-accent);
 }
@@ -174,7 +212,7 @@
 		-webkit-line-clamp: 4;
 		line-clamp: 4;
 	}
-	.work-card-read-more { grid-area: more; }
+	.work-card-actions { grid-area: more; }
 	.work-card-stats {
 		grid-area: stats;
 		grid-template-columns: minmax(0, 1fr);
@@ -398,4 +436,49 @@
 		animation: none !important;
 		transition: none !important;
 	}
+}
+
+.work-card-slot--compact {
+	max-inline-size: 40rem;
+}
+.work-card-slot--compact .work-card {
+	--cut: 1.25rem;
+	min-block-size: 0;
+}
+.work-card-slot--compact .work-card-body {
+	gap: 0.4rem;
+	padding: clamp(1rem, 0.6rem + 2cqi, 1.5rem);
+}
+.work-card-slot--compact .work-card-title {
+	font-size: clamp(1rem, 0.9rem + 0.8cqi, 1.25rem);
+}
+.work-card-slot--compact .work-card-tech {
+	font-size: 0.8rem;
+}
+.work-card-slot--compact .work-card-stats {
+	padding-block: 0.6rem;
+}
+@container work-card (width >= 22rem) {
+	.work-card-slot--compact .work-card-stats {
+		grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
+		gap: 0.5rem 1rem;
+	}
+}
+.work-card-slot--compact .work-card-stats .work-stat-value {
+	font-size: clamp(1.1rem, 0.95rem + 1cqi, 1.35rem);
+}
+.work-card-slot--compact .work-card-stats .work-stat-label {
+	font-size: 0.72rem;
+}
+.work-card-slot--compact .work-card-subtitle {
+	margin-top: 0.25rem;
+	font-size: clamp(0.82rem, 0.78rem + 0.3cqi, 0.92rem);
+	-webkit-line-clamp: 2;
+	line-clamp: 2;
+}
+.work-card-slot--compact .work-card-actions {
+	padding-top: 0.4rem;
+}
+.work-card-slot--compact :is(.work-card-read-more, .work-card-link) {
+	font-size: 0.85rem;
 }

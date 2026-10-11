@@ -1,0 +1,89 @@
+.site-details {
+    font-size: clamp(0.875rem, 0.82rem + 0.25vw, 1rem);
+}
+
+.site-detail {
+    padding-top: 15px;
+}
+
+.site-detail:not(:last-child) {
+    border-bottom: 1px solid var(--main-accent);
+}
+
+.site-details-heading {
+    margin: 0 0 0.35em;
+    font-size: clamp(.90rem, 1rem + 0.4vw, 1.20rem);
+    font-weight: 400;
+}
+
+.site-details-intro {
+    margin: 0 0 clamp(1.25rem, 3vw, 1.75rem);
+    opacity: 0.75;
+    font-size: clamp(.80rem, 1rem + 0.20vw, 0.9rem);
+}
+
+.site-details-stack {
+    margin: 0 0 clamp(1.25rem, 3vw, 1.75rem);
+    padding: 0;
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    column-gap: 1.5em;
+    row-gap: 0.75em;
+}
+
+.site-details-stack-row {
+    display: contents;
+}
+
+.site-details-stack-term {
+    font-weight: 400;
+    color: var(--main-accent);
+    opacity: 0.85;
+}
+
+.site-details-stack-value {
+    margin: 0;
+    min-width: 0;
+    opacity: 0.65;
+    text-wrap: pretty;
+    font-size: 0.85rem;
+}
+
+.site-details-challenge-list {
+    margin: 0 0 clamp(1.25rem, 3vw, 1.75rem);
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.25rem, 3vw, 1.75rem);
+}
+
+.site-details-challenge {
+    padding-left: clamp(2rem, 6vw, 2.75rem);
+}
+
+.site-details-challenge-title {
+    margin: 0 0 0.5em;
+    font-size: 1em;
+    font-weight: 400;
+}
+
+.site-details-challenge p {
+    margin: 0 0 1em;
+    opacity: 0.65;
+    text-wrap: pretty;
+}
+
+.site-details-challenge p:last-child {
+    margin-bottom: 0;
+}
+
+@media screen and (max-width: 640px) {
+    .site-details-stack {
+        grid-template-columns: 1fr;
+        row-gap: 0.25em;
+    }
+    .site-details-stack-row + .site-details-stack-row {
+        margin-top: 0.75em;
+    }
+}

@@ -1,9 +1,15 @@
 import { useId, useRef, useState, type MouseEvent, type ReactNode, type SyntheticEvent } from 'react';
 import './work-card.css';
 import { IoCloseOutline } from 'react-icons/io5';
+import { FiArrowUpRight } from 'react-icons/fi';
 
 export type WorkStat = {
 	value: string;
+	label: string;
+};
+
+export type WorkLink = {
+	href: string;
 	label: string;
 };
 
@@ -12,8 +18,17 @@ export type WorkCardProps = {
 	title: string;
 	subtitle: string;
 	stats: WorkStat[];
+	compact?: boolean;
+	link?: WorkLink;
 	children?: ReactNode;
 };
+
+const ExternalLink = ({ link, className }: { link: WorkLink; className: string }) => (
+	<a className={className} href={link.href} target='_blank' rel='noopener noreferrer'>
+		{link.label}
+		<FiArrowUpRight aria-hidden='true' />
+	</a>
+);
 
 const DURATION = 350;
 const EASING = 'cubic-bezier(0.22, 1, 0.36, 1)';
@@ -45,7 +60,7 @@ const WorkStats = ({ stats, className }: { stats: WorkStat[]; className: string 
 	</dl>
 );
 
-export default function WorkCard({ tech, title, subtitle, stats, children }: WorkCardProps) {
+export default function WorkCard({ tech, title, subtitle, stats, compact, link, children }: WorkCardProps) {
 	const [ open, setOpen ] = useState(false);
 	const cardRef = useRef<HTMLElement>(null);
 	const dialogRef = useRef<HTMLDialogElement>(null);
@@ -119,14 +134,17 @@ export default function WorkCard({ tech, title, subtitle, stats, children }: Wor
 	};
 
 	return (
-		<div className='work-card-slot'>
+		<div className={compact ? 'work-card-slot work-card-slot--compact' : 'work-card-slot'}>
 			<article ref={cardRef} className='work-card chamfer' data-open={open || undefined}>
 				<div className='work-card-body'>
 					<h3 className='work-card-title'>{title}</h3>
 					<p className='work-card-tech'>{tech}</p>
 					<WorkStats stats={stats} className='work-card-stats' />
 					<p className='work-card-subtitle'>{subtitle}</p>
-					<p className='work-card-read-more' aria-hidden='true'>Read more +</p>
+					<div className='work-card-actions'>
+						<p className='work-card-read-more' aria-hidden='true'>Read more +</p>
+						{link && <ExternalLink link={link} className='work-card-link' />}
+					</div>
 				</div>
 
 				<button
@@ -159,6 +177,7 @@ export default function WorkCard({ tech, title, subtitle, stats, children }: Wor
 						<header className='work-dialog-header'>
 							<h2 id={titleId} className='work-dialog-title'>{title}</h2>
 							<p className='work-dialog-tech'>{tech}</p>
+							{link && <ExternalLink link={link} className='work-dialog-link' />}
 							<WorkStats stats={stats} className='work-dialog-stats' />
 						</header>
 
