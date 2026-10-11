@@ -25,7 +25,7 @@ export const Skills = () => {
             <h2 className='section-title'> Technical Skills </h2>
             <div className='skills-grid'>
                 {SKILL_GROUPS.map(({ title, items }) => (
-                    <div key={title} className='skills-group chamfer'>
+                    <div key={title} className='skills-group'>
                         <h3 className='skills-group-title'>{title}</h3>
                         <ul className='skills-list'>
                             {items.map((item) => (
