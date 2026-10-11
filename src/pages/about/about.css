@@ -1,0 +1,7 @@
+.about-container{
+    padding: 10px var(--page-gutter-end) 0 var(--page-gutter-start);
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    margin-bottom: clamp(2rem, 4vw, 4rem);
+}

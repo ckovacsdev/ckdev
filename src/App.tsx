@@ -2,6 +2,7 @@ import { Home } from './pages/home/home';
 import { Navigation } from './components/navigation/navi';
 import { Work } from './pages/work/work';
 import { Skills } from './pages/skills/skills';
+import { About } from './pages/about/about';
 import { Connect } from './pages/connect/connect';
 import { DecoPattern } from './components/deco-pattern/deco-pattern';
 import { Footer } from './components/footer/footer';
@@ -20,6 +21,9 @@ function App() {
 				</section>
 				<section id='skills'>
 					<Skills />
+				</section>
+				<section id='about'>
+					<About />
 				</section>
 				<section id='contact'>
 					<Connect />

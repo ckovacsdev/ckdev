@@ -1,8 +1,8 @@
+import { REPO_URL } from '../../data/links';
 import './footer.css';
 
 const BUILD_YEAR = 2026;
 const LAST_UPDATED = 'October 2026';
-const REPO_URL = 'https://github.com/ckovacsdev/ckdev';
 
 export const Footer = () => {
     return (
@@ -13,6 +13,9 @@ export const Footer = () => {
             </div>
 
             <div className='footer-group right'>
+                <a className='footer-item footer-link' href='#about'>
+                    About This Site
+                </a>
                 <a
                     className='footer-item footer-link'
                     href={REPO_URL}

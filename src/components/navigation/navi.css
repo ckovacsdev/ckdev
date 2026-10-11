@@ -112,6 +112,16 @@
     }
 }
 
+@media screen and (max-width: 380px){
+    .navigation-container {
+        padding: 0.9rem 0.9rem;
+        gap: 0.9rem;
+    }
+    .nav-link {
+        font-size: 0.95rem;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     .navigation-bar {
         transition: none;
