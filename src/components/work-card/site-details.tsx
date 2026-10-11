@@ -32,7 +32,7 @@ export const SiteDetails = () => {
                     <li className='site-details-challenge'>
                         <h5 className='site-details-challenge-title'> No UI framework </h5>
                         <p>
-                            A component library would have been faster to start with, but I wanted everything on the site to be custom; speed of delivery was not the primary goal of developing this website.
+                            A component library would have been faster to start with, but I wanted everything on the site to be custom.  Speed of delivery was not the primary goal of developing this website.
                             I wanted it to be completely personal, taking my favorite architectural aesthetic and adapting it to a UI. Using any third-party design elements seemed counterintuitive to that idea.
                             Instead, everything is plain CSS, responsive from a 4K monitor to a phone screen, and dependent only on React and an icon set.
                         </p>
