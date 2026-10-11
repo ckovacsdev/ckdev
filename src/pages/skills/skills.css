@@ -13,10 +13,6 @@
     margin-top: clamp(0.5rem, 1.5vw, 1.5rem);
 }
 
-/*
- * Square, unfilled frame with a double gold hairline (echoing the double rule under the hero
- * name), so it reads as a static frame rather than one of the cut-corner, filled cards that open.
- */
 .skills-group{
     padding: 0.9rem;
     border: 1px solid var(--accent-line);
