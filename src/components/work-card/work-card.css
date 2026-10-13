@@ -125,7 +125,6 @@
 	transition: color 0.35s ease;
 }
 
-/* Sits above the full-card toggle button so it can be clicked on its own */
 .work-card-link,
 .work-dialog-link {
 	position: relative;
@@ -133,6 +132,7 @@
 	display: inline-flex;
 	align-items: center;
 	gap: 0.3em;
+	min-height: 24px;
 	color: var(--main-accent);
 	text-decoration: none;
 	transition: color 0.3s ease;

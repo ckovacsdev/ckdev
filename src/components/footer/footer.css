@@ -36,6 +36,9 @@
 }
 
 .footer-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 24px;
     color: var(--main-accent);
     transition: color 0.3s ease;
 }

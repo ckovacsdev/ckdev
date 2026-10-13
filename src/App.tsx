@@ -4,7 +4,6 @@ import { Work } from './pages/work/work';
 import { Skills } from './pages/skills/skills';
 import { About } from './pages/about/about';
 import { Connect } from './pages/connect/connect';
-import { DecoPattern } from './components/deco-pattern/deco-pattern';
 import { Footer } from './components/footer/footer';
 import './App.css';
 
@@ -28,9 +27,6 @@ function App() {
 				<section id='contact'>
 					<Connect />
 				</section>
-			</div>
-			<div className='deco-rail'>
-				<DecoPattern />
 			</div>
 			
 			<div id='footer'>

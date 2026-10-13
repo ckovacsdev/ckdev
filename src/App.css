@@ -1,9 +1,6 @@
 .app-container{
-	--rail-w: 100px;
-	--rail-h: 100vh;
-
 	display: grid;
-	grid-template-columns: minmax(0, 1fr) var(--rail-w);
+	grid-template-columns: minmax(0, 1fr);
 	background: var(--main-background);
 	grid-template-rows: 1fr auto;
 	min-height: 100vh;
@@ -25,26 +22,10 @@
 	flex-direction: column;
 }
 
-.deco-rail{
-	position: sticky;
-	top: 0;
-	align-self: start;
-	height: var(--rail-h);
-}
-
 .app-main > section[id]{
 	scroll-margin-top: var(--nav-offset);
 }
 
 #footer {
 	grid-column: 1 / -1;
-}
-
-@media screen and (max-width: 640px){
-	.app-container{
-		grid-template-columns: minmax(0, 1fr);
-	}
-	.deco-rail{
-		display: none;
-	}
 }
