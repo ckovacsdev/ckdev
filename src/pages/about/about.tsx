@@ -10,13 +10,13 @@ export const About = () => {
             <WorkCard
                 compact
                 link={{ href: REPO_URL, label: 'View Source' }}
-                tech='React | TypeScript | Vite | Cloudflare'
+                tech='React | TypeScript | Three.js | Vite | Cloudflare'
                 title='How This Site Was Built'
                 subtitle="An art deco inspired design system, built by hand and extended with Claude Code and shipped through automated CI/CD.  The decisions, the trade-offs, and how I worked with AI to build it."
                 stats={[
                     { value: '100', label: 'Lighthouse accessibility, best practices & SEO' },
-                    { value: '94–98', label: 'Lighthouse performance, desktop & mobile' },
-                    { value: '71 KB', label: 'Total JavaScript, gzipped' },
+                    { value: '87–100', label: 'Lighthouse performance, desktop & mobile' },
+                    { value: '72 KB', label: 'Initial JavaScript, gzipped' },
                 ]}
             >
                 <SiteDetails />

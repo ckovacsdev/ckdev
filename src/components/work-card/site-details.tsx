@@ -16,7 +16,7 @@ export const SiteDetails = () => {
                 <dl className='site-details-stack'>
                     <div className='site-details-stack-row'>
                         <dt className='site-details-stack-term'> Application </dt>
-                        <dd className='site-details-stack-value'> React | TypeScript | Vite | CSS </dd>
+                        <dd className='site-details-stack-value'> React | TypeScript | Three.js | Vite | CSS </dd>
                     </div>
                     <div className='site-details-stack-row'>
                         <dt className='site-details-stack-term'> Delivery </dt>
@@ -34,7 +34,7 @@ export const SiteDetails = () => {
                         <p>
                             A component library would have been faster to start with, but I wanted everything on the site to be custom.  Speed of delivery was not the primary goal of developing this website.
                             I wanted it to be completely personal, taking my favorite architectural aesthetic and adapting it to a UI. Using any third-party design elements seemed counterintuitive to that idea.
-                            Instead, everything is plain CSS, responsive from a 4K monitor to a phone screen, and dependent only on React and an icon set.
+                            Instead, everything is plain CSS, responsive from a 4K monitor to a phone screen, and dependent only on React, an icon set, and Three.js for the landing page skyline.
                         </p>
                     </li>
 
@@ -98,8 +98,8 @@ export const SiteDetails = () => {
             <div className='site-detail'>
                 <h4 className='site-details-heading'> Results </h4>
                 <p className='site-details-intro'>
-                    The live site scores 100 in Lighthouse for accessibility, best practices, and SEO on both desktop and mobile, and 94 to 98 for performance.
-                    The page loads about 71 KB of JavaScript and respects reduced motion settings throughout.
+                    The live site scores 100 in Lighthouse for accessibility, best practices, and SEO on both desktop and mobile, and 87 to 100 for performance.
+                    The page loads about 72 KB of JavaScript up front; the 132 KB Three.js skyline loads afterward, so it never delays the page. It respects reduced motion settings throughout.
                 </p>
             </div>
         </div>

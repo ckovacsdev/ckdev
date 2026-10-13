@@ -15,7 +15,8 @@ Hand-built from the ground up to establish the core layout and art-deco styling,
 
 ## Design Ideals
 
-- Art-deco visual system
+- Art-deco visual system in navy and gold, inspired by 1920s New York, Chicago, and Detroit architecture and the "dark deco" look of Batman: The Animated Series
+- Landing page skyline rendered as a 2.5D parallax scene with Three.js, responding to mouse and scroll, and loaded after the page so it never delays first paint
 - Responsive from 320px up, with fluid type and spacing via `clamp()`
 - Respects `prefers-reduced-motion` throughout
 
@@ -23,8 +24,9 @@ Hand-built from the ground up to establish the core layout and art-deco styling,
 
 - React + TypeScript
 - Vite
+- Three.js
 - HTML & CSS
-- Deployed on CloudFlare
+- Deployed on Cloudflare via GitHub Actions
 
 ## Running locally
 
