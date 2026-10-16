@@ -13,9 +13,6 @@ export const Footer = () => {
             </div>
 
             <div className='footer-group right'>
-                <a className='footer-item footer-link' href='#about'>
-                    About This Site
-                </a>
                 <a
                     className='footer-item footer-link'
                     href={REPO_URL}
