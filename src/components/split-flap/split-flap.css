@@ -1,0 +1,76 @@
+/*
+ * Each cell is a pair of hinged halves. --flap-w sets the cell width; height and type size follow
+ * from it. Set --flap-face and --flap-ink on a parent to recolour.
+ */
+.flaps {
+	display: inline-flex;
+	gap: 2px;
+}
+
+.flap {
+	--flap-w: var(--cell-w, 1.5rem);
+
+	position: relative;
+	display: block;
+	flex-shrink: 0;
+	width: var(--flap-w);
+	height: calc(var(--flap-w) * 1.45);
+	perspective: calc(var(--flap-w) * 6);
+	color: var(--flap-ink, var(--main-text));
+	font-family: var(--font-body);
+	font-size: calc(var(--flap-w) * 0.95);
+	font-weight: 400;
+	line-height: 1;
+}
+
+.flap-half {
+	position: absolute;
+	left: 0;
+	right: 0;
+	height: 50%;
+	overflow: hidden;
+	background: var(--flap-face, #232737);
+	backface-visibility: hidden;
+}
+.flap-top {
+	top: 0;
+	transform-origin: 50% 100%;
+}
+.flap-bottom {
+	bottom: 0;
+	transform-origin: 50% 0;
+}
+.flap-leaf {
+	z-index: 1;
+}
+
+/* The glyph is a full cell tall; each half shows its own half of it */
+.flap-half > span {
+	position: absolute;
+	left: 0;
+	right: 0;
+	height: 200%;
+	display: grid;
+	place-items: center;
+	padding-top: 0.06em;
+	box-sizing: border-box;
+	white-space: pre;
+}
+.flap-top > span {
+	top: 0;
+}
+.flap-bottom > span {
+	bottom: 0;
+}
+
+/* The hinge between the two halves */
+.flap::after {
+	content: '';
+	position: absolute;
+	z-index: 2;
+	left: 0;
+	right: 0;
+	top: calc(50% - 0.5px);
+	height: 1px;
+	background: rgb(0 0 0 / 0.6);
+}

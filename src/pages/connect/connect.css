@@ -1,29 +1,220 @@
+/* Same section rhythm as the rest of the page: heading, a 20px gap, then the board */
 .connect-container{
+    container: connect / inline-size;
+    padding: 10px var(--page-gutter-end) 0 var(--page-gutter-start);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding: clamp(3rem, 8vw, 7rem) var(--page-gutter-end) clamp(4rem, 10vw, 8rem) var(--page-gutter-start);
-    text-align: center;
+    row-gap: 20px;
+    margin-bottom: clamp(2rem, 4vw, 4rem);
 }
 
-.connect-title{
-    margin: 0;
-    font-size: clamp(1.9rem, 1.4rem + 2vw, 2.75rem);
-    font-weight: 300;
+/*
+ * A station departure board across the full content width: a housing with the site's gold corner
+ * brackets, a split-flap marquee and clock, painted column headings, and one row per way to reach
+ * me. Each row opens a link, except email, which copies the address to the clipboard.
+ */
+.board{
+    --cell-w: clamp(1.1rem, 0.5rem + 1.25vw, 1.6rem);
+    --title-w: calc(var(--cell-w) * 1.5);
+    --row-pad: 0.75rem;
+    /* Column widths follow the flap counts set on the board, so headings line up with the rows */
+    --dest-w: calc(var(--dest-cells) * var(--cell-w) + (var(--dest-cells) - 1) * 2px);
+    --via-w: calc(var(--via-cells) * var(--cell-w) + (var(--via-cells) - 1) * 2px);
+    /* The housing is the page navy, like the nav and toast; the flaps are panel-coloured tiles */
+    --flap-face: var(--surface-solid);
+
+    position: relative;
+    box-sizing: border-box;
+    max-width: 100%;
+    padding: clamp(1.25rem, 3vw, 2.25rem);
+    background: var(--main-background);
+    border: 1px solid var(--accent-line);
 }
 
-.connect-separator{
-    width: 100%;
-    max-width: 420px;
+.board::before,
+.board::after{
+    content: '';
+    position: absolute;
+    width: 72px;
+    height: 32px;
+    border: 2px solid var(--main-accent);
+    pointer-events: none;
+}
+.board::before{
+    top: -1px;
+    right: -1px;
+    border-left: 0;
+    border-bottom: 0;
+}
+.board::after{
+    bottom: -1px;
+    left: -1px;
+    border-right: 0;
+    border-top: 0;
 }
 
-.connect-buttons{
-    width: 100%;
+.board-header{
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    column-gap: 32px;
-    row-gap: 12px;
-    margin-top: 8px;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem 2rem;
+    padding: 0 var(--row-pad) 1.5rem;
+}
+
+.board-marquee .flap{
+    --flap-w: var(--title-w);
+}
+
+.board-clock{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.45rem;
+}
+.board-clock .flap{
+    --flap-w: calc(var(--cell-w) * 0.8);
+}
+
+/* Painted lettering on the housing */
+.board-label{
+    color: var(--main-accent);
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    line-height: 1.2;
+}
+
+.board-columns,
+.board-row{
+    display: grid;
+    grid-template-columns: var(--dest-w) minmax(var(--via-w), 1fr) auto;
+    grid-template-areas: 'dest via arrow';
+    column-gap: 1.25rem;
+    align-items: center;
+    padding-inline: var(--row-pad);
+}
+
+.board-columns{
+    padding-block: 0.65rem;
+    border-top: 1px solid var(--accent-line);
+}
+.board-label--dest{
+    grid-area: dest;
+}
+.board-label--via{
+    grid-area: via;
+}
+
+.board-list{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Rows are links, or a button for the email row, so reset button defaults to match */
+.board-row{
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding-block: 0.5rem;
+    border: 0;
+    border-top: 1px solid var(--hairline);
+    background: none;
+    color: inherit;
+    font: inherit;
+    text-align: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.board-row:focus-visible{
+    outline: 1px solid var(--main-accent-hover);
+    outline-offset: -1px;
+}
+
+.board-dest{
+    grid-area: dest;
+}
+/* Via fills the rest of the board with blank flaps, like a wide station board; extra tiles wrap
+   onto a hidden second line, so the column only ever shows whole tiles */
+.board-via{
+    grid-area: via;
+    flex-wrap: wrap;
+    height: calc(var(--cell-w) * 1.45);
+    min-width: 0;
+    overflow: hidden;
+    --flap-ink: rgb(var(--main-text-rgb) / 0.7);
+}
+
+.board-arrow{
+    grid-area: arrow;
+    justify-self: end;
+    width: 1.25rem;
+    height: 1.25rem;
+    color: var(--main-accent);
+    transition: color 0.3s ease, translate 0.3s ease;
+}
+/* Hover only where there is a pointer, so a tapped row doesn't stay lit on touch screens */
+@media (hover: hover){
+    .board-row:hover{
+        background-color: rgb(var(--main-accent-rgb) / 0.07);
+    }
+    .board-row:hover .board-arrow{
+        color: var(--main-accent-hover);
+    }
+    /* The outbound arrow leans toward where it goes; the copy icon stays put */
+    .board-row:hover .board-arrow:not(.board-copy){
+        translate: 2px -2px;
+    }
+}
+
+.board-sr{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+/*
+ * When the board itself is too narrow for both columns at their smallest (the longest destination
+ * and via, 8 + 17 flaps), the via text is dropped: each row shows its destination, then blank flaps
+ * up to the icon. The width follows from those label lengths; revisit it if they change.
+ */
+@container connect (width < 39rem){
+    .board{
+        --cell-w: clamp(0.85rem, (100cqi - 4rem) / 14, 1.6rem);
+        --title-w: calc(var(--cell-w) * 1.2);
+    }
+    .board-clock{
+        align-items: flex-start;
+    }
+    .board-label--via{
+        display: none;
+    }
+    .board-via{
+        --flap-ink: transparent;
+    }
+    .board-columns{
+        grid-template-columns: var(--dest-w) 1fr;
+    }
+    .board-row{
+        grid-template-columns: var(--dest-w) minmax(0, 1fr) auto;
+        column-gap: 2px; /* the blank flaps run straight on from the destination's */
+        padding-block: 0.65rem;
+    }
+    .board-arrow{
+        margin-left: 0.75rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce){
+    .board-row,
+    .board-arrow{
+        transition: none;
+    }
+    .board-row:hover .board-arrow:not(.board-copy){
+        translate: none;
+    }
 }
