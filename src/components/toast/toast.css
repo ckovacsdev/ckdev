@@ -1,0 +1,94 @@
+.toast-region{
+    position: fixed;
+    z-index: 20;
+    left: 50%;
+    bottom: max(1.5rem, env(safe-area-inset-bottom) + 1rem);
+    translate: -50% 0;
+    width: max-content;
+    max-width: calc(100vw - 40px);
+    pointer-events: none;
+}
+
+/* Frosted navy panel with the gold corner brackets of the navigation bar */
+.toast{
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.95rem 1.6rem;
+    background: rgb(var(--main-background-rgb) / 0.97);
+    border: 1px solid var(--accent-line);
+    backdrop-filter: blur(14px) saturate(100%);
+    color: var(--main-text);
+    font-size: 0.95rem;
+    font-weight: 300;
+    line-height: 1.3;
+    animation: toast-in 0.35s cubic-bezier(0.22, 0.72, 0.24, 1) both;
+}
+.toast[data-leaving]{
+    animation: toast-out 0.3s ease both;
+}
+
+.toast::before,
+.toast::after{
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 16px;
+    border: 1px solid var(--main-accent);
+    pointer-events: none;
+    transform: scale(0);
+    animation: border-in 0.9s cubic-bezier(0.22, 0.72, 0.24, 1) 0.1s both;
+}
+.toast::before{
+    top: -1px;
+    right: -1px;
+    border-left: 0;
+    border-bottom: 0;
+    transform-origin: top right;
+}
+.toast::after{
+    bottom: -1px;
+    left: -1px;
+    border-right: 0;
+    border-top: 0;
+    transform-origin: bottom left;
+}
+
+.toast-icon{
+    flex-shrink: 0;
+    width: 1.1rem;
+    height: 1.1rem;
+    color: var(--main-accent);
+}
+
+/* On phones the landing page's contact bar sits at the bottom centre, so the toast clears it */
+@media screen and (max-width: 640px){
+    .toast-region{
+        bottom: calc(env(safe-area-inset-bottom) + 6rem);
+    }
+}
+
+@keyframes toast-in{
+    from{
+        opacity: 0;
+        translate: 0 8px;
+    }
+}
+@keyframes toast-out{
+    to{
+        opacity: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce){
+    .toast,
+    .toast[data-leaving]{
+        animation: none;
+    }
+    .toast::before,
+    .toast::after{
+        animation: none;
+        transform: none;
+    }
+}

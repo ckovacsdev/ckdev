@@ -48,6 +48,7 @@
     transform-origin: bottom left;
 }
 
+/* Links, plus a button for email (it copies), so button defaults are reset to match */
 .home-contact-link {
     position: relative;
     width: 64px;
@@ -55,6 +56,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0;
+    border: 0;
+    background: none;
+    font: inherit;
+    cursor: pointer;
     color: var(--main-text);
     text-decoration: none;
     opacity: 0;
@@ -73,9 +79,12 @@
     background: var(--accent-line);
 }
 
-.home-contact-link:hover {
-    background: var(--accent-tint);
-    color: var(--main-accent);
+/* Hover only where there is a pointer, so a tapped icon doesn't stay lit on touch screens */
+@media (hover: hover) {
+    .home-contact-link:hover {
+        background: var(--accent-tint);
+        color: var(--main-accent);
+    }
 }
 
 .home-contact-link svg {
