@@ -1,5 +1,6 @@
 import { useLayoutEffect, useRef, type CSSProperties } from 'react';
 import { FiArrowUpRight, FiCopy } from 'react-icons/fi';
+import { CofferWall } from '../../components/coffer-wall/coffer-wall';
 import { SplitFlap } from '../../components/split-flap/split-flap';
 import { bindCells, flapChars, flipTo, isBusy, setChar, stop, type FlapCell } from '../../components/split-flap/flap-engine';
 import { GITHUB_URL, LINKEDIN_URL, RESUME_PATH } from '../../data/links';
@@ -131,63 +132,65 @@ export const Connect = () => {
     return (
         <div className='connect-container'>
             <h2 className='section-title'> Let's Connect </h2>
-            <div
-                className='board'
-                ref={boardRef}
-                style={{ '--dest-cells': DEST_CELLS, '--via-cells': VIA_CELLS } as CSSProperties}
-            >
-                <div className='board-header' aria-hidden='true'>
-                    <SplitFlap group='marquee' text={MARQUEE} cells={MARQUEE.length} className='board-marquee' />
-                    <div className='board-clock'>
-                        <span className='board-label'>Hoboken, NJ</span>
-                        <SplitFlap group='clock' text='' cells={CLOCK_CELLS} />
+            <CofferWall className='board-wall'>
+                <div
+                    className='board'
+                    ref={boardRef}
+                    style={{ '--dest-cells': DEST_CELLS, '--via-cells': VIA_CELLS } as CSSProperties}
+                >
+                    <div className='board-header' aria-hidden='true'>
+                        <SplitFlap group='marquee' text={MARQUEE} cells={MARQUEE.length} className='board-marquee' />
+                        <div className='board-clock'>
+                            <span className='board-label'>Hoboken, NJ</span>
+                            <SplitFlap group='clock' text='' cells={CLOCK_CELLS} />
+                        </div>
                     </div>
-                </div>
 
-                <div className='board-columns' aria-hidden='true'>
-                    <span className='board-label board-label--dest'>Destination</span>
-                    <span className='board-label board-label--via'>Via</span>
-                </div>
+                    <div className='board-columns' aria-hidden='true'>
+                        <span className='board-label board-label--dest'>Destination</span>
+                        <span className='board-label board-label--via'>Via</span>
+                    </div>
 
-                <ul className='board-list'>
-                    {ROUTES.map((route, i) => {
-                        const { destination, via } = route;
-                        const content = (
-                            <>
-                                <span className='board-sr'>{destination}: {via}</span>
-                                <SplitFlap group={`dest-${i}`} text={destination} cells={DEST_CELLS} className='board-dest' />
-                                <SplitFlap group={`via-${i}`} text={via} cells={VIA_TILES} className='board-via' />
-                            </>
-                        );
-                        return (
-                            <li key={destination}>
-                                {'copiesEmail' in route ? (
-                                    <button
-                                        type='button'
-                                        className='board-row'
-                                        onPointerEnter={() => spin(i)}
-                                        onClick={copyEmail}
-                                    >
-                                        {content}
-                                        <FiCopy className='board-arrow board-copy' aria-hidden='true' />
-                                    </button>
-                                ) : (
-                                    <a
-                                        className='board-row'
-                                        href={route.href}
-                                        target='_blank'
-                                        rel='noopener noreferrer'
-                                        onPointerEnter={() => spin(i)}
-                                    >
-                                        {content}
-                                        <FiArrowUpRight className='board-arrow' aria-hidden='true' />
-                                    </a>
-                                )}
-                            </li>
-                        );
-                    })}
-                </ul>
-            </div>
+                    <ul className='board-list'>
+                        {ROUTES.map((route, i) => {
+                            const { destination, via } = route;
+                            const content = (
+                                <>
+                                    <span className='board-sr'>{destination}: {via}</span>
+                                    <SplitFlap group={`dest-${i}`} text={destination} cells={DEST_CELLS} className='board-dest' />
+                                    <SplitFlap group={`via-${i}`} text={via} cells={VIA_TILES} className='board-via' />
+                                </>
+                            );
+                            return (
+                                <li key={destination}>
+                                    {'copiesEmail' in route ? (
+                                        <button
+                                            type='button'
+                                            className='board-row'
+                                            onPointerEnter={() => spin(i)}
+                                            onClick={copyEmail}
+                                        >
+                                            {content}
+                                            <FiCopy className='board-arrow board-copy' aria-hidden='true' />
+                                        </button>
+                                    ) : (
+                                        <a
+                                            className='board-row'
+                                            href={route.href}
+                                            target='_blank'
+                                            rel='noopener noreferrer'
+                                            onPointerEnter={() => spin(i)}
+                                        >
+                                            {content}
+                                            <FiArrowUpRight className='board-arrow' aria-hidden='true' />
+                                        </a>
+                                    )}
+                                </li>
+                            );
+                        })}
+                    </ul>
+                </div>
+            </CofferWall>
 
             {toast}
         </div>

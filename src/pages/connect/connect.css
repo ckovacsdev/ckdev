@@ -1,6 +1,5 @@
 /* Same section rhythm as the rest of the page: heading, a 20px gap, then the board */
 .connect-container{
-    container: connect / inline-size;
     padding: 10px var(--page-gutter-end) 0 var(--page-gutter-start);
     display: flex;
     flex-direction: column;
@@ -8,8 +7,14 @@
     margin-bottom: clamp(2rem, 4vw, 4rem);
 }
 
+/* The board hangs on a coffered wall, which is also its size container: the wall's content box is
+   exactly the board's width */
+.board-wall{
+    container: connect / inline-size;
+}
+
 /*
- * A station departure board across the full content width: a housing with the site's gold corner
+ * A station departure board across the wall: a housing with the site's gold corner
  * brackets, a split-flap marquee and clock, painted column headings, and one row per way to reach
  * me. Each row opens a link, except email, which copies the address to the clipboard.
  */
