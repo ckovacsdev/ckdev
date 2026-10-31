@@ -1,0 +1,237 @@
+.work-demo{
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    min-inline-size: 0;
+    font-size: 0.85rem;
+}
+
+.work-demo-intro{
+    margin: 0;
+    max-inline-size: 52ch;
+    color: var(--text-muted-hover);
+    font-weight: 300;
+    line-height: 1.55;
+}
+
+.work-demo-controls{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem 1.25rem;
+}
+
+.work-demo-options{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.work-demo-option,
+.work-demo-action{
+    padding: 0.45em 0.8em;
+    border: 1px solid rgb(255 255 255 / 0.14);
+    border-radius: 0;
+    background: rgb(255 255 255 / 0.03);
+    color: var(--text-muted-hover);
+    font: inherit;
+    font-size: 0.8rem;
+    line-height: 1.3;
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+.work-demo-option:hover{
+    color: var(--main-text);
+    border-color: rgb(255 255 255 / 0.3);
+}
+.work-demo-option[aria-pressed='true']{
+    border-color: var(--main-accent);
+    background: var(--accent-tint);
+    color: var(--main-accent-hover);
+}
+
+.work-demo-action{
+    border-color: var(--main-accent);
+    color: var(--main-accent);
+}
+.work-demo-action:hover:not(:disabled){
+    background: var(--accent-tint);
+    color: var(--main-accent-hover);
+}
+.work-demo-action:disabled{
+    cursor: progress;
+    opacity: 0.6;
+}
+
+.work-demo-option:focus-visible,
+.work-demo-action:focus-visible{
+    outline: 1px solid var(--main-accent-hover);
+    outline-offset: 2px;
+}
+
+.work-demo-readout{
+    margin: 0;
+    color: var(--text-muted-hover);
+    white-space: nowrap;
+}
+
+.work-demo-value{
+    color: var(--main-accent);
+    font-size: 1.35rem;
+    font-weight: 300;
+    font-variant-numeric: tabular-nums;
+}
+
+.work-demo-sr{
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+/* Matching: the page reads like a document, found text is marked by the pass that found it */
+.match-demo-page{
+    margin: 0;
+    padding: 0.9rem 1rem;
+    border: 1px solid var(--hairline);
+    background: rgb(var(--main-background-rgb) / 0.6);
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    line-height: 1.75;
+    white-space: pre-line;
+}
+
+.match-demo-word{
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.match-demo-word[data-found='found']{
+    background: rgb(var(--main-accent-rgb) / 0.16);
+    color: var(--text-muted-hover);
+}
+.match-demo-word[data-found='new']{
+    background: rgb(var(--main-accent-rgb) / 0.4);
+    color: var(--main-text);
+}
+
+/* Provisioning */
+.provision-demo-steps{
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    /* Room for the longest list, so switching resources never moves the page */
+    min-block-size: calc(var(--rows) * 1lh + (var(--rows) - 1) * 0.45rem);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.provision-demo-step{
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--text-muted);
+    transition: color 0.2s ease;
+}
+.provision-demo-step[data-state]{
+    color: var(--main-text);
+}
+
+.provision-demo-text{
+    flex: 1;
+    min-inline-size: 0;
+}
+
+/* Names who does the step; the platform's own steps carry the accent */
+.provision-demo-actor{
+    flex-shrink: 0;
+    color: var(--text-muted);
+    font-size: 0.72rem;
+}
+.provision-demo-actor[data-actor='platform']{
+    color: rgb(var(--main-accent-rgb) / 0.85);
+}
+
+.provision-demo-icon{
+    flex-shrink: 0;
+    inline-size: 1.15em;
+    block-size: 1.15em;
+    stroke-width: 1.5;
+}
+.provision-demo-step[data-state] .provision-demo-icon{
+    color: var(--main-accent);
+}
+
+.provision-demo-compare{
+    display: grid;
+    gap: 0.4rem;
+    margin: 0;
+    padding-block-start: 0.9rem;
+    border-block-start: 1px solid var(--hairline);
+}
+
+.provision-demo-bar{
+    display: grid;
+    grid-template-columns: 8.5rem minmax(0, 1fr);
+    align-items: center;
+    gap: 0.75rem;
+}
+.provision-demo-bar dt{
+    color: var(--text-muted-hover);
+    font-size: 0.78rem;
+}
+.provision-demo-bar dd{
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 3.5rem;
+    align-items: center;
+    gap: 0.6rem;
+    margin: 0;
+    color: var(--text-muted-hover);
+    font-size: 0.78rem;
+    font-variant-numeric: tabular-nums;
+}
+
+.provision-demo-bar dd.provision-demo-note{
+    display: block;
+    min-block-size: 1lh;
+}
+.provision-demo-bar dd.provision-demo-note--platform{
+    color: var(--main-accent);
+}
+
+.provision-demo-track{
+    display: block;
+    block-size: 6px;
+    background: rgb(255 255 255 / 0.05);
+}
+
+.provision-demo-fill{
+    display: block;
+    block-size: 100%;
+    background: rgb(255 255 255 / 0.22);
+}
+.provision-demo-fill--platform{
+    min-inline-size: 3px;
+    background: var(--main-accent);
+}
+
+@media screen and (max-width: 640px){
+    .match-demo-page{
+        padding: 0.7rem 0.75rem;
+    }
+    .provision-demo-bar{
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0.25rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce){
+    .match-demo-word,
+    .provision-demo-step,
+    .work-demo-option,
+    .work-demo-action{
+        transition: none;
+    }
+}
