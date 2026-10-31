@@ -1,3 +1,15 @@
+/* Pinned, the stage holds still under the nav while the spacer after it scrolls past */
+.skills-track[data-mode='pinned']::after{
+    content: '';
+    display: block;
+    height: var(--sequence-scroll);
+}
+
+.skills-track[data-mode='pinned'] .skills-stage{
+    position: sticky;
+    top: var(--nav-offset);
+}
+
 .skills-container{
     padding: 10px var(--page-gutter-end) 0 var(--page-gutter-start);
     display: flex;
@@ -25,6 +37,28 @@
     background: var(--surface-solid);
     border: 1px solid rgb(255 255 255 / 0.09);
     box-shadow: 0 1px 0 rgb(0 0 0 / 0.35);
+}
+
+/* Pinned, cards climb with the scroll, then snap the last stretch into their slot */
+.skills-track[data-mode='pinned'] .skills-card{
+    transform: translateY(var(--rise, 0px));
+    transition: transform 0.1s linear;
+}
+
+.skills-track[data-mode='pinned'] .skills-card[data-snapped]{
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Unpinned, cards rise in as they scroll into view */
+.skills-track[data-mode='flow'] .skills-card{
+    transition:
+        opacity 0.25s ease var(--enter-delay),
+        transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) var(--enter-delay);
+}
+
+.skills-track[data-mode='flow'] .skills-card[data-hidden]{
+    opacity: 0;
+    transform: translateY(2.5rem);
 }
 
 .skills-card-title{
