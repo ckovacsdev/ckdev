@@ -26,3 +26,6 @@ dist-ssr
 .env
 # Wrangler local state
 .wrangler
+
+# Local Claude skills
+.claude/skills/

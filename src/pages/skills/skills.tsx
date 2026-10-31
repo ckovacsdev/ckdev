@@ -24,6 +24,7 @@ import {
     TbSquareLetterN,
     TbTestPipe,
 } from 'react-icons/tb';
+import { useScrollSequence } from '../../hooks/useScrollSequence';
 import './skills.css';
 
 type Skill = {
@@ -89,24 +90,30 @@ const SKILL_GROUPS: SkillGroup[] = [
 ]
 
 export const Skills = () => {
+    const trackRef = useScrollSequence();
+
     return (
-        <div className='skills-container'>
-            <h2 className='section-title'> Technical Skills </h2>
-            <div className='skills-grid'>
-                {SKILL_GROUPS.map(({ title, summary, skills }) => (
-                    <div key={title} className='skills-card'>
-                        <h3 className='skills-card-title'>{title}</h3>
-                        <p className='skills-card-summary'>{summary}</p>
-                        <ul className='skills-list'>
-                            {skills.map(({ name, icon: Icon }) => (
-                                <li key={name} className='skills-item'>
-                                    <Icon className='skills-item-icon' aria-hidden='true' />
-                                    {name}
-                                </li>
-                            ))}
-                        </ul>
+        <div className='skills-track' ref={trackRef}>
+            <div className='skills-stage'>
+                <div className='skills-container'>
+                    <h2 className='section-title'> Technical Skills </h2>
+                    <div className='skills-grid'>
+                        {SKILL_GROUPS.map(({ title, summary, skills }, i) => (
+                            <div key={title} className='skills-card' data-step={i}>
+                                <h3 className='skills-card-title'>{title}</h3>
+                                <p className='skills-card-summary'>{summary}</p>
+                                <ul className='skills-list'>
+                                    {skills.map(({ name, icon: Icon }) => (
+                                        <li key={name} className='skills-item'>
+                                            <Icon className='skills-item-icon' aria-hidden='true' />
+                                            {name}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        ))}
                     </div>
-                ))}
+                </div>
             </div>
         </div>
     )
