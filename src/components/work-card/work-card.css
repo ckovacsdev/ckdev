@@ -325,7 +325,7 @@
 }
 
 .work-dialog::backdrop {
-	background: rgba(6, 6, 8, 0.45);
+	background: rgb(var(--oxblood-shadow-rgb) / 0.55);
 	backdrop-filter: blur(3px);
 }
 
