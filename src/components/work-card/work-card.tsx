@@ -20,6 +20,7 @@ export type WorkCardProps = {
 	stats: WorkStat[];
 	compact?: boolean;
 	link?: WorkLink;
+	demo?: ReactNode;
 	children?: ReactNode;
 };
 
@@ -60,7 +61,7 @@ const WorkStats = ({ stats, className }: { stats: WorkStat[]; className: string 
 	</dl>
 );
 
-export default function WorkCard({ tech, title, subtitle, stats, compact, link, children }: WorkCardProps) {
+export default function WorkCard({ tech, title, subtitle, stats, compact, link, demo, children }: WorkCardProps) {
 	const [ open, setOpen ] = useState(false);
 	const cardRef = useRef<HTMLElement>(null);
 	const dialogRef = useRef<HTMLDialogElement>(null);
@@ -135,27 +136,50 @@ export default function WorkCard({ tech, title, subtitle, stats, compact, link, 
 
 	return (
 		<div className={compact ? 'work-card-slot work-card-slot--compact' : 'work-card-slot'}>
-			<article ref={cardRef} className='work-card chamfer' data-open={open || undefined}>
+			<article
+				ref={cardRef}
+				className='work-card chamfer'
+				data-open={open || undefined}
+				data-demo={demo ? '' : undefined}
+			>
 				<div className='work-card-body'>
 					<h3 className='work-card-title'>{title}</h3>
 					<p className='work-card-tech'>{tech}</p>
 					<WorkStats stats={stats} className='work-card-stats' />
 					<p className='work-card-subtitle'>{subtitle}</p>
 					<div className='work-card-actions'>
-						<p className='work-card-read-more' aria-hidden='true'>Read more +</p>
+						{demo ? (
+							<button
+								type='button'
+								className='work-card-read-more work-card-read-more--button'
+								onClick={openDialog}
+								aria-haspopup='dialog'
+								aria-expanded={open}
+								aria-label={`Read more about ${title}`}
+							>
+								Read more +
+							</button>
+						) : (
+							<p className='work-card-read-more' aria-hidden='true'>Read more +</p>
+						)}
 						{link && <ExternalLink link={link} className='work-card-link' />}
 					</div>
 				</div>
 
-				<button
-					type='button'
-					className='work-card-toggle'
-					onClick={openDialog}
-					aria-haspopup='dialog'
-					aria-expanded={open}
-				>
-					<span className='work-card-sr'>Read more about {title}</span>
-				</button>
+				{/* With a demo inside, the card holds its own controls, so only Read more opens it */}
+				{demo ? (
+					<div className='work-card-demo'>{demo}</div>
+				) : (
+					<button
+						type='button'
+						className='work-card-toggle'
+						onClick={openDialog}
+						aria-haspopup='dialog'
+						aria-expanded={open}
+					>
+						<span className='work-card-sr'>Read more about {title}</span>
+					</button>
+				)}
 			</article>
 
 			<dialog

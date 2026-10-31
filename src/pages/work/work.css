@@ -5,6 +5,12 @@
     row-gap: 20px;
 }
 
+.work-projects{
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.25rem, 2.5vw, 2rem);
+}
+
 .work-history-container {
     display: flex;
     flex-direction: column;

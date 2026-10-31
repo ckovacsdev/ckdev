@@ -1,9 +1,10 @@
-import { type WorkCardProps } from '../../components/work-card/work-card';
-import { WorkDeck } from '../../components/work-deck/work-deck';
+import WorkCard, { type WorkCardProps } from '../../components/work-card/work-card';
 import TCWLogo from '../../assets/tcw.svg';
 import NYULogo from '../../assets/NYU-Logo.png';
 import { AiDocDetails } from '../../components/work-card/ai-doc-details';
 import { PlatformDetails } from '../../components/work-card/platform-details';
+import { MatchDemo } from '../../components/work-demos/match-demo';
+import { ProvisionDemo } from '../../components/work-demos/provision-demo';
 import './work.css';
 
 const WORK_CARDS: WorkCardProps[] = [
@@ -16,6 +17,7 @@ const WORK_CARDS: WorkCardProps[] = [
             { value: '600+', label: 'Page documents analyzed in under a minute' },
             { value: '400', label: 'Documents analyzed weekly' },
         ],
+        demo: <MatchDemo />,
         children: <AiDocDetails />
     },
     {
@@ -27,6 +29,7 @@ const WORK_CARDS: WorkCardProps[] = [
             { value: '10', label: 'Templated tech stacks, up from 2' },
             { value: '50', label: 'Manual tickets eliminated monthly' },
         ],
+        demo: <ProvisionDemo />,
         children: <PlatformDetails />
     }
 ]
@@ -87,7 +90,9 @@ export const Work = () => {
     return (
         <div className='work-container'>
             <h2 className='section-title'>  Professional Projects </h2>
-            <WorkDeck items={WORK_CARDS} label='Professional projects' />
+            <div className='work-projects'>
+                {WORK_CARDS.map((card) => <WorkCard key={card.title} {...card} />)}
+            </div>
 
             <div className='work-history-container'>
                 <h2 className='section-title'>  Experience & Education </h2>
