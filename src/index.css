@@ -7,6 +7,10 @@
 	--main-accent-rgb: 192 145 75;
 	--main-accent-hover-rgb: 216 180 120;
 	--main-text-rgb: 228 225 214;
+	/* Oxblood is atmosphere only (sky, lacquer, shadow), never text or UI state: red reads as error */
+	--oxblood-rgb: 142 58 62;
+	--oxblood-lacquer-rgb: 56 30 38;
+	--oxblood-shadow-rgb: 22 8 12;
 
 	--main-background: rgb(var(--main-background-rgb));
 	--main-accent: rgb(var(--main-accent-rgb));

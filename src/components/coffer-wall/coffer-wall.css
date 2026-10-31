@@ -28,8 +28,9 @@
 .coffer-rib{
 	fill: #292e3d;
 }
+/* Lacquered red panels set into navy ribs */
 .coffer-face{
-	fill: #1a1e29;
+	fill: rgb(var(--oxblood-lacquer-rgb));
 }
 .coffer-lit{
 	fill: #544836;
