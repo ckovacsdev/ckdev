@@ -11,7 +11,7 @@ const PROJECTS: ProjectCardProps[] = [
         summary: "Configurable LLM document analysis platform.  Users define rule sets, evaluate uploaded PDFs against them, and review results in a PDF viewer that matches and highlights the exact source passage behind each pass or fail.",
         stats: [
             { value: '96–98%', label: 'Source text match coverage, up from ~10%' },
-            { value: '600+', label: 'Page documents analyzed in under a minute' },
+            { value: '1,000+', label: 'Page documents analyzed in under a minute' },
             { value: '400', label: 'Documents analyzed weekly' },
         ],
         children: <AiDocDetails />,
