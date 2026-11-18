@@ -2,7 +2,7 @@
 
 Personal site and portfolio. Built with React, TypeScript, and Vite.
 
-Hand-built from the ground up to establish the core layout and art-deco styling, then refined with Claude Code to elevate the visual design and add richer interactivity.
+The first version was hand-built with an art-deco design, then refined with Claude Code. The current version is a redesign done with Claude Code: a dark, single-column profile page.
 
 **Live:** https://ckovacs.dev
 
@@ -10,23 +10,26 @@ Hand-built from the ground up to establish the core layout and art-deco styling,
 
 | Desktop | Mobile |
 |---|---|
-| <img src="docs/home-screenshot.png" width="600"> | <img src="docs/home-screenshot-mobile.png" width="170"> |
-| <img src="docs/work-screenshot.png" width="600"> | <img src="docs/work-screenshot-mobile.png" width="170"> |
+| <img src="docs/home-screenshot.png" width="600"> | <img src="docs/home-screenshot-mobile.png" width="200"> |
+| <img src="docs/work-screenshot.png" width="600"> | <img src="docs/work-screenshot-mobile.png" width="200"> |
 
 ## Design Ideals
 
-- Art-deco visual system in navy and gold, inspired by 1920s New York, Chicago, and Detroit architecture and the "dark deco" look of Batman: The Animated Series
-- Landing page skyline rendered as a 2.5D parallax scene with Three.js, responding to mouse and scroll, and loaded after the page so it never delays first paint
-- Responsive from 320px up, with fluid type and spacing via `clamp()`
-- Respects `prefers-reduced-motion` throughout
+- Dark mode only: one near-black palette with a single warm accent, set in Geist and Geist Mono
+- A centered profile page: one column framed by hairline rails, with full-width lines between sections
+- Each section shares the same frame but has its own layout: profile facts grid, contribution heatmap, project cards, expandable roles, skills table, contact tiles
+- Details on demand: experience roles and project write-ups expand in place
+- Subtle pointer motion only: a spotlight on the profile cover and a light edge on project cards
+- Native scrolling, no scroll hijacking
+- Responsive down to phone widths, and respects `prefers-reduced-motion` throughout
 
 ## Stack
 
 - React + TypeScript
 - Vite
-- Three.js
 - HTML & CSS
 - Deployed on Cloudflare via GitHub Actions
+- GitHub contribution data from [github-contributions-api](https://github.com/grubersjoe/github-contributions-api), fetched in the browser
 
 ## Running locally
 

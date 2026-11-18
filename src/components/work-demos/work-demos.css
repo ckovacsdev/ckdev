@@ -9,7 +9,7 @@
 .work-demo-intro{
     margin: 0;
     max-inline-size: 52ch;
-    color: var(--text-muted-hover);
+    color: var(--text-muted);
     font-weight: 300;
     line-height: 1.55;
 }
@@ -32,9 +32,9 @@
 .work-demo-action{
     padding: 0.45em 0.8em;
     border: 1px solid rgb(255 255 255 / 0.14);
-    border-radius: 0;
+    border-radius: 7px;
     background: rgb(255 255 255 / 0.03);
-    color: var(--text-muted-hover);
+    color: var(--text-muted);
     font: inherit;
     font-size: 0.8rem;
     line-height: 1.3;
@@ -42,22 +42,22 @@
     transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
 }
 .work-demo-option:hover{
-    color: var(--main-text);
+    color: var(--text);
     border-color: rgb(255 255 255 / 0.3);
 }
 .work-demo-option[aria-pressed='true']{
-    border-color: var(--main-accent);
-    background: var(--accent-tint);
-    color: var(--main-accent-hover);
+    border-color: var(--accent);
+    background: var(--accent-soft);
+    color: var(--accent);
 }
 
 .work-demo-action{
-    border-color: var(--main-accent);
-    color: var(--main-accent);
+    border-color: var(--accent);
+    color: var(--accent);
 }
 .work-demo-action:hover:not(:disabled){
-    background: var(--accent-tint);
-    color: var(--main-accent-hover);
+    background: var(--accent-soft);
+    color: var(--accent);
 }
 .work-demo-action:disabled{
     cursor: progress;
@@ -66,18 +66,18 @@
 
 .work-demo-option:focus-visible,
 .work-demo-action:focus-visible{
-    outline: 1px solid var(--main-accent-hover);
+    outline: 1px solid var(--accent);
     outline-offset: 2px;
 }
 
 .work-demo-readout{
     margin: 0;
-    color: var(--text-muted-hover);
+    color: var(--text-muted);
     white-space: nowrap;
 }
 
 .work-demo-value{
-    color: var(--main-accent);
+    color: var(--accent);
     font-size: 1.35rem;
     font-weight: 300;
     font-variant-numeric: tabular-nums;
@@ -96,8 +96,9 @@
 .match-demo-page{
     margin: 0;
     padding: 0.9rem 1rem;
-    border: 1px solid var(--hairline);
-    background: rgb(var(--main-background-rgb) / 0.6);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--bg);
     color: var(--text-muted);
     font-size: 0.8rem;
     line-height: 1.75;
@@ -108,12 +109,12 @@
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 .match-demo-word[data-found='found']{
-    background: rgb(var(--main-accent-rgb) / 0.16);
-    color: var(--text-muted-hover);
+    background: rgb(var(--accent-rgb) / 0.16);
+    color: var(--text-muted);
 }
 .match-demo-word[data-found='new']{
-    background: rgb(var(--main-accent-rgb) / 0.4);
-    color: var(--main-text);
+    background: rgb(var(--accent-rgb) / 0.4);
+    color: var(--text);
 }
 
 /* Provisioning */
@@ -136,7 +137,7 @@
     transition: color 0.2s ease;
 }
 .provision-demo-step[data-state]{
-    color: var(--main-text);
+    color: var(--text);
 }
 
 .provision-demo-text{
@@ -151,7 +152,7 @@
     font-size: 0.72rem;
 }
 .provision-demo-actor[data-actor='platform']{
-    color: rgb(var(--main-accent-rgb) / 0.85);
+    color: rgb(var(--accent-rgb) / 0.85);
 }
 
 .provision-demo-icon{
@@ -161,7 +162,7 @@
     stroke-width: 1.5;
 }
 .provision-demo-step[data-state] .provision-demo-icon{
-    color: var(--main-accent);
+    color: var(--accent);
 }
 
 .provision-demo-compare{
@@ -169,7 +170,7 @@
     gap: 0.4rem;
     margin: 0;
     padding-block-start: 0.9rem;
-    border-block-start: 1px solid var(--hairline);
+    border-block-start: 1px solid var(--line);
 }
 
 .provision-demo-bar{
@@ -179,7 +180,7 @@
     gap: 0.75rem;
 }
 .provision-demo-bar dt{
-    color: var(--text-muted-hover);
+    color: var(--text-muted);
     font-size: 0.78rem;
 }
 .provision-demo-bar dd{
@@ -188,7 +189,7 @@
     align-items: center;
     gap: 0.6rem;
     margin: 0;
-    color: var(--text-muted-hover);
+    color: var(--text-muted);
     font-size: 0.78rem;
     font-variant-numeric: tabular-nums;
 }
@@ -198,12 +199,14 @@
     min-block-size: 1lh;
 }
 .provision-demo-bar dd.provision-demo-note--platform{
-    color: var(--main-accent);
+    color: var(--accent);
 }
 
 .provision-demo-track{
     display: block;
     block-size: 6px;
+    border-radius: 3px;
+    overflow: hidden;
     background: rgb(255 255 255 / 0.05);
 }
 
@@ -214,7 +217,7 @@
 }
 .provision-demo-fill--platform{
     min-inline-size: 3px;
-    background: var(--main-accent);
+    background: var(--accent);
 }
 
 @media screen and (max-width: 640px){

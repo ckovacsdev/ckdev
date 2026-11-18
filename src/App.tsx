@@ -1,38 +1,29 @@
-import { Home } from './pages/home/home';
-import { Navigation } from './components/navigation/navi';
-import { Work } from './pages/work/work';
-import { Skills } from './pages/skills/skills';
-import { About } from './pages/about/about';
-import { Connect } from './pages/connect/connect';
+import { Header } from './components/header/header';
 import { Footer } from './components/footer/footer';
+import { Contributions } from './components/contributions/contributions';
+import { Profile } from './sections/profile/profile';
+import { Projects } from './sections/projects/projects';
+import { Experience } from './sections/experience/experience';
+import { Skills } from './sections/skills/skills';
+import { About } from './sections/about/about';
+import { Contact } from './sections/contact/contact';
 import './App.css';
 
 function App() {
 	return (
-		<div className='app-container'>
-			<div className='app-main'>
-				<Navigation />
-				<section id='home'>
-					<Home /> 
-				</section>
-				<section id='work'> 
-					<Work /> 
-				</section>
-				<section id='skills'>
-					<Skills />
-				</section>
-				<section id='about'>
-					<About />
-				</section>
-				<section id='contact'>
-					<Connect />
-				</section>
-			</div>
-			
-			<div id='footer'>
-				<Footer />
-			</div>
-		</div>					
+		<div className='page'>
+			<Header />
+			<main className='column'>
+				<Profile />
+				<Contributions />
+				<Projects />
+				<Experience />
+				<Skills />
+				<About />
+				<Contact />
+			</main>
+			<Footer />
+		</div>
 	)
 }
 

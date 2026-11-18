@@ -1,0 +1,85 @@
+.experience-list{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.experience-org-head{
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+}
+
+.experience-logo{
+    flex-shrink: 0;
+    inline-size: 32px;
+    block-size: 32px;
+    border-radius: 7px;
+    object-fit: cover;
+    box-shadow: 0 0 0 1px var(--line-strong);
+}
+
+.experience-org-name{
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+/* Roles hang off a guide line that drops from the logo */
+.experience-roles{
+    margin: 0.5rem 0 0 15.5px;
+    padding: 0 0 0 calc(1.35rem - 1px);
+    list-style: none;
+    border-inline-start: 1px solid var(--line);
+}
+
+.experience-role + .experience-role{
+    border-block-start: 1px dashed var(--line);
+}
+
+.experience-role-disclosure .disclosure-summary{
+    padding: 0.85rem 0;
+}
+
+.experience-role-summary{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.15rem 1rem;
+}
+
+.experience-role-title{
+    font-weight: 500;
+}
+
+.experience-role-dates{
+    color: var(--text-faint);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    white-space: nowrap;
+}
+
+.experience-highlights{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0 0 1rem;
+    list-style: none;
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+.experience-highlights li{
+    position: relative;
+    padding-inline-start: 1.1rem;
+}
+.experience-highlights li::before{
+    content: '';
+    position: absolute;
+    inset-inline-start: 0;
+    inset-block-start: 0.8em;
+    inline-size: 6px;
+    block-size: 1px;
+    background: var(--text-faint);
+}

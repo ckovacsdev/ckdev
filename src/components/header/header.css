@@ -1,0 +1,91 @@
+.header{
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 10;
+    border-block-end: 1px solid var(--line);
+    background: rgb(10 10 11 / 0.78);
+    backdrop-filter: blur(12px) saturate(140%);
+    -webkit-backdrop-filter: blur(12px) saturate(140%);
+}
+
+.header-inner{
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    max-inline-size: var(--column);
+    block-size: var(--header-height);
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+    border-inline: 1px solid var(--line);
+}
+
+.header-mark{
+    display: grid;
+    place-items: center;
+    inline-size: 30px;
+    block-size: 30px;
+    border: 1px solid var(--line-strong);
+    border-radius: 7px;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+}
+
+.header-nav{
+    display: flex;
+    gap: 1.25rem;
+    margin-inline-end: auto;
+}
+
+.header-link{
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+.header-link:hover,
+.header-link[aria-current]{
+    color: var(--text);
+}
+
+.header-actions{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.header-icon{
+    display: grid;
+    place-items: center;
+    inline-size: 32px;
+    block-size: 32px;
+    border-radius: 8px;
+    color: var(--text-muted);
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+.header-icon:hover{
+    color: var(--text);
+    background: var(--panel-raised);
+}
+.header-icon svg{
+    inline-size: 17px;
+    block-size: 17px;
+}
+
+@media screen and (max-width: 792px){
+    .header-inner{
+        border-inline: 0;
+    }
+}
+
+/* Phones keep the mark and actions; the sections are a short scroll away */
+@media screen and (max-width: 600px){
+    .header-nav{
+        display: none;
+    }
+    .header-actions{
+        margin-inline-start: auto;
+    }
+}

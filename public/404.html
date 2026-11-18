@@ -8,77 +8,73 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400&display=swap" rel="stylesheet">
     <style>
       :root {
         color-scheme: dark;
-        --main-background: #1e222f;
-        --main-accent: #c0914b;
-        --main-accent-hover: #d8b478;
-        --main-text: #e4e1d6;
+        --bg: #0a0a0b;
+        --panel: #111113;
+        --line: rgb(255 255 255 / 0.08);
+        --line-strong: rgb(255 255 255 / 0.14);
+        --text: #ededef;
+        --text-muted: #a1a1aa;
+        --accent: rgb(222 184 120);
       }
+      * { box-sizing: border-box; }
       html, body {
         margin: 0;
         height: 100%;
-        background: var(--main-background);
-        color: var(--main-text);
-        font-family: 'Lato', system-ui, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        font-family: 'Geist', system-ui, sans-serif;
+        -webkit-font-smoothing: antialiased;
       }
       main {
         min-height: 100%;
-        box-sizing: border-box;
+        max-width: 760px;
+        margin: 0 auto;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 20px;
-        padding: 25px;
+        gap: 14px;
+        padding: 24px;
+        border-inline: 1px solid var(--line);
         text-align: center;
       }
       h1 {
         margin: 0;
-        font-family: 'Poiret One', system-ui, sans-serif;
+        font-family: 'Geist Mono', ui-monospace, monospace;
         font-weight: 400;
-        font-size: clamp(64px, 18vw, 120px);
-        color: var(--main-accent);
+        font-size: clamp(56px, 16vw, 96px);
+        letter-spacing: -0.04em;
         line-height: 1;
-      }
-      .rule {
-        width: min(100%, 400px);
-        height: 11px;
-        background:
-          linear-gradient(var(--main-accent), var(--main-accent)) center 5px / 100% 1px no-repeat,
-          linear-gradient(var(--main-accent), var(--main-accent)) center 0 / 75% 1px no-repeat,
-          linear-gradient(var(--main-accent), var(--main-accent)) center 10px / 75% 1px no-repeat;
-        opacity: 0.75;
       }
       p {
         margin: 0;
-        font-size: 20px;
-        font-weight: 300;
+        color: var(--text-muted);
+        font-size: 16px;
       }
       a {
-        position: relative;
-        margin-top: 12px;
-        padding: 15px 30px;
-        color: var(--main-accent);
-        border: 1px solid var(--main-accent);
+        margin-top: 10px;
+        padding: 8px 14px;
+        border: 1px solid var(--line-strong);
+        border-radius: 8px;
+        background: var(--panel);
+        color: var(--text);
+        font-size: 14px;
+        font-weight: 500;
         text-decoration: none;
-        transition: background 0.3s ease;
+        transition: border-color 0.2s ease;
       }
-      a:hover {
-        background: rgb(192 145 75 / 0.07);
-      }
-      a:focus-visible {
-        outline: 1px solid var(--main-accent-hover);
-        outline-offset: 4px;
-      }
+      a:hover { border-color: rgb(255 255 255 / 0.24); }
+      a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+      @media (max-width: 792px) { main { border-inline: 0; } }
     </style>
   </head>
   <body>
     <main>
       <h1>404</h1>
-      <div class="rule" aria-hidden="true"></div>
       <p>This page doesn't exist.</p>
       <a href="/">Back to Home</a>
     </main>

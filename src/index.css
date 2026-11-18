@@ -1,127 +1,146 @@
 :root{
-	margin: 0;
-	padding: 0;
+	color-scheme: dark;
 
-	/* Colors: channels are kept separately so tints stay in sync with the base color */
-	--main-background-rgb: 30 34 47;
-	--main-accent-rgb: 192 145 75;
-	--main-accent-hover-rgb: 216 180 120;
-	--main-text-rgb: 228 225 214;
-	/* Oxblood is atmosphere only (sky, lacquer, shadow), never text or UI state: red reads as error */
-	--oxblood-rgb: 142 58 62;
-	--oxblood-lacquer-rgb: 56 30 38;
-	--oxblood-shadow-rgb: 22 8 12;
+	/* Surfaces: near-black with one step up for panels */
+	--bg: #0a0a0b;
+	--panel: #111113;
+	--panel-raised: #17171a;
 
-	--main-background: rgb(var(--main-background-rgb));
-	--main-accent: rgb(var(--main-accent-rgb));
-	--main-accent-hover: rgb(var(--main-accent-hover-rgb));
-	--main-text: rgb(var(--main-text-rgb));
+	/* Lines are white at low alpha so they sit evenly on any surface */
+	--line: rgb(255 255 255 / 0.08);
+	--line-strong: rgb(255 255 255 / 0.14);
 
-	--text-muted: rgb(var(--main-text-rgb) / 0.55);
-	--text-muted-hover: rgb(var(--main-text-rgb) / 0.75);
-	--accent-tint: rgb(var(--main-accent-rgb) / 0.07);
-	--accent-line: rgb(var(--main-accent-rgb) / 0.28);
-	--accent-border: rgb(var(--main-accent-hover-rgb) / 0.35);
-	--surface: rgb(255 255 255 / 0.03);
-	--surface-solid: rgb(37 41 53); /* --surface composited over --main-background, for stacked panels */
-	--surface-border: rgb(255 255 255 / 0.3);
-	--hairline: rgb(255 255 255 / 0.08);
+	--text: #ededef;
+	--text-muted: #a1a1aa;
+	--text-faint: #6b6b74;
 
-	/* Fonts */
-	--font-display: 'Big Shoulders Display', system-ui, sans-serif;
-	--font-body: 'Lato', system-ui, sans-serif;
+	/* One warm accent, used sparingly: contribution levels, active states, demo highlights */
+	--accent-rgb: 222 184 120;
+	--accent: rgb(var(--accent-rgb));
+	--accent-soft: rgb(var(--accent-rgb) / 0.12);
+
+	--font-sans: 'Geist', ui-sans-serif, system-ui, sans-serif;
+	--font-mono: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace;
 
 	/* Layout */
-	--page-gutter-start: clamp(20px, 12vw - 60px, 130px);
-	--page-gutter-end: clamp(20px, 3vw, 40px);
-	--nav-offset: 100px;
+	--column: 760px;
+	--gutter: 24px;
+	--header-height: 56px;
+	--radius: 10px;
+	--ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*,
+*::before,
+*::after{
+	box-sizing: border-box;
 }
 
 html{
 	scroll-behavior: smooth;
+	-webkit-text-size-adjust: 100%;
 }
 
 body{
 	margin: 0;
-	padding: 0;
+	background: var(--bg);
+	color: var(--text);
+	font-family: var(--font-sans);
+	font-size: 15px;
+	line-height: 1.6;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
-h1 {
-	font-family: var(--font-display);
-	font-weight: 400;
-	color: var(--main-text);
-}
-
-h2, h3, body {
-	font-family: var(--font-body);
-	font-weight: 400;
-	color: var(--main-text);
-}
-
-.section-title{
+h1, h2, h3, h4, h5{
 	margin: 0;
-	padding: 15px 0px;
-	max-width: 400px;
-	border-bottom: 1px solid var(--main-accent);
+	font-weight: 500;
+	line-height: 1.25;
+	letter-spacing: -0.01em;
 }
 
-.chamfer{
-	--_c: var(--cut, 1.25rem);
-	--_r: var(--ring, 1px);
-
-	border: var(--_r) solid var(--ring-color, var(--surface-border));
-	clip-path: polygon(
-		calc(var(--_c) + 1px) -1px, calc(100% + 1px) -1px,
-		calc(100% + 1px) calc(100% - var(--_c) - 1px), calc(100% - var(--_c) - 1px) calc(100% + 1px),
-		-1px calc(100% + 1px), -1px calc(var(--_c) + 1px)
-	);
+p{
+	margin: 0;
 }
-.chamfer::before{
-	--_d: calc(var(--_r) * 1.4142);
 
-	content: '';
+a{
+	color: inherit;
+}
+
+button{
+	font: inherit;
+	color: inherit;
+}
+
+:focus-visible{
+	outline: 2px solid var(--accent);
+	outline-offset: 2px;
+}
+
+::selection{
+	background: rgb(var(--accent-rgb) / 0.3);
+}
+
+.sr-only{
 	position: absolute;
-	inset: calc(-1 * var(--_r));
-	z-index: 2;
-	background: var(--ring-color, var(--surface-border));
-	pointer-events: none;
-	clip-path: polygon(evenodd,
-		calc(var(--_c) - var(--_r)) var(--_r),
-		calc(var(--_c) - var(--_r) + var(--_d)) var(--_r),
-		var(--_r) calc(var(--_c) - var(--_r) + var(--_d)),
-		var(--_r) calc(var(--_c) - var(--_r)),
-		calc(var(--_c) - var(--_r)) var(--_r),
-
-		calc(100% - var(--_c) + var(--_r)) calc(100% - var(--_r)),
-		calc(100% - var(--_c) - var(--_d) + var(--_r)) calc(100% - var(--_r)),
-		calc(100% - var(--_r)) calc(100% - var(--_c) - var(--_d) + var(--_r)),
-		calc(100% - var(--_r)) calc(100% - var(--_c) + var(--_r)),
-		calc(100% - var(--_c) + var(--_r)) calc(100% - var(--_r))
-	);
-	transition: background 0.35s ease;
+	inline-size: 1px;
+	block-size: 1px;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
 }
 
-@keyframes border-in {
-	to {
-		transform: scale(1);
-	}
+/* A small bordered button, shared by the header, profile, and contact rows */
+.chip-button{
+	display: inline-flex;
+	align-items: center;
+	gap: 0.45rem;
+	padding: 0.4rem 0.75rem;
+	border: 1px solid var(--line-strong);
+	border-radius: 8px;
+	background: var(--panel);
+	color: var(--text);
+	font-size: 0.85rem;
+	font-weight: 500;
+	line-height: 1.2;
+	text-decoration: none;
+	cursor: pointer;
+	transition: background-color 0.2s ease, border-color 0.2s ease;
 }
-
-@keyframes fade-in {
-	to {
-		opacity: 1;
-	}
+.chip-button:hover{
+	background: var(--panel-raised);
+	border-color: rgb(255 255 255 / 0.24);
 }
-
-@media (prefers-reduced-motion: reduce) {
-	.chamfer::before {
-		transition: none;
-	}
+.chip-button svg{
+	flex-shrink: 0;
+	inline-size: 1em;
+	block-size: 1em;
+}
+.chip-button--primary{
+	border-color: transparent;
+	background: var(--text);
+	color: var(--bg);
+}
+.chip-button--primary:hover{
+	border-color: transparent;
+	background: #ffffff;
 }
 
 @media screen and (max-width: 640px){
 	:root{
-		--page-gutter-start: 20px;
-		--page-gutter-end: 20px;
+		--gutter: 16px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce){
+	html{
+		scroll-behavior: auto;
+	}
+	*,
+	*::before,
+	*::after{
+		transition-duration: 0.01ms !important;
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
 	}
 }

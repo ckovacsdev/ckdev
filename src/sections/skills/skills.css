@@ -1,0 +1,80 @@
+/* A two-column table: the group and what it covers on the left, the tools on the right */
+.skills-table{
+    margin: 0;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.skills-row{
+    display: grid;
+    grid-template-columns: 13rem minmax(0, 1fr);
+}
+.skills-row + .skills-row{
+    border-block-start: 1px solid var(--line);
+}
+
+.skills-group{
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 1rem 1.1rem;
+    border-inline-end: 1px solid var(--line);
+    background: var(--panel);
+}
+
+.skills-group-title{
+    font-weight: 500;
+}
+
+.skills-group-summary{
+    color: var(--text-faint);
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
+.skills-list-wrap{
+    margin: 0;
+    padding: 1rem 1.1rem;
+}
+
+.skills-list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Static labels, so no hover state */
+.skills-item{
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.28rem 0.6rem;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: rgb(255 255 255 / 0.02);
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    line-height: 1.3;
+}
+
+.skills-item-icon{
+    flex-shrink: 0;
+    inline-size: 14px;
+    block-size: 14px;
+    color: var(--text-faint);
+}
+
+@media screen and (max-width: 640px){
+    .skills-row{
+        grid-template-columns: minmax(0, 1fr);
+    }
+    .skills-group{
+        border-inline-end: 0;
+        border-block-end: 1px solid var(--line);
+    }
+}
