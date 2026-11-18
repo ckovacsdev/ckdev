@@ -13,7 +13,6 @@ import {
 import { GITHUB_URL, LINKEDIN_URL, RESUME_PATH } from '../../data/links';
 import { useCopyEmail } from '../../hooks/useCopyEmail';
 import { useLocalTime } from '../../hooks/useLocalTime';
-import { usePointerGlow } from '../../hooks/usePointerGlow';
 import './profile.css';
 
 const Fact = ({ icon: Icon, children }: { icon: IconType; children: ReactNode }) => (
@@ -24,15 +23,13 @@ const Fact = ({ icon: Icon, children }: { icon: IconType; children: ReactNode })
 );
 
 export const Profile = () => {
-    const coverRef = usePointerGlow<HTMLDivElement>();
     const time = useLocalTime();
     const { copyEmail, toast } = useCopyEmail();
 
     return (
         <section id='top' className='profile' aria-labelledby='profile-name'>
-            <div className='profile-cover' ref={coverRef} aria-hidden='true'>
+            <div className='profile-cover' aria-hidden='true'>
                 <div className='profile-cover-dots' />
-                <div className='profile-cover-glow' />
             </div>
 
             <div className='profile-body'>

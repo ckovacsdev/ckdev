@@ -1,30 +1,8 @@
 .project-card{
-    --mx: 50%;
-    --my: 50%;
-
     position: relative;
     border: 1px solid var(--line);
     border-radius: var(--radius);
     background: var(--panel);
-}
-
-/* The border catches a little light where the pointer is */
-.project-card::before{
-    content: '';
-    position: absolute;
-    inset: -1px;
-    padding: 1px;
-    border-radius: inherit;
-    background: radial-gradient(260px circle at var(--mx) var(--my), rgb(var(--accent-rgb) / 0.55), transparent 70%);
-    mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
-    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.4s ease;
-}
-.project-card[data-pointer]::before{
-    opacity: 1;
 }
 
 .project-card-head{

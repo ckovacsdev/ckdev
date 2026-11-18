@@ -19,7 +19,6 @@ The first version was hand-built with an art-deco design, then refined with Clau
 - A centered profile page: one column framed by hairline rails, with full-width lines between sections
 - Each section shares the same frame but has its own layout: profile facts grid, contribution heatmap, project cards, expandable roles, skills table, contact tiles
 - Details on demand: experience roles and project write-ups expand in place
-- Subtle pointer motion only: a spotlight on the profile cover and a light edge on project cards
 - Native scrolling, no scroll hijacking
 - Responsive down to phone widths, and respects `prefers-reduced-motion` throughout
 

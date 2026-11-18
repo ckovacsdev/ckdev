@@ -2,40 +2,22 @@
     position: relative;
 }
 
-/* Cover: a quiet dot grid. Near the pointer a few dots warm to the accent and the grid eases away */
+/* Cover: a quiet dot grid */
 .profile-cover{
-    --mx: 50%;
-    --my: 50%;
-
     position: relative;
     block-size: 200px;
     overflow: hidden;
     border-block-end: 1px solid var(--line);
 }
 
-.profile-cover-dots,
-.profile-cover-glow{
+.profile-cover-dots{
     position: absolute;
     inset: 0;
-    background-image: radial-gradient(circle at center, var(--_dot) 1.1px, transparent 1.6px);
+    background-image: radial-gradient(circle at center, rgb(255 255 255 / 0.16) 1.1px, transparent 1.6px);
     background-size: 18px 18px;
     background-position: center;
-}
-
-.profile-cover-dots{
-    --_dot: rgb(255 255 255 / 0.16);
     /* Fade the grid toward the bottom so the avatar sits on calm ground */
     mask-image: linear-gradient(to bottom, #000 30%, transparent 100%);
-}
-
-.profile-cover-glow{
-    --_dot: var(--accent);
-    opacity: 0;
-    mask-image: radial-gradient(180px circle at var(--mx) var(--my), #000 0%, transparent 70%);
-    transition: opacity 0.4s ease;
-}
-.profile-cover[data-pointer] .profile-cover-glow{
-    opacity: 0.9;
 }
 
 .profile-body{

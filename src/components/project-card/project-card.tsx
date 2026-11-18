@@ -1,7 +1,6 @@
 import type { ReactNode } from 'react';
 import { FiArrowUpRight } from 'react-icons/fi';
 import { Disclosure } from '../disclosure/disclosure';
-import { usePointerGlow } from '../../hooks/usePointerGlow';
 import './project-card.css';
 
 export type ProjectStat = {
@@ -22,10 +21,8 @@ export type ProjectCardProps = {
 };
 
 export const ProjectCard = ({ title, tech, summary, stats, link, demo, children }: ProjectCardProps) => {
-    const cardRef = usePointerGlow<HTMLElement>();
-
     return (
-        <article className='project-card' ref={cardRef}>
+        <article className='project-card'>
             <div className='project-card-head'>
                 <div>
                     <h3 className='project-card-title'>{title}</h3>
