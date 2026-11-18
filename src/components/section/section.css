@@ -31,9 +31,10 @@
 }
 
 .section-meta{
-    color: var(--text-faint);
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-family: var(--font-accent);
+    font-size: 0.82rem;
+    letter-spacing: 0.02em;
     text-align: end;
 }
 

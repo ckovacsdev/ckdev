@@ -16,7 +16,6 @@
 
 .details-heading{
     color: var(--text-faint);
-    font-family: var(--font-mono);
     font-size: 0.72rem;
     font-weight: 500;
     letter-spacing: 0.08em;
@@ -75,8 +74,7 @@
 
 .details-stack-value{
     margin: 0;
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
+    font-size: 0.85rem;
 }
 
 @media screen and (max-width: 640px){

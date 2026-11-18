@@ -19,7 +19,8 @@
 	--accent: rgb(var(--accent-rgb));
 
 	--font-sans: 'Geist', ui-sans-serif, system-ui, sans-serif;
-	--font-mono: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+	/* The secondary face, for a few small accents only: monogram, title line, tech lines, dates, counts */
+	--font-accent: 'Chakra Petch', 'Geist', ui-sans-serif, system-ui, sans-serif;
 
 	/* Layout */
 	--column: 760px;

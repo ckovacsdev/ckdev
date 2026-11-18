@@ -27,8 +27,7 @@
     grid-template-columns: subgrid;
     block-size: 1.1rem;
     color: var(--text-faint);
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
+    font-size: 0.7rem;
     line-height: 1;
 }
 .contributions-months span{
@@ -87,8 +86,7 @@
     gap: 0.5rem 1rem;
     margin-block-start: 0.75rem;
     color: var(--text-faint);
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
+    font-size: 0.75rem;
 }
 
 .contributions-link{

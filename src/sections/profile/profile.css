@@ -35,8 +35,8 @@
     border-radius: 20px;
     background: linear-gradient(160deg, var(--panel-raised), var(--panel));
     box-shadow: 0 0 0 6px var(--bg);
-    font-family: var(--font-mono);
-    font-size: 1.6rem;
+    font-family: var(--font-accent);
+    font-size: 1.9rem;
     font-weight: 500;
     letter-spacing: 0.04em;
 }
@@ -48,9 +48,11 @@
 }
 
 .profile-role{
-    margin-block-start: 0.25rem;
+    margin-block-start: 0.3rem;
     color: var(--text-muted);
-    font-size: 1rem;
+    font-family: var(--font-accent);
+    font-size: 1.02rem;
+    letter-spacing: 0.01em;
 }
 
 .profile-bio{
@@ -77,8 +79,7 @@
     min-inline-size: 0;
     padding: 0.7rem var(--gutter);
     border-block-end: 1px solid var(--line);
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
+    font-size: 0.875rem;
 }
 .profile-fact:nth-child(odd){
     border-inline-end: 1px solid var(--line);
@@ -134,7 +135,7 @@
         inline-size: 80px;
         block-size: 80px;
         margin-block-start: -40px;
-        font-size: 1.35rem;
+        font-size: 1.6rem;
     }
     .profile-facts{
         grid-template-columns: minmax(0, 1fr);
