@@ -1,13 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="CK">
-  <rect width="100" height="100" fill="#1e222f"/>
+  <rect width="100" height="100" rx="22" fill="#111113"/>
+  <rect x="1" y="1" width="98" height="98" rx="21" fill="none" stroke="#ffffff" stroke-opacity="0.16" stroke-width="2"/>
   <text
     x="50"
-    y="50"
-    fill="#c0914b"
-    font-family="'Poiret One', system-ui, sans-serif"
-    font-size="64"
-    font-weight="400"
-    letter-spacing="3"
+    y="52"
+    fill="#ededef"
+    font-family="'Chakra Petch', 'Geist', system-ui, sans-serif"
+    font-size="42"
+    font-weight="500"
+    letter-spacing="1"
     text-anchor="middle"
     dominant-baseline="central"
   >CK</text>

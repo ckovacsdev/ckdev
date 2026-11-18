@@ -1,0 +1,90 @@
+/* The long-form write-up revealed under a project card */
+.details{
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    line-height: 1.7;
+}
+
+.details-section{
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+/* A hairline marks where each new section starts */
+.details-section + .details-section{
+    padding-block-start: 1.75rem;
+    border-block-start: 1px solid var(--line);
+}
+
+/* Section titles sit a clear step above the challenge titles and body text */
+.details-heading{
+    color: var(--text);
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+.details-challenge-list{
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin: 0.25rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.details-challenge{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-inline-start: 1rem;
+    border-inline-start: 1px solid var(--line-strong);
+}
+
+.details-challenge p{
+    margin: 0;
+}
+
+.details-challenge-title{
+    color: var(--text);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.details-stack{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+}
+
+.details-stack-row{
+    display: grid;
+    grid-template-columns: 11rem minmax(0, 1fr);
+    gap: 1rem;
+    padding: 0.7rem 0.9rem;
+}
+.details-stack-row + .details-stack-row{
+    border-block-start: 1px solid var(--line);
+}
+
+.details-stack-term{
+    color: var(--text);
+    font-weight: 500;
+}
+
+.details-stack-value{
+    margin: 0;
+    font-size: 0.85rem;
+}
+
+@media screen and (max-width: 640px){
+    .details-stack-row{
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0.25rem;
+    }
+}

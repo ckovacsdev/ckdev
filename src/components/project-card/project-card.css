@@ -1,0 +1,120 @@
+.project-card{
+    position: relative;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--panel);
+}
+
+.project-card-head{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.25rem 1.25rem 0;
+}
+
+.project-card-title{
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.project-card-tech{
+    margin-block-start: 0.2rem;
+    color: var(--text-muted);
+    font-family: var(--font-accent);
+    font-size: 0.82rem;
+    letter-spacing: 0.02em;
+}
+
+.project-card-summary{
+    padding: 0.85rem 1.25rem 0;
+    color: var(--text-muted);
+    line-height: 1.65;
+}
+
+.project-card-stats{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin: 1.25rem 0 0;
+    border-block: 1px solid var(--line);
+}
+
+.project-card-stat{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    gap: 0.2rem;
+    padding: 0.9rem 1.25rem;
+}
+.project-card-stat + .project-card-stat{
+    border-inline-start: 1px solid var(--line);
+}
+
+.project-card-stat-value{
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
+}
+
+.project-card-stat-label{
+    color: var(--text-faint);
+    font-size: 0.78rem;
+    line-height: 1.4;
+}
+
+.project-card-more .disclosure-summary{
+    padding: 0.85rem 1.25rem;
+}
+.project-card-more-label{
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+.project-card-more .disclosure-summary:hover .project-card-more-label,
+.project-card-more[data-open] .project-card-more-label{
+    color: var(--text);
+}
+
+.project-card-more-open,
+.project-card-more[data-open] .project-card-more-closed{
+    display: none;
+}
+.project-card-more[data-open] .project-card-more-open{
+    display: inline;
+}
+
+.project-card-details{
+    padding: 0.25rem 1.25rem 1.5rem;
+}
+
+/* A card without a write-up ends on its stats row, so it drops the bottom line */
+.project-card-stats:last-child{
+    border-block-end: 0;
+}
+
+@media screen and (max-width: 640px){
+    .project-card-head{
+        flex-direction: column;
+    }
+    .project-card-stats{
+        grid-template-columns: minmax(0, 1fr);
+    }
+    .project-card-stat{
+        flex-direction: row-reverse;
+        align-items: baseline;
+        justify-content: flex-end;
+        gap: 0.75rem;
+    }
+    .project-card-stat + .project-card-stat{
+        border-inline-start: 0;
+        border-block-start: 1px solid var(--line);
+    }
+    .project-card-stat-value{
+        flex-shrink: 0;
+        min-inline-size: 5.5rem;
+        font-size: 1.1rem;
+    }
+}
