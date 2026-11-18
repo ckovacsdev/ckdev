@@ -11,10 +11,6 @@ type ToastProps = {
     onDone: () => void;
 };
 
-/**
- * A short confirmation pinned to the bottom of the screen that dismisses itself. Render it inside
- * <ToastRegion> so screen readers announce it; give it a new key to restart it.
- */
 export const Toast = ({ message, onDone }: ToastProps) => {
     const [ leaving, setLeaving ] = useState(false);
 
@@ -35,10 +31,6 @@ export const Toast = ({ message, onDone }: ToastProps) => {
     );
 };
 
-/**
- * A polite live region that stays mounted, so toasts placed in it are announced. It renders at the
- * end of the page, so a blurred, transformed or fading parent can't trap or fade the fixed toast.
- */
 export const ToastRegion = ({ children }: { children: ReactNode }) => createPortal(
     <div className='toast-region' role='status' aria-live='polite'>
         {children}

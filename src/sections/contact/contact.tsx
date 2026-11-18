@@ -6,7 +6,6 @@ import { GITHUB_URL, LINKEDIN_URL, RESUME_PATH } from '../../data/links';
 import { useCopyEmail } from '../../hooks/useCopyEmail';
 import './contact.css';
 
-// The email address never appears on the page; its tile copies it to the clipboard instead
 type Route = { name: string; detail: string; icon: IconType } & ({ href: string } | { copiesEmail: true });
 
 const ROUTES: Route[] = [

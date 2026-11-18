@@ -59,7 +59,6 @@ const SKILL_GROUPS: SkillGroup[] = [
             { name: 'Ant Design', icon: TbLayoutDashboard },
             { name: 'react-pdf', icon: TbFileTypePdf },
             { name: 'react-chartjs-2', icon: TbChartDonut },
-            { name: 'Server-Sent Events', icon: TbBroadcast },
         ],
     },
     {

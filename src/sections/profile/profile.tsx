@@ -4,15 +4,12 @@ import {
     TbBrandGithub,
     TbBrandLinkedin,
     TbBriefcase,
-    TbClock,
     TbCopy,
     TbFileText,
-    TbMapPin,
     TbSchool,
 } from 'react-icons/tb';
 import { GITHUB_URL, LINKEDIN_URL, RESUME_PATH } from '../../data/links';
 import { useCopyEmail } from '../../hooks/useCopyEmail';
-import { useLocalTime } from '../../hooks/useLocalTime';
 import './profile.css';
 
 const Fact = ({ icon: Icon, children }: { icon: IconType; children: ReactNode }) => (
@@ -23,7 +20,6 @@ const Fact = ({ icon: Icon, children }: { icon: IconType; children: ReactNode })
 );
 
 export const Profile = () => {
-    const time = useLocalTime();
     const { copyEmail, toast } = useCopyEmail();
 
     return (
@@ -44,15 +40,11 @@ export const Profile = () => {
 
             <ul className='profile-facts'>
                 <Fact icon={TbBriefcase}>
-                    Software Engineer, Platform Engineering <span className='profile-fact-muted'>@ TCW Group</span>
+                    Software Engineer <span className='profile-fact-muted'>@ TCW Group | Platform Engineering </span>
                 </Fact>
                 <Fact icon={TbSchool}>
                     BA, Computer Science <span className='profile-fact-muted'>@ New York University</span>
-                </Fact>
-                <Fact icon={TbMapPin}>Hoboken, NJ</Fact>
-                <Fact icon={TbClock}>
-                    <time>{time}</time> <span className='profile-fact-muted'>local time</span>
-                </Fact>
+                </Fact>                
                 <Fact icon={TbBrandGithub}>
                     <a className='profile-fact-link' href={GITHUB_URL} target='_blank' rel='noopener noreferrer'>
                         ckovacsdev
@@ -65,7 +57,7 @@ export const Profile = () => {
                 </Fact>
                 <Fact icon={TbCopy}>
                     <button type='button' className='profile-fact-link' onClick={copyEmail}>
-                        Copy email address
+                        Email
                     </button>
                 </Fact>
                 <Fact icon={TbFileText}>

@@ -2,7 +2,6 @@
     position: relative;
 }
 
-/* Cover: a quiet dot grid */
 .profile-cover{
     position: relative;
     block-size: 200px;
@@ -16,7 +15,6 @@
     background-image: radial-gradient(circle at center, rgb(255 255 255 / 0.16) 1.1px, transparent 1.6px);
     background-size: 18px 18px;
     background-position: center;
-    /* Fade the grid toward the bottom so the avatar sits on calm ground */
     mask-image: linear-gradient(to bottom, #000 30%, transparent 100%);
 }
 
@@ -62,7 +60,6 @@
     line-height: 1.7;
 }
 
-/* Facts: two columns of icon rows, drawn as a grid of hairline cells */
 .profile-facts{
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
