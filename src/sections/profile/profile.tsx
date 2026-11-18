@@ -9,6 +9,7 @@ import {
     TbSchool,
 } from 'react-icons/tb';
 import { GITHUB_URL, LINKEDIN_URL, RESUME_PATH } from '../../data/links';
+import { CircuitCover } from '../../components/circuit-cover/circuit-cover';
 import { useCopyEmail } from '../../hooks/useCopyEmail';
 import './profile.css';
 
@@ -24,8 +25,8 @@ export const Profile = () => {
 
     return (
         <section id='top' className='profile' aria-labelledby='profile-name'>
-            <div className='profile-cover' aria-hidden='true'>
-                <div className='profile-cover-dots' />
+            <div className='profile-cover'>
+                <CircuitCover />
             </div>
 
             <div className='profile-body'>

@@ -9,15 +9,6 @@
     border-block-end: 1px solid var(--line);
 }
 
-.profile-cover-dots{
-    position: absolute;
-    inset: 0;
-    background-image: radial-gradient(circle at center, rgb(255 255 255 / 0.16) 1.1px, transparent 1.6px);
-    background-size: 18px 18px;
-    background-position: center;
-    mask-image: linear-gradient(to bottom, #000 30%, transparent 100%);
-}
-
 .profile-body{
     padding: 0 var(--gutter) 2rem;
 }

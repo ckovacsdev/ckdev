@@ -13,7 +13,6 @@ import {
     TbBrandReact,
     TbBrandSnowflake,
     TbBrandTypescript,
-    TbBroadcast,
     TbChartDonut,
     TbComponents,
     TbFileTypePdf,
