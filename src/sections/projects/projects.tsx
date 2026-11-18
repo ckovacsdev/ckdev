@@ -22,7 +22,7 @@ const PROJECTS: ProjectCardProps[] = [
         summary: "TCW's central developer automation platform.  Provisioned templated GitLab repositories across 10 tech stacks with standardized CI/CD, along with automated Snowflake, Okta, Key Vault, and RabbitMQ resource requests.",
         stats: [
             { value: '20 sec', label: 'To a production-ready repo, down from 35 min' },
-            { value: '10', label: 'Templated tech stacks, up from 2' },
+            { value: '12', label: 'Templated tech stacks, up from 2' },
             { value: '50', label: 'Manual tickets eliminated monthly' },
         ],
         children: <PlatformDetails />,

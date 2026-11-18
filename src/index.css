@@ -14,8 +14,8 @@
 	--text-muted: #a1a1aa;
 	--text-faint: #6b6b74;
 
-	/* One warm accent, used sparingly: contribution levels, focus rings, toast icon */
-	--accent-rgb: 222 184 120;
+	/* One accent, the Borealis teal from the banner, used sparingly: focus rings, text selection, toast icon */
+	--accent-rgb: 20 200 180;
 	--accent: rgb(var(--accent-rgb));
 
 	--font-sans: 'Geist', ui-sans-serif, system-ui, sans-serif;
