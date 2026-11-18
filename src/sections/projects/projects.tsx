@@ -2,8 +2,6 @@ import { ProjectCard, type ProjectCardProps } from '../../components/project-car
 import { Section } from '../../components/section/section';
 import { AiDocDetails } from '../../components/case-study/ai-doc-details';
 import { PlatformDetails } from '../../components/case-study/platform-details';
-import { MatchDemo } from '../../components/work-demos/match-demo';
-import { ProvisionDemo } from '../../components/work-demos/provision-demo';
 import './projects.css';
 
 const PROJECTS: ProjectCardProps[] = [
@@ -16,7 +14,6 @@ const PROJECTS: ProjectCardProps[] = [
             { value: '600+', label: 'Page documents analyzed in under a minute' },
             { value: '400', label: 'Documents analyzed weekly' },
         ],
-        demo: <MatchDemo />,
         children: <AiDocDetails />,
     },
     {
@@ -28,7 +25,6 @@ const PROJECTS: ProjectCardProps[] = [
             { value: '10', label: 'Templated tech stacks, up from 2' },
             { value: '50', label: 'Manual tickets eliminated monthly' },
         ],
-        demo: <ProvisionDemo />,
         children: <PlatformDetails />,
     },
 ];

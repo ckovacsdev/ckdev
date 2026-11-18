@@ -63,11 +63,6 @@
     line-height: 1.4;
 }
 
-.project-card-demo{
-    padding: 1.25rem;
-    border-block-end: 1px solid var(--line);
-}
-
 .project-card-more .disclosure-summary{
     padding: 0.85rem 1.25rem;
 }
@@ -94,7 +89,7 @@
     padding: 0.25rem 1.25rem 1.5rem;
 }
 
-/* A card without a demo or stats row still ends cleanly above Read more */
+/* A card without a write-up ends on its stats row, so it drops the bottom line */
 .project-card-stats:last-child{
     border-block-end: 0;
 }

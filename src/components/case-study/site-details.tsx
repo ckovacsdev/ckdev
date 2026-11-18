@@ -89,7 +89,7 @@ export const SiteDetails = () => {
             <div className='details-section'>
                 <h4 className='details-heading'> Results </h4>
                 <p className='details-intro'>
-                    The page loads about 78 KB of JavaScript up front. It respects reduced motion settings throughout.
+                    The page loads about 75 KB of JavaScript up front. It respects reduced motion settings throughout.
                 </p>
             </div>
         </div>

@@ -14,13 +14,11 @@ export type ProjectCardProps = {
     summary: string;
     stats: ProjectStat[];
     link?: { href: string; label: string };
-    // An interactive demo shown in the card
-    demo?: ReactNode;
     // The full write-up, revealed in place by "Read more"
     children?: ReactNode;
 };
 
-export const ProjectCard = ({ title, tech, summary, stats, link, demo, children }: ProjectCardProps) => {
+export const ProjectCard = ({ title, tech, summary, stats, link, children }: ProjectCardProps) => {
     return (
         <article className='project-card'>
             <div className='project-card-head'>
@@ -46,8 +44,6 @@ export const ProjectCard = ({ title, tech, summary, stats, link, demo, children 
                     </div>
                 ))}
             </dl>
-
-            {demo && <div className='project-card-demo'>{demo}</div>}
 
             {children && (
                 <Disclosure
