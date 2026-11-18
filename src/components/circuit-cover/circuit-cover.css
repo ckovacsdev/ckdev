@@ -1,9 +1,0 @@
-.circuit-cover{
-    position: absolute;
-    inset: 0;
-    display: block;
-    inline-size: 100%;
-    block-size: 100%;
-    /* Fade toward the bottom so the avatar sits on calm ground */
-    mask-image: linear-gradient(to bottom, #000 45%, transparent 100%);
-}

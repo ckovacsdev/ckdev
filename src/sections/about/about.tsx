@@ -11,7 +11,7 @@ export const About = () => (
             title='How This Site Was Built'
             summary='Built by hand, extended with Claude Code, and shipped through automated CI/CD.  The decisions, the trade-offs, and how I worked with AI to build it.'
             stats={[
-                { value: '77 KB', label: 'Initial JavaScript, gzipped' },
+                { value: '79 KB', label: 'Initial JavaScript, gzipped' },
             ]}
         >
             <SiteDetails />

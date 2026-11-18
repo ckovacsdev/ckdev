@@ -9,7 +9,10 @@ import {
     TbSchool,
 } from 'react-icons/tb';
 import { GITHUB_URL, LINKEDIN_URL, RESUME_PATH } from '../../data/links';
-import { CircuitCover } from '../../components/circuit-cover/circuit-cover';
+import Aurora from '../../components/aurora/Aurora';
+
+// React Bits' Borealis preset
+const BOREALIS = [ '#1effa0', '#14c8b4', '#3a7bff' ];
 import { useCopyEmail } from '../../hooks/useCopyEmail';
 import './profile.css';
 
@@ -26,7 +29,7 @@ export const Profile = () => {
     return (
         <section id='top' className='profile' aria-labelledby='profile-name'>
             <div className='profile-cover'>
-                <CircuitCover />
+                <Aurora colorStops={BOREALIS} height={0.75} speed={1.6} />
             </div>
 
             <div className='profile-body'>

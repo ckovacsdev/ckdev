@@ -19,7 +19,7 @@ The first version was hand-built with an art-deco design, then refined with Clau
 - A centered profile page: one column framed by hairline rails, with full-width lines between sections
 - Each section shares the same frame but has its own layout: profile facts grid, contribution heatmap, project cards, expandable roles, skills table, contact tiles
 - Details on demand: experience roles and project write-ups expand in place
-- An animated circuit-board banner: traces routed on a square grid with colored pulses running along them, drawn on a canvas with no libraries and paused when off screen
+- An aurora banner in the Borealis colors, using the [Aurora](https://reactbits.dev/backgrounds/aurora) background from React Bits: a WebGL shader that drifts toward the cursor and pauses when off screen
 - Native scrolling, no scroll hijacking
 - Responsive down to phone widths, and respects `prefers-reduced-motion` throughout
 
