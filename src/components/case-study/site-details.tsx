@@ -33,7 +33,7 @@ export const SiteDetails = () => {
                         <h5 className='details-challenge-title'> No UI framework </h5>
                         <p>
                             A component library would have been faster to start with, but I wanted everything on the site to be custom.  Speed of delivery was not the primary goal of developing this website.
-                            Instead, everything is plain CSS, responsive from a 4K monitor to a phone screen, and dependent only on React and an icon set.
+                            Instead, everything is plain CSS, responsive from a 4K monitor to a phone screen, and dependent only on React, an icon set, and GSAP for the typing cursor.
                         </p>
                     </li>
 
@@ -89,7 +89,7 @@ export const SiteDetails = () => {
             <div className='details-section'>
                 <h4 className='details-heading'> Results </h4>
                 <p className='details-intro'>
-                    The page loads about 79 KB of JavaScript up front. It respects reduced motion settings throughout.
+                    The page loads about 109 KB of JavaScript up front. It respects reduced motion settings throughout.
                 </p>
             </div>
         </div>
