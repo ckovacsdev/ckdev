@@ -29,6 +29,7 @@ The first version was hand-built with an art-deco design, then refined with Clau
 - Vite
 - HTML & CSS
 - GSAP, for the cursor in React Bits' [Text Type](https://reactbits.dev/text-animations/text-type) subtitle
+- Three.js, for React Bits' [Color Bends](https://reactbits.dev/backgrounds/color-bends) in the page margins on wide screens, loaded after the page
 - Deployed on Cloudflare via GitHub Actions
 - GitHub contribution data from [github-contributions-api](https://github.com/grubersjoe/github-contributions-api), fetched in the browser
 

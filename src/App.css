@@ -7,6 +7,9 @@
 /* The centered column, with a hairline rail down each side */
 .column{
 	position: relative;
+	/* Sits above the side background, and covers it so it only shows in the margins */
+	z-index: 1;
+	background: var(--bg);
 	max-inline-size: var(--column);
 	margin-inline: auto;
 	border-inline: 1px solid var(--line);

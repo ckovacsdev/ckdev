@@ -7,11 +7,13 @@ import { Experience } from './sections/experience/experience';
 import { Skills } from './sections/skills/skills';
 import { About } from './sections/about/about';
 import { Contact } from './sections/contact/contact';
+import { SideBends } from './components/side-bends/side-bends';
 import './App.css';
 
 function App() {
 	return (
 		<div className='page'>
+			<SideBends />
 			<Header />
 			<main className='column'>
 				<Profile />

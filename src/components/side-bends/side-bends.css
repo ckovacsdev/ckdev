@@ -1,0 +1,23 @@
+.side-bends{
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    /* Kept faint on purpose: it should sit in the margins, not compete with the content */
+    opacity: 0.2;
+    /* Strongest at the window edges, gone by the time it reaches the column */
+    mask-image: linear-gradient(
+        to right,
+        #000 0%,
+        transparent calc(50% - var(--column) / 2 - 24px),
+        transparent calc(50% + var(--column) / 2 + 24px),
+        #000 100%
+    );
+    animation: side-bends-in 2s ease both;
+}
+
+@keyframes side-bends-in{
+    from{
+        opacity: 0;
+    }
+}
