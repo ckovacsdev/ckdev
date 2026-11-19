@@ -26,7 +26,7 @@ const HISTORY: Entry[] = [
                 dates: 'Jan. 2023 – Present',
                 highlights: [
                     'Built the frontend for an AI document analysis platform that evaluates 600+ page PDFs in under a minute.',
-                    'Scaled the self-service developer platform from 2 to 10 tech stacks, making it the standard provisioning path for new services org-wide.',
+                    'Scaled the self-service developer platform from 2 to 12 tech stacks, making it the standard provisioning path for new services org-wide.',
                     'Automated Key Vault, AMQP, Snowflake, and Okta provisioning with the security team, eliminating 50 manual tickets a month.',
                 ],
             },

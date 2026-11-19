@@ -28,6 +28,7 @@ The first version was hand-built with an art-deco design, then refined with Clau
 - React + TypeScript
 - Vite
 - HTML & CSS
+- GSAP, for the cursor in React Bits' [Text Type](https://reactbits.dev/text-animations/text-type) subtitle
 - Deployed on Cloudflare via GitHub Actions
 - GitHub contribution data from [github-contributions-api](https://github.com/grubersjoe/github-contributions-api), fetched in the browser
 
