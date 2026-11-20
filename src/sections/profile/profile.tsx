@@ -64,11 +64,11 @@ export const Profile = () => {
             <ul className='profile-facts'>
                 <Fact icon={TbBriefcase}>
                     Software Engineer
-                    <span className='profile-fact-muted profile-fact-sub'>@ TCW Group | Platform Engineering</span>
+                    <span className='profile-fact-muted profile-fact-sub'>TCW Group | Platform Engineering</span>
                 </Fact>
                 <Fact icon={TbSchool}>
                     BA, Computer Science
-                    <span className='profile-fact-muted profile-fact-sub'>@ New York University</span>
+                    <span className='profile-fact-muted profile-fact-sub'>New York University</span>
                 </Fact>                
                 <Fact icon={TbBrandGithub}>
                     <a className='profile-fact-link' href={GITHUB_URL} target='_blank' rel='noopener noreferrer'>
